@@ -99,4 +99,17 @@ public class Color{
         b = (b > 255) ? 255  : b;
         alpha = (alpha + rfactor > 255) ? 255 : (alpha + rfactor);
     }
+
+    public int changeBright(float factor){
+        Color ret = new Color(0, 0);
+        ret.r = r * factor;
+        ret.b = b * factor;
+        ret.g = g * factor;
+        ret.alpha = alpha;
+
+        ret.r = (ret.r > 255) ? 255  : ret.r;
+        ret.g = (ret.g > 255) ? 255  : ret.g;
+        ret.b = (ret.b > 255) ? 255  : ret.b;
+        return ret.toInt();
+    }
 }

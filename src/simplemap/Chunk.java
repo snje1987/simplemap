@@ -96,23 +96,61 @@ public class Chunk{
 
     public int[] CalSurface(){
         int[] colors = new int[CHUNK_WIDTH * CHUNK_WIDTH];
+        int[][] hmap = new int[CHUNK_WIDTH][CHUNK_WIDTH];
+        Color[][] cmap = new Color[CHUNK_WIDTH][CHUNK_WIDTH];
         int len = colors.length;
-        for(int i = 0; i < len; i++){
-            colors[i] = this.GetColor(i % CHUNK_WIDTH, i / CHUNK_WIDTH);
+        int i = 0, j = 0;
+        for(i = 0; i < CHUNK_WIDTH; i++){
+            for(j = 0; j < CHUNK_WIDTH; j++){
+                Point pt = this.GetColor(j, i);
+                cmap[i][j] = pt.color;
+                hmap[i][j] = pt.height;
+            }
+        }
+
+        for(i = 0; i < CHUNK_WIDTH; i++){
+            for(j = 0; j < CHUNK_WIDTH; j++){
+                int factor = 0;
+                if(i > 0 && hmap[i][j] < hmap[i - 1][j]){
+                    factor --;
+                }
+                if(i < CHUNK_WIDTH - 1 && hmap[i][j] < hmap[i + 1][j]){
+                    factor ++;
+                }
+                if(j > 0 && hmap[i][j] < hmap[i][j - 1]){
+                    factor --;
+                }
+                if(j < CHUNK_WIDTH - 1 && hmap[i][j] < hmap[i][j + 1]){
+                    factor ++;
+                }
+                if(factor == 0){
+                    colors[i * CHUNK_WIDTH + j] = cmap[i][j].toInt();
+                }
+                else{
+                    if(factor > 0){
+                        colors[i * CHUNK_WIDTH + j] = cmap[i][j].changeBright(1.5f);
+                    }
+                    else{
+                        colors[i * CHUNK_WIDTH + j] = cmap[i][j].changeBright(0.66f);
+                    }
+                }
+            }
         }
         return colors;
     }
 
-    protected int GetColor(int x, int z){
+    protected Point GetColor(int x, int z){
         Block block = new Block();
         Color tmp;
         Color ret = new Color(0, 0);
         boolean find = false;
-        for(int i = MAX_VCHUNK - 1; i >= 0; i--){
+        int i = 0, j = 0;
+        int h = 0;
+        for(i = MAX_VCHUNK - 1; i >= 0; i--){
             if(blocks[i].length <= 0){
                 continue;
             }
-            for(int j = CHUNK_WIDTH - 1; j >= 0; j--){
+            for(j = CHUNK_WIDTH - 1; j >= 0; j--){
                 int pos = x + z * CHUNK_WIDTH + j * CHUNK_WIDTH * CHUNK_WIDTH;
                 byte blockid_a = blocks[i][pos];
                 byte blockid_b = Chunk.Shift(add[i], pos);
@@ -134,20 +172,19 @@ public class Chunk{
                 }
                 tmp = map.getColor(block.block_id);
                 ret.merge(tmp);
+                if(h == 0 && ret.getAlpha() >= 1){
+                    h = i * CHUNK_WIDTH + j;
+                }
                 if(ret.getAlpha() >= 255){
                     find = true;
                     break;
-                }
-                else{
-                    int k = 0;
-                    k++;
                 }
             }
             if(find == true){
                 break;
             }
         }
-        return ret.toInt();
+        return new Point(ret, (short)h);
     }
 
     protected static byte Shift(byte[] arr, int index){
