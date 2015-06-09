@@ -101,9 +101,17 @@ public class SimpleMap{
                     World.cx = nextInt();
                     World.cy = nextInt();
                     break;
-                case "-size":
+                case "-wsize":
                     World.width = nextInt();
                     World.height = nextInt();
+                    break;
+                case "-mx":
+                    World.mx_begin = nextInt();
+                    World.mx_end = nextInt();
+                    break;
+                case "-mz":
+                    World.mz_begin = nextInt();
+                    World.mz_end = nextInt();
                     break;
                 }
             }

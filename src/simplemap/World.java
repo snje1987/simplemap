@@ -34,6 +34,11 @@ public class World{
     public static int height = 512;
     public static int scale = 0;
 
+    public static int mx_begin = 0;
+    public static int mx_end = 0;
+    public static int mz_begin = 0;
+    public static int mz_end = 0;
+
     protected String imgdir = "files" + File.separator;
     protected String dest;
     protected BufferedOutputStream svg;
@@ -97,7 +102,7 @@ public class World{
             this.DrawFile(src + file);
         }
         try{
-            svg.write(String.format("</svg><svg id=\"layer\" x=\"0\" y=\"0\" width=\"%d\" height=\"%d\" viewBox=\"0 0 %d %d\"><text id=\"pos\" x=\"%d\" y=\"%d\" style=\"font-size:14px\">1:%d 坐标：</text>\n",width, height, width, height, 10, height - 20, scale).getBytes());
+            svg.write(String.format("</svg><svg id=\"layer\" x=\"0\" y=\"0\" width=\"%d\" height=\"%d\" viewBox=\"0 0 %d %d\"><text id=\"pos\" x=\"%d\" y=\"%d\" style=\"font-size:14px\">1:%d </text>\n",width, height, width, height, 10, height - 20, scale).getBytes());
             svg.write(String.format("<text id=\"btn1\" x=\"%d\" y=\"%d\" style=\"font-size:14px\">放大</text>\n", 10, 30).getBytes());
             svg.write(String.format("<text id=\"btn2\" x=\"%d\" y=\"%d\" style=\"font-size:14px\">缩小</text>\n</svg></svg>\n", 10, 60).getBytes());
         }
@@ -128,17 +133,34 @@ public class World{
     public void DrawFile(String file){
         try{
             String fname = file.substring(file.lastIndexOf(File.separator) + 1);
-            System.out.println("正在处理：" + fname);
             String[] tmp = fname.split("\\.");
 
             int x = Integer.parseInt(tmp[1]);
             int z = Integer.parseInt(tmp[2]);
 
+            boolean needDraw = regen;
+
+            if(needDraw && mx_end > mx_begin){
+                if(mx_end < x * 512 || mx_begin > x * 512 + 512){
+                    needDraw = false;
+                }
+            }
+
+            if(needDraw && mz_end > mz_begin){
+                if(mz_end < z * 512 || mz_begin > z * 512 + 512){
+                    needDraw = false;
+                }
+            }
+
             String pngname = tmp[1] + "." + tmp[2] + ".png";
 
-            if(regen){
+            if(needDraw){
+                System.out.println("正在处理：" + fname);
                 Anvil draw = new Anvil();
                 draw.Draw(file, dest + imgdir + pngname);
+            }
+            else{
+                System.out.println("已经跳过：" + fname);
             }
 
             String tag = String.format("<image x=\"%d\" y=\"%d\" width=\"512\" height = \"512\" xlink:href=\"files/%s\" />\n", x * 512, z * 512, pngname);

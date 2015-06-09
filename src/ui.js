@@ -36,14 +36,13 @@ function init(evt) {
     function movemap(cx, cy){
         map.setAttribute("viewBox", (cx - width * scalelist[scale] / 2) + " " + (cy - height * scalelist[scale] / 2) + " " + (width * scalelist[scale]) + " " + (height * scalelist[scale]));
     }
-
     function scalel(evt) {
         if (scale > 0) {
             scale --;
             movemap(cx, cy);
             var x = evt.clientX;
             var y = evt.clientY;
-            root.getElementById("pos").firstChild.nodeValue = "1:" + scalelist[scale] + " 坐标：" + (cx + (x - width) * scalelist[scale] / 2) + "  " + (cy + (y - height) * scalelist[scale] / 2);
+            root.getElementById("pos").firstChild.nodeValue = "1:" + scalelist[scale] + " " + (cx + (x - width) * scalelist[scale] / 2) + "  " + (cy + (y - height) * scalelist[scale] / 2);
         }
     }
     function scales(evt) {
@@ -52,7 +51,7 @@ function init(evt) {
             movemap(cx, cy);
             var x = evt.clientX;
             var y = evt.clientY;
-            root.getElementById("pos").firstChild.nodeValue = "1:" + scalelist[scale] + " 坐标：" + parseInt((cx + (x - width / 2) * scalelist[scale])) + "  " + parseInt((cy + (y - height / 2) * scalelist[scale]));
+            root.getElementById("pos").firstChild.nodeValue = "1:" + scalelist[scale] + " " + parseInt((cx + (x - width / 2) * scalelist[scale])) + "  " + parseInt((cy + (y - height / 2) * scalelist[scale]));
         }
     }
     function drag_start(evt) {
@@ -75,7 +74,7 @@ function init(evt) {
             movemap(cx - (x - sx) * scalelist[scale], cy - (y - sy) * scalelist[scale]);
         }
         else{
-            root.getElementById("pos").firstChild.nodeValue = "1:" + scalelist[scale] + " 坐标：" + parseInt((cx + (x - width / 2) * scalelist[scale])) + "  " + parseInt((cy + (y - height / 2) * scalelist[scale]));
+            root.getElementById("pos").firstChild.nodeValue = "1:" + scalelist[scale] + " " + parseInt((cx + (x - width / 2) * scalelist[scale])) + "  " + parseInt((cy + (y - height / 2) * scalelist[scale]));
         }
     }
 
