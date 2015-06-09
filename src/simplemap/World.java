@@ -28,6 +28,7 @@ import java.io.InputStream;
  */
 public class World{
     public static boolean regen = true;
+    public static boolean update = false;
     public static int cx = 0;
     public static int cy = 0;
     public static int width = 512;
@@ -153,6 +154,14 @@ public class World{
             }
 
             String pngname = tmp[1] + "." + tmp[2] + ".png";
+
+            if(update){
+                File from = new File(file);
+                File to = new File(dest + imgdir + pngname);
+                if(to.exists() && to.lastModified() > from.lastModified()){
+                    needDraw = false;
+                }
+            }
 
             if(needDraw){
                 System.out.println("正在处理：" + fname);

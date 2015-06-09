@@ -20,6 +20,8 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileInputStream;
 import javax.imageio.ImageIO;
+import static simplemap.Chunk.CHUNK_WIDTH;
+import static simplemap.Chunk.shadow;
 
 /**
  *
@@ -30,6 +32,7 @@ public class Anvil{
     private byte[] buf = null;
 
     public static final int ChunkPerFile = 1024;
+    public static final int IMGSIZE = 512;
 
     public void Draw(String from, String to){
         try{
@@ -39,9 +42,8 @@ public class Anvil{
                 fis.read(buf);
             }
 
-            BufferedImage img = new BufferedImage(512, 512, BufferedImage.TYPE_4BYTE_ABGR);
-
-            int[] colors;
+            BufferedImage img = new BufferedImage(IMGSIZE, IMGSIZE, BufferedImage.TYPE_4BYTE_ABGR);
+            Point[][] pt = new Point[IMGSIZE][IMGSIZE];
 
             int offset;
             for(int i = 0; i < ChunkPerFile; i ++){
@@ -49,13 +51,34 @@ public class Anvil{
                 if(offset == 0){
                     continue;
                 }
-                colors = this.DrawChunk(offset, img);
-                if(colors == null){
+                if(!this.DrawChunk(offset, pt, i % 32 * 16, i / 32 * 16)){
                     break;
                 }
-                img.setRGB(i % 32 * 16, i / 32 * 16, 16, 16, colors, 0, 16);
-                if(i > 3){
-                    //break;
+            }
+            for(int i = 0; i < IMGSIZE; i++){
+                for(int j = 0; j < IMGSIZE; j++){
+                    if(pt[i][j] == null){
+                        continue;
+                    }
+                    int factor = 0;
+                    if(i > 0 && pt[i - 1][j] != null && pt[i][j].height < pt[i - 1][j].height){
+                        factor -= pt[i - 1][j].height - pt[i][j].height;
+                    }
+                    if(i < IMGSIZE - 1 && pt[i + 1][j] != null && pt[i][j].height < pt[i + 1][j].height){
+                        factor += pt[i + 1][j].height - pt[i][j].height;
+                    }
+                    if(j > 0 && pt[i][j - 1] != null && pt[i][j].height < pt[i][j - 1].height){
+                        factor -= pt[i][j - 1].height - pt[i][j].height;
+                    }
+                    if(j < IMGSIZE - 1 && pt[i][j + 1] != null && pt[i][j].height < pt[i][j + 1].height){
+                        factor += pt[i][j + 1].height - pt[i][j].height;
+                    }
+                    if(factor == 0){
+                        img.setRGB(i, j, pt[i][j].color.toInt());
+                    }
+                    else{
+                        img.setRGB(i, j, pt[i][j].color.changeBright((float) (1 + factor * shadow)));
+                    }
                 }
             }
             ImageIO.write(img, "PNG", new File(to));
@@ -65,7 +88,7 @@ public class Anvil{
         }
     }
 
-    public int[] DrawChunk(int offset, BufferedImage img){
+    public boolean DrawChunk(int offset, Point[][] pt, int x, int z){
         offset *= 4096;
         int chunksize = ((buf[offset] & 0xFF) << 24 )+((buf[offset+ 1] & 0xFF) << 16) + ((buf[offset + 2] & 0xFF) << 8) + (buf[offset + 3] & 0xFF);
 
@@ -76,6 +99,6 @@ public class Anvil{
 
         Chunk chunk = new Chunk();
         chunk.Load(tmp);
-        return chunk.CalSurface();
+        return chunk.CalSurface(pt, x, z);
     }
 }

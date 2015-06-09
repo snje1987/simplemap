@@ -24,6 +24,7 @@ public class SimpleMap{
 
     protected static final int ACT_PIXMAP = 0;
     protected static final int ACT_GENCOLOR = 1;
+    protected static final int ACT_UPDATE = 2;
 
     protected static int index = 0;
     protected static String[] args = null;
@@ -38,6 +39,8 @@ public class SimpleMap{
         }
         World world;
         switch(action){
+        case ACT_UPDATE:
+            World.update = true;
         case ACT_PIXMAP:
             if(src.length() == 0 || dest.length() == 0){
                 printHelp();
@@ -80,6 +83,9 @@ public class SimpleMap{
                     switch(tmp){
                     case "pixmap":
                         action = ACT_PIXMAP;
+                        break;
+                    case "update":
+                        action = ACT_UPDATE;
                         break;
                     case "gencolor":
                         action = ACT_GENCOLOR;

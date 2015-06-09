@@ -35,6 +35,7 @@ public class Chunk{
 
     public static final int MAX_VCHUNK = 16;
     public static final int CHUNK_WIDTH = 16;
+    public static double shadow = 0.2;
 
     byte[][] data;
     byte[][] add;
@@ -94,49 +95,14 @@ public class Chunk{
         return this.InitData(list);
     }
 
-    public int[] CalSurface(){
-        int[] colors = new int[CHUNK_WIDTH * CHUNK_WIDTH];
-        int[][] hmap = new int[CHUNK_WIDTH][CHUNK_WIDTH];
-        Color[][] cmap = new Color[CHUNK_WIDTH][CHUNK_WIDTH];
-        int len = colors.length;
+    public boolean CalSurface(Point[][] pts, int x, int z){
         int i = 0, j = 0;
         for(i = 0; i < CHUNK_WIDTH; i++){
             for(j = 0; j < CHUNK_WIDTH; j++){
-                Point pt = this.GetColor(j, i);
-                cmap[i][j] = pt.color;
-                hmap[i][j] = pt.height;
+                pts[x + j][z + i] = this.GetColor(j, i);
             }
         }
-
-        for(i = 0; i < CHUNK_WIDTH; i++){
-            for(j = 0; j < CHUNK_WIDTH; j++){
-                int factor = 0;
-                if(i > 0 && hmap[i][j] < hmap[i - 1][j]){
-                    factor --;
-                }
-                if(i < CHUNK_WIDTH - 1 && hmap[i][j] < hmap[i + 1][j]){
-                    factor ++;
-                }
-                if(j > 0 && hmap[i][j] < hmap[i][j - 1]){
-                    factor --;
-                }
-                if(j < CHUNK_WIDTH - 1 && hmap[i][j] < hmap[i][j + 1]){
-                    factor ++;
-                }
-                if(factor == 0){
-                    colors[i * CHUNK_WIDTH + j] = cmap[i][j].toInt();
-                }
-                else{
-                    if(factor > 0){
-                        colors[i * CHUNK_WIDTH + j] = cmap[i][j].changeBright(1.5f);
-                    }
-                    else{
-                        colors[i * CHUNK_WIDTH + j] = cmap[i][j].changeBright(0.66f);
-                    }
-                }
-            }
-        }
-        return colors;
+        return true;
     }
 
     protected Point GetColor(int x, int z){

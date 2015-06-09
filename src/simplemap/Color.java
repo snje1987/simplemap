@@ -101,6 +101,9 @@ public class Color{
     }
 
     public int changeBright(float factor){
+        if(factor <= 0.01){
+            factor = 0.01f;
+        }
         Color ret = new Color(0, 0);
         ret.r = r * factor;
         ret.b = b * factor;
