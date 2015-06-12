@@ -100,19 +100,21 @@ public class Color{
         alpha = (alpha + rfactor > 255) ? 255 : (alpha + rfactor);
     }
 
-    public int changeBright(float factor){
-        if(factor <= 0.01){
-            factor = 0.01f;
-        }
+    public int changeBright(double offset){
         Color ret = new Color(0, 0);
-        ret.r = r * factor;
-        ret.b = b * factor;
-        ret.g = g * factor;
+        ret.r = r + offset;
+        ret.b = b + offset;
+        ret.g = g + offset;
         ret.alpha = alpha;
 
         ret.r = (ret.r > 255) ? 255  : ret.r;
         ret.g = (ret.g > 255) ? 255  : ret.g;
         ret.b = (ret.b > 255) ? 255  : ret.b;
+
+        ret.r = (ret.r < 0) ? 0  : ret.r;
+        ret.g = (ret.g < 0) ? 0  : ret.g;
+        ret.b = (ret.b < 0) ? 0  : ret.b;
+
         return ret.toInt();
     }
 }

@@ -34,24 +34,24 @@ function init(evt) {
     }
 
     function movemap(cx, cy){
-        map.setAttribute("viewBox", (cx - width * scalelist[scale] / 2) + " " + (cy - height * scalelist[scale] / 2) + " " + (width * scalelist[scale]) + " " + (height * scalelist[scale]));
+        map.setAttribute("viewBox", parseInt((cx - width * scalelist[scale] / 2)) + "," + parseInt((cy - height * scalelist[scale] / 2)) + "," + (width * scalelist[scale]) + "," + (height * scalelist[scale]));
     }
     function scalel(evt) {
         if (scale > 0) {
             scale --;
-            movemap(cx, cy);
             var x = evt.clientX;
             var y = evt.clientY;
             root.getElementById("pos").firstChild.nodeValue = "1:" + scalelist[scale] + " " + (cx + (x - width) * scalelist[scale] / 2) + "  " + (cy + (y - height) * scalelist[scale] / 2);
+            movemap(cx, cy);
         }
     }
     function scales(evt) {
         if (scale < scalelist.length - 1) {
             scale ++;
-            movemap(cx, cy);
             var x = evt.clientX;
             var y = evt.clientY;
             root.getElementById("pos").firstChild.nodeValue = "1:" + scalelist[scale] + " " + parseInt((cx + (x - width / 2) * scalelist[scale])) + "  " + parseInt((cy + (y - height / 2) * scalelist[scale]));
+            movemap(cx, cy);
         }
     }
     function drag_start(evt) {

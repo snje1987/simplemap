@@ -20,8 +20,6 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileInputStream;
 import javax.imageio.ImageIO;
-import static simplemap.Chunk.CHUNK_WIDTH;
-import static simplemap.Chunk.shadow;
 
 /**
  *
@@ -33,6 +31,8 @@ public class Anvil{
 
     public static final int ChunkPerFile = 1024;
     public static final int IMGSIZE = 512;
+    public static final int ShadowMax = 64;
+    public static final double shadowFactor = 0.5;
 
     public void Draw(String from, String to){
         try{
@@ -77,7 +77,12 @@ public class Anvil{
                         img.setRGB(i, j, pt[i][j].color.toInt());
                     }
                     else{
-                        img.setRGB(i, j, pt[i][j].color.changeBright((float) (1 + factor * shadow)));
+                        if(factor > 0){
+                            img.setRGB(i, j, pt[i][j].color.changeBright((ShadowMax * (1 - Math.pow(shadowFactor, factor)))));
+                        }
+                        else{
+                            img.setRGB(i, j, pt[i][j].color.changeBright((-1 * ShadowMax * (1 - Math.pow(shadowFactor, factor * -1)))));
+                        }
                     }
                 }
             }
