@@ -35,9 +35,7 @@ import java.util.Set;
 import javax.imageio.ImageIO;
 import simplemap.json.jArray;
 import simplemap.json.jException;
-import simplemap.json.jNumber;
 import simplemap.json.jObject;
-import simplemap.json.jString;
 
 /**
  *

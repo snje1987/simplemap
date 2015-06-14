@@ -28,6 +28,10 @@ public class TagInt extends Tag{
         this.data = data;
     }
 
+    public int GetData(){
+        return data;
+    }
+
     @Override
     public String toString(){
         return this.toString("","");

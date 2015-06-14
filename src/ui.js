@@ -2,9 +2,7 @@ function init(evt) {
     var root, svgRoot, map;
     var width, height, scale, cx, cy;
     var scalelist = [1,2,4,8,16,32,64,128];
-
     var sx, sy, draging;
-
     function init(evt) {
         root = evt.target.ownerDocument;
         svgRoot = root.rootElement;

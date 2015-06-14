@@ -20,10 +20,14 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.zip.InflaterInputStream;
+import simplemap.json.jNumber;
+import simplemap.json.jObject;
+import simplemap.json.jString;
 import simplemap.nbt.NBT;
 import simplemap.nbt.TagByte;
 import simplemap.nbt.TagByteArray;
 import simplemap.nbt.TagCompound;
+import simplemap.nbt.TagInt;
 import simplemap.nbt.TagList;
 import simplemap.nbt.TagString;
 
@@ -49,7 +53,7 @@ public class Chunk{
         map = ColorMap.getInstance();
     }
 
-    public boolean Load(byte[] data){
+    public boolean Load(byte[] data, Markers nMarker){
         ByteArrayInputStream bi = new ByteArrayInputStream(data);
         InflaterInputStream iis = new InflaterInputStream(bi);
         ByteArrayOutputStream o = new ByteArrayOutputStream(1024);
@@ -81,7 +85,7 @@ public class Chunk{
         }
 
         list = comp.Get("TileEntities", TagList.class);
-        if(list != null && !GetMarker(list)){
+        if(list != null && !GetMarker(list, nMarker)){
             return false;
         }
 
@@ -96,7 +100,7 @@ public class Chunk{
         return true;
     }
 
-    protected boolean GetMarker(TagList list){
+    protected boolean GetMarker(TagList list, Markers nMarker){
         TagCompound comp;
         TagString tagString;
         int len = list.Size();
@@ -109,9 +113,30 @@ public class Chunk{
             if(tagString == null || !tagString.GetData().equals("Sign")){
                 continue;
             }
+            tagString = comp.Get("Text1", TagString.class);
+            if(tagString == null || !tagString.GetData().equals("\"[marker]\"")){
+                continue;
+            }
+            jObject obj = new jObject();
+            obj.Add("type", new jString("marker"));
+            obj.Add("name", new jString(GetMarkerString(comp, "Text2")));
+            obj.Add("icon", new jString(GetMarkerString(comp, "Text3")));
+            obj.Add("style", new jString(GetMarkerString(comp, "Text4")));
+            obj.Add("x", new jNumber(comp.Get("x", TagInt.class).GetData()));
+            obj.Add("z", new jNumber(comp.Get("z", TagInt.class).GetData()));
+            nMarker.add(obj);
             //System.out.println(comp.toString());
         }
         return true;
+    }
+
+    protected String GetMarkerString(TagCompound comp, String name){
+        TagString tagString = comp.Get(name, TagString.class);
+        if(tagString == null){
+            return "";
+        }
+        String tmp = tagString.GetData();
+        return tmp.substring(1, tmp.lastIndexOf("\""));
     }
 
     public boolean CalSurface(Point[][] pts, int x, int z){

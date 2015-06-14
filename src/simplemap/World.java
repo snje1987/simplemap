@@ -17,10 +17,12 @@
 package simplemap;
 
 import java.io.BufferedOutputStream;
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStream;
+import java.io.InputStreamReader;
 
 /**
  *
@@ -71,15 +73,6 @@ public class World{
         }
 
         try{
-            byte[] buf = new byte[1024];
-            int len;
-            try(InputStream is=SimpleMap.class.getResourceAsStream("/ui.js")){
-                try(FileOutputStream os = new FileOutputStream(this.dest + imgdir + "ui.js")){
-                    while((len = is.read(buf)) != -1){
-                        os.write(buf, 0, len);
-                    }
-                }
-            }
             svg = new BufferedOutputStream(new FileOutputStream(this.dest + "map.svg"));
         }
         catch(Exception ex){
@@ -99,9 +92,20 @@ public class World{
             System.out.println("存档不存在");
             return;
         }
+
+        Markers oMarker = new Markers();
+        Markers nMarker = new Markers();
+
+        oMarker.load(this.dest + imgdir + "markers.json");
+
         for(String file : files){
-            this.DrawFile(src + file);
+            this.DrawFile(src + file, nMarker, oMarker);
         }
+
+        nMarker.save(this.dest + imgdir + "markers.json");
+
+        buildUI();
+
         try{
             svg.write(String.format("</svg><svg id=\"layer\" x=\"0\" y=\"0\" width=\"%d\" height=\"%d\" viewBox=\"0 0 %d %d\"><text id=\"pos\" x=\"%d\" y=\"%d\" style=\"font-size:14px\">1:%d </text>\n",width, height, width, height, 10, height - 20, scale).getBytes());
             svg.write(String.format("<text id=\"btn1\" x=\"%d\" y=\"%d\" style=\"font-size:14px\">放大</text>\n", 10, 30).getBytes());
@@ -118,6 +122,48 @@ public class World{
         }
     }
 
+    protected boolean buildUI(){
+        try{
+            try(BufferedReader is=new BufferedReader(new InputStreamReader(SimpleMap.class.getResourceAsStream("/ui.js")))){
+                try(FileOutputStream os = new FileOutputStream(this.dest + imgdir + "ui.js")){
+                    String s = is.readLine();
+                    s += '\n';
+                    os.write(s.getBytes("UTF-8"));
+
+                    String marker_fname = this.dest + imgdir + "markers.json";
+                    File tmp = new File(marker_fname);
+                    if(tmp.exists()){
+                        os.write("var markers=".getBytes("UTF-8"));
+                        try(BufferedReader reader = new BufferedReader(new FileReader(tmp))){
+                            s = reader.readLine();
+                            String tmp1;
+                            tmp1 = reader.readLine();
+                            while(tmp1 != null){
+                                s += '\n';
+                                os.write(s.getBytes("UTF-8"));
+                                s = tmp1;
+                                tmp1 = reader.readLine();
+                            }
+                            os.write(s.getBytes("UTF-8"));
+                        }
+                        os.write(";\n".getBytes("UTF-8"));
+                    }
+
+                    s = is.readLine();
+                    while(s != null){
+                        s += '\n';
+                        os.write(s.getBytes("UTF-8"));
+                        s = is.readLine();
+                    }
+                }
+            }
+        }
+        catch(Exception e){
+            return false;
+        }
+        return true;
+    }
+
     protected void svgHeader(){
         StringBuilder buf = new StringBuilder();
         buf.append("<?xml version=\"1.0\" standalone=\"no\"?>\n");
@@ -131,7 +177,7 @@ public class World{
         }
     }
 
-    public void DrawFile(String file){
+    public void DrawFile(String file, Markers nMarker, Markers oMarker){
         try{
             String fname = file.substring(file.lastIndexOf(File.separator) + 1);
             String[] tmp = fname.split("\\.");
@@ -166,10 +212,11 @@ public class World{
             if(needDraw){
                 //System.out.println("正在处理：" + fname);
                 Anvil draw = new Anvil();
-                draw.Draw(file, dest + imgdir + pngname);
+                draw.Draw(file, dest + imgdir + pngname, nMarker);
             }
             else{
                 //System.out.println("已经跳过：" + fname);
+                nMarker.append(oMarker, x, z);
             }
 
             String tag = String.format("<image x=\"%d\" y=\"%d\" width=\"512\" height = \"512\" xlink:href=\"files/%s\" />\n", x * 512, z * 512, pngname);

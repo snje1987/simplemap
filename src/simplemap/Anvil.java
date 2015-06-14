@@ -34,7 +34,7 @@ public class Anvil{
     public static final int ShadowMax = 64;
     public static final double shadowFactor = 0.5;
 
-    public void Draw(String from, String to){
+    public void Draw(String from, String to, Markers nMarker){
         try{
             File file = new File(from);
             try (FileInputStream fis = new FileInputStream(file)) {
@@ -51,7 +51,7 @@ public class Anvil{
                 if(offset == 0){
                     continue;
                 }
-                if(!this.DrawChunk(offset, pt, i % 32 * 16, i / 32 * 16)){
+                if(!this.DrawChunk(offset, pt, i % 32 * 16, i / 32 * 16, nMarker)){
                     break;
                 }
             }
@@ -93,7 +93,7 @@ public class Anvil{
         }
     }
 
-    public boolean DrawChunk(int offset, Point[][] pt, int x, int z){
+    public boolean DrawChunk(int offset, Point[][] pt, int x, int z, Markers nMarker){
         offset *= 4096;
         int chunksize = ((buf[offset] & 0xFF) << 24 )+((buf[offset+ 1] & 0xFF) << 16) + ((buf[offset + 2] & 0xFF) << 8) + (buf[offset + 3] & 0xFF);
 
@@ -103,7 +103,14 @@ public class Anvil{
         System.arraycopy(buf, offset + 5, tmp, 0, chunksize - 1);
 
         Chunk chunk = new Chunk();
-        chunk.Load(tmp);
+        chunk.Load(tmp, nMarker);
         return chunk.CalSurface(pt, x, z);
+    }
+
+    public static boolean InFile(int x, int z, int fx, int fz){
+        if(x >= fx * 512 && x < fx * 512 + 512 && z >= fz * 512 && z < fz * 512 + 512){
+            return true;
+        }
+        return false;
     }
 }
