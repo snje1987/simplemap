@@ -25,8 +25,6 @@ public class Color{
     public double g;
     public double b;
     public double alpha;
-    public String name;
-    public String tname;
 
     public Color(int color, int alpah){
         r = (color & 0x00FF0000) >> 16;
