@@ -35,6 +35,24 @@ public class Color{
         this.alpha = alpah;
     }
 
+    public Color(int r, int g, int b, int a){
+
+        this.r = r;
+        this.g = g;
+        this.b = b;
+        this.alpha = a;
+
+        this.r = (this.r > 255) ? 255  : this.r;
+        this.g = (this.g > 255) ? 255  : this.g;
+        this.b = (this.b > 255) ? 255  : this.b;
+        this.alpha = (this.alpha > 255) ? 255  : this.alpha;
+
+        this.r = (this.r < 0) ? 0  : this.r;
+        this.g = (this.g < 0) ? 0  : this.g;
+        this.b = (this.b < 0) ? 0  : this.b;
+        this.alpha = (this.alpha < 0) ? 0  : this.alpha;
+    }
+
     public Color(int color){
         r = (color & 0x00FF0000) >> 16;
         g = (color & 0x0000FF00) >> 8;
@@ -100,21 +118,19 @@ public class Color{
         alpha = (alpha + rfactor > 255) ? 255 : (alpha + rfactor);
     }
 
-    public int changeBright(double offset){
-        Color ret = new Color(0, 0);
-        ret.r = r + offset;
-        ret.b = b + offset;
-        ret.g = g + offset;
-        ret.alpha = alpha;
+    public Color changeBright(double offset){
+        r = r + offset;
+        b = b + offset;
+        g = g + offset;
 
-        ret.r = (ret.r > 255) ? 255  : ret.r;
-        ret.g = (ret.g > 255) ? 255  : ret.g;
-        ret.b = (ret.b > 255) ? 255  : ret.b;
+        r = (r > 255) ? 255  : r;
+        g = (g > 255) ? 255  : g;
+        b = (b > 255) ? 255  : b;
 
-        ret.r = (ret.r < 0) ? 0  : ret.r;
-        ret.g = (ret.g < 0) ? 0  : ret.g;
-        ret.b = (ret.b < 0) ? 0  : ret.b;
+        r = (r < 0) ? 0  : r;
+        g = (g < 0) ? 0  : g;
+        b = (b < 0) ? 0  : b;
 
-        return ret.toInt();
+        return this;
     }
 }

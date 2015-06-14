@@ -19,21 +19,25 @@ package simplemap;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
+import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.nio.charset.Charset;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
-import java.util.Scanner;
 import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.imageio.ImageIO;
+import simplemap.json.jArray;
+import simplemap.json.jException;
+import simplemap.json.jNumber;
+import simplemap.json.jObject;
+import simplemap.json.jString;
 
 /**
  *
@@ -45,7 +49,7 @@ public class ColorMap{
     public static boolean defcolor = false;
 
     protected static ColorMap instance = null;
-    protected HashMap<Integer, Color> map;
+    protected HashMap<Integer, jObject> map;
     protected Set<Integer> alert;
 
     public static ColorMap getInstance(){
@@ -59,15 +63,17 @@ public class ColorMap{
 
     public Color getColor(int id){
         Color color = new Color(0, (byte) 0xFF);
+        jObject obj = null;
         if(map.containsKey(id)){
-            color = map.get(id);
+            obj = map.get(id).getObject("color");
         }
         else{
             if(map.containsKey(id & 0x00000FFF)){
-                color = map.get(id & 0x00000FFF);
+                obj = map.get(id & 0x00000FFF).getObject("color");
             }
         }
-        if(color.toInt() == 0xFF000000){
+
+        if(obj == null){
             if(!alert.contains(id)){
                 System.out.println(String.format(
                         "缺少颜色：%d %d\n",
@@ -75,6 +81,11 @@ public class ColorMap{
                         ((id & 0x0000F000) >> 12)
                 ));
                 alert.add(id);
+            }
+        }
+        else{
+            if(obj.getString("type").equals("rgba")){
+                color = new Color(obj.getInt("r"), obj.getInt("g"), obj.getInt("b"), obj.getInt("a"));
             }
         }
         return color;
@@ -85,22 +96,23 @@ public class ColorMap{
         if (!path.endsWith(File.separator)) {
             path += File.separator;
         }
-        
+
         if(!map.isEmpty()){
             Iterator<Integer> it = map.keySet().iterator();
             int key;
-            Color val;
+            jObject val;
             int ncolor;
             while(it.hasNext()){
                 key = it.next();
                 val = map.get(key);
-                if(val.tname.equals("none")){
+                jObject tmp = val.getObject("texture");
+                if(tmp == null){
                     continue;
                 }
                 try{
-                    ncolor = this.makeColor(path + val.tname);
-                    val.setColor(ncolor);
-                    System.out.println(val.name);
+                    ncolor = this.makeColor(path + tmp.getString("path"));
+                    //val.setColor(ncolor);
+                    System.out.println(val.getString("name"));
                 }
                 catch(IOException ex){
                 }
@@ -115,8 +127,9 @@ public class ColorMap{
     }
 
     protected void load(){
+
         try{
-            try(InputStream is=SimpleMap.class.getResourceAsStream("/color.txt")){
+            try(BufferedInputStream is=new BufferedInputStream(SimpleMap.class.getResourceAsStream("/color.json"))){
                 this.load(is);
             }
         }
@@ -132,10 +145,10 @@ public class ColorMap{
         if (!path.endsWith(File.separator)) {
             path += File.separator;
         }
-        path += "color.txt";
+        path += "color.json";
 
         try {
-            try (InputStream in = new FileInputStream(path)) {
+            try (BufferedInputStream in = new BufferedInputStream(new FileInputStream(path))) {
                 this.load(in);
             }
         } catch (Exception ex) {
@@ -143,19 +156,23 @@ public class ColorMap{
     }
 
     protected void load(InputStream is){
-        Scanner sc = new Scanner(is);
-        Color tmp;
-        while(sc.hasNext()){
-            int block_id = sc.nextInt();
-            int data = sc.nextInt();
-            int color = sc.nextInt(16);
-            int alpha =sc.nextInt(16);
+        jArray arr;
+        try{
+            arr = new jArray(is);
+        }
+        catch(jException ex){
+            return;
+        }
+        int size = arr.size();
+        for(int i = 0; i < size; i++){
+            jObject obj = arr.getObject(i);
+            if(obj == null){
+                continue;
+            }
+            int block_id = obj.getInt("id");
+            int data = obj.getInt("data");
             block_id = (block_id & 0x00000FFF) | ((data & 0x0000000F) << 12);
-            tmp = new Color(color, alpha);
-            tmp.name = sc.next();
-            tmp.tname = sc.next();
-            map.put(block_id, tmp);
-            sc.nextLine();
+            map.put(block_id, obj);
         }
     }
 
@@ -164,7 +181,7 @@ public class ColorMap{
         if (!path.endsWith(File.separator)) {
             path += File.separator;
         }
-        path += "color.txt";
+        path += "color.json";
         try{
             try(OutputStream out = new FileOutputStream(path)){
                 this.save(out);
@@ -174,24 +191,23 @@ public class ColorMap{
     }
 
     protected void save(OutputStream out) throws IOException{
+        jArray json = ToJson();
+        out.write(json.toStyleString("", "").getBytes(Charset.forName("UTF-8")));
+    }
+
+    protected jArray ToJson(){
+        jArray json = new jArray();
         if(!map.isEmpty()){
             Iterator<Integer> it = map.keySet().iterator();
             int key;
-            Color val;
+            jObject val;
             while(it.hasNext()){
                 key = it.next();
                 val = map.get(key);
-                out.write(String.format(
-                        "%d %d %06X %02X %s %s\n",
-                        (key & 0x00000FFF),
-                        ((key & 0x0000F000) >> 12),
-                        val.toInt(false),
-                        val.getAlpha(),
-                        val.name,
-                        val.tname
-                ).getBytes());
+                json.Add(val);
             }
         }
+        return json;
     }
 
     protected int makeColor(String fname) throws IOException{

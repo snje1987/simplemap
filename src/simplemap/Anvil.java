@@ -78,10 +78,10 @@ public class Anvil{
                     }
                     else{
                         if(factor > 0){
-                            img.setRGB(i, j, pt[i][j].color.changeBright((ShadowMax * (1 - Math.pow(shadowFactor, factor)))));
+                            img.setRGB(i, j, pt[i][j].color.changeBright((ShadowMax * (1 - Math.pow(shadowFactor, factor)))).toInt());
                         }
                         else{
-                            img.setRGB(i, j, pt[i][j].color.changeBright((-1 * ShadowMax * (1 - Math.pow(shadowFactor, factor * -1)))));
+                            img.setRGB(i, j, pt[i][j].color.changeBright((-1 * ShadowMax * (1 - Math.pow(shadowFactor, factor * -1)))).toInt());
                         }
                     }
                 }

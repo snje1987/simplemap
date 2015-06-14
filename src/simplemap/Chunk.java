@@ -21,11 +21,11 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.zip.InflaterInputStream;
 import simplemap.nbt.NBT;
-import simplemap.nbt.Tag;
 import simplemap.nbt.TagByte;
 import simplemap.nbt.TagByteArray;
 import simplemap.nbt.TagCompound;
 import simplemap.nbt.TagList;
+import simplemap.nbt.TagString;
 
 /**
  *
@@ -70,29 +70,48 @@ public class Chunk{
         }
         TagCompound comp;
         TagList list;
-        Tag tag;
         comp = nbt.root.toClass(TagCompound.class);
         if(comp == null){
             return false;
         }
-        tag = comp.Get("Level");
-        if(tag == null){
-            return false;
-        }
-        comp = tag.toClass(TagCompound.class);
+
+        comp = comp.Get("Level", TagCompound.class);
         if(comp == null){
             return false;
         }
-        tag = comp.Get("Sections");
-        if(tag == null){
+
+        list = comp.Get("TileEntities", TagList.class);
+        if(list != null && !GetMarker(list)){
             return false;
         }
-        list = tag.toClass(TagList.class);
+
+        list = comp.Get("Sections", TagList.class);
         if(list == null){
             return false;
         }
 
-        return this.InitData(list);
+        if(!this.InitData(list)){
+            return false;
+        }
+        return true;
+    }
+
+    protected boolean GetMarker(TagList list){
+        TagCompound comp;
+        TagString tagString;
+        int len = list.Size();
+        for(int i = 0; i < len; i++){
+            comp = list.Get(i, TagCompound.class);
+            if(comp == null){
+                return false;
+            }
+            tagString = comp.Get("id", TagString.class);
+            if(tagString == null || !tagString.GetData().equals("Sign")){
+                continue;
+            }
+            //System.out.println(comp.toString());
+        }
+        return true;
     }
 
     public boolean CalSurface(Point[][] pts, int x, int z){
@@ -162,54 +181,35 @@ public class Chunk{
 
     protected boolean InitData(TagList list){
         TagCompound comp;
-        Tag tag;
         TagByteArray array;
         TagByte by;
         byte y;
         int len = list.Size();
         for(int i = 0; i < len; i++){
-            tag = list.Get(i);
-            comp = tag.toClass(TagCompound.class);
+            comp = list.Get(i, TagCompound.class);
             if(comp == null){
                 return false;
             }
 
-            tag = comp.Get("Y");
-            if(tag == null){
-                return false;
-            }
-
-            by = tag.toClass(TagByte.class);
+            by = comp.Get("Y", TagByte.class);
             if(by == null){
                 return false;
             }
 
             y = by.GetData();
 
-            tag = comp.Get("Data");
-            if(tag == null){
-                return false;
-            }
-            array = tag.toClass(TagByteArray.class);
+            array = comp.Get("Data", TagByteArray.class);
             if(array == null){
                 return false;
             }
             data[y] = array.GetData();
 
-            tag = comp.Get("Add");
-            if(tag != null){
-                array = tag.toClass(TagByteArray.class);
-                if(array == null){
-                    return false;
-                }
+            array = comp.Get("Add", TagByteArray.class);
+            if(array != null){
                 add[y] = array.GetData();
             }
 
-            tag = comp.Get("Blocks");
-            if(tag == null){
-                return false;
-            }
-            array = tag.toClass(TagByteArray.class);
+            array = comp.Get("Blocks", TagByteArray.class);
             if(array == null){
                 return false;
             }

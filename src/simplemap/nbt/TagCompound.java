@@ -34,11 +34,12 @@ public class TagCompound extends Tag{
         data.put(item.name, item);
     }
 
-    public Tag Get(String name){
-        if(data.containsKey(name)){
-            return data.get(name);
+    public <T> T Get(String name, Class<T> c){
+        if(!data.containsKey(name)){
+            return null;
         }
-        return null;
+
+        return data.get(name).toClass(c);
     }
 
     @Override

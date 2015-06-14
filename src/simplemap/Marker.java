@@ -14,36 +14,18 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package simplemap.nbt;
+package simplemap;
 
 /**
  *
  * @author Yang Ming <yangming0116@163.com>
  */
-public class TagString extends Tag{
-    public String data;
 
-    public TagString(String name, String data){
-        this.name = name;
-        this.data = data;
+public class Marker{
+
+    public Marker(){
     }
 
-    public String GetData(){
-        return data;
-    }
-
-    @Override
-    public String toString(){
-        return this.toString("","");
-    }
-
-    @Override
-    public String toString(String prefix, String repeat){
-        return String.format("%s──%s[String]:%s\n", prefix, name, data);
-    }
-
-    @Override
-    public byte GetType(){
-        return NBT.TAG_String;
+    protected void load(String path){
     }
 }

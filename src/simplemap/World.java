@@ -164,12 +164,12 @@ public class World{
             }
 
             if(needDraw){
-                System.out.println("正在处理：" + fname);
+                //System.out.println("正在处理：" + fname);
                 Anvil draw = new Anvil();
                 draw.Draw(file, dest + imgdir + pngname);
             }
             else{
-                System.out.println("已经跳过：" + fname);
+                //System.out.println("已经跳过：" + fname);
             }
 
             String tag = String.format("<image x=\"%d\" y=\"%d\" width=\"512\" height = \"512\" xlink:href=\"files/%s\" />\n", x * 512, z * 512, pngname);

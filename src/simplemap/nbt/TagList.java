@@ -34,11 +34,12 @@ public class TagList extends Tag{
         data.add(item);
     }
 
-    public Tag Get(int index){
-        if(index >= 0 && index < data.size()){
-            return data.get(index);
+    public <T> T Get(int index, Class<T> c){
+        if(index < 0 || index >= data.size()){
+            return null;
         }
-        return null;
+
+        return data.get(index).toClass(c);
     }
 
     public int Size(){
