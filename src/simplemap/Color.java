@@ -102,6 +102,9 @@ public class Color{
     }
 
     public void merge(Color right){
+        if(right.alpha <= 0.01){
+            return;
+        }
         if(alpha >= 255){
             return;
         }
