@@ -31,6 +31,7 @@ import java.io.InputStreamReader;
 public class World{
     public static boolean regen = true;
     public static boolean update = false;
+    public static boolean defstyle = false;
     public static int cx = 0;
     public static int cy = 0;
     public static int width = 512;
@@ -107,7 +108,7 @@ public class World{
         buildUI();
 
         try{
-            svg.write(String.format("</svg><svg id=\"layer\" x=\"0\" y=\"0\" width=\"%d\" height=\"%d\" viewBox=\"0 0 %d %d\"><text id=\"pos\" x=\"%d\" y=\"%d\" style=\"font-size:14px\">1:%d </text>\n",width, height, width, height, 10, height - 20, scale).getBytes());
+            svg.write(String.format("<g id=\"marker\"></g></svg><svg id=\"layer\" x=\"0\" y=\"0\" width=\"%d\" height=\"%d\" viewBox=\"0 0 %d %d\"><text id=\"pos\" x=\"%d\" y=\"%d\" style=\"font-size:14px\">1:%d </text>\n",width, height, width, height, 10, height - 20, scale).getBytes());
             svg.write(String.format("<text id=\"btn1\" x=\"%d\" y=\"%d\" style=\"font-size:14px\">放大</text>\n", 10, 30).getBytes());
             svg.write(String.format("<text id=\"btn2\" x=\"%d\" y=\"%d\" style=\"font-size:14px\">缩小</text>\n</svg></svg>\n", 10, 60).getBytes());
         }
@@ -124,6 +125,25 @@ public class World{
 
     protected boolean buildUI(){
         try{
+            String path = System.getProperty("user.dir");
+            if (!path.endsWith(File.separator)) {
+                path += File.separator;
+            }
+            path += "style.js";
+            File styleFile = new File(path);
+            if(defstyle || !styleFile.exists()){
+                try(BufferedReader is=new BufferedReader(new InputStreamReader(SimpleMap.class.getResourceAsStream("/style.js")))){
+                    try(FileOutputStream os = new FileOutputStream(path)){
+                        String s;
+                        s = is.readLine();
+                        while(s != null){
+                            s += '\n';
+                            os.write(s.getBytes("UTF-8"));
+                            s = is.readLine();
+                        }
+                    }
+                }
+            }
             try(BufferedReader is=new BufferedReader(new InputStreamReader(SimpleMap.class.getResourceAsStream("/ui.js")))){
                 try(FileOutputStream os = new FileOutputStream(this.dest + imgdir + "ui.js")){
                     String s = is.readLine();
@@ -147,6 +167,17 @@ public class World{
                             os.write(s.getBytes("UTF-8"));
                         }
                         os.write(";\n".getBytes("UTF-8"));
+                    }
+
+                    if(styleFile.exists()){
+                        try(BufferedReader reader = new BufferedReader(new FileReader(styleFile))){
+                            s = reader.readLine();
+                            while(s != null){
+                                s += '\n';
+                                os.write(s.getBytes("UTF-8"));
+                                s = reader.readLine();
+                            }
+                        }
                     }
 
                     s = is.readLine();
@@ -210,7 +241,7 @@ public class World{
             }
 
             if(needDraw){
-                //System.out.println("正在处理：" + fname);
+                System.out.println("正在处理：" + fname);
                 Anvil draw = new Anvil();
                 draw.Draw(file, dest + imgdir + pngname, nMarker);
             }

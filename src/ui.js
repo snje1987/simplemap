@@ -21,6 +21,7 @@ function init(evt) {
             scale = 0;
         }
 
+        draw_marker();
         movemap(cx, cy);
 
         svgRoot.onmousemove = ondrag;
@@ -29,6 +30,22 @@ function init(evt) {
 
         root.getElementById("btn1").onclick = scalel;
         root.getElementById("btn2").onclick = scales;
+    }
+
+    function draw_marker(){
+        var omarkers = map.getElementById('marker');
+        var nmarkers = root.createElementNS("http://www.w3.org/2000/svg",'g');
+        nmarkers.setAttribute('id','marker');
+        nmarkers.setAttribute('x','0');
+        nmarkers.setAttribute('y','0');
+        nmarkers.setAttribute('width','100%');
+        nmarkers.setAttribute('height','100%');
+        var len = markers.length;
+        for(var i = 0; i < len; i++){
+            var func = styles[markers[i]['style']];
+            func(root, nmarkers, markers[i]['x'],markers[i]['z'],scalelist[scale],markers[i]['arg1'],markers[i]['arg2']);
+        }
+        map.replaceChild(nmarkers, omarkers);
     }
 
     function movemap(cx, cy){
@@ -40,6 +57,7 @@ function init(evt) {
             var x = evt.clientX;
             var y = evt.clientY;
             root.getElementById("pos").firstChild.nodeValue = "1:" + scalelist[scale] + " " + (cx + (x - width) * scalelist[scale] / 2) + "  " + (cy + (y - height) * scalelist[scale] / 2);
+            draw_marker();
             movemap(cx, cy);
         }
     }
@@ -49,6 +67,7 @@ function init(evt) {
             var x = evt.clientX;
             var y = evt.clientY;
             root.getElementById("pos").firstChild.nodeValue = "1:" + scalelist[scale] + " " + parseInt((cx + (x - width / 2) * scalelist[scale])) + "  " + parseInt((cy + (y - height / 2) * scalelist[scale]));
+            draw_marker();
             movemap(cx, cy);
         }
     }

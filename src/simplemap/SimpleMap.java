@@ -94,6 +94,9 @@ public class SimpleMap{
                 case "-defcolor":
                     ColorMap.defcolor = true;
                     break;
+                case "-defstyle":
+                    World.defstyle = true;
+                    break;
                 case "-noregen":
                     World.regen = false;
                     break;

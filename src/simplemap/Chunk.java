@@ -119,9 +119,9 @@ public class Chunk{
             }
             jObject obj = new jObject();
             obj.Add("type", new jString("marker"));
-            obj.Add("name", new jString(GetMarkerString(comp, "Text2")));
-            obj.Add("icon", new jString(GetMarkerString(comp, "Text3")));
-            obj.Add("style", new jString(GetMarkerString(comp, "Text4")));
+            obj.Add("style", new jString(GetMarkerString(comp, "Text2")));
+            obj.Add("arg1", new jString(GetMarkerString(comp, "Text3")));
+            obj.Add("arg2", new jString(GetMarkerString(comp, "Text4")));
             obj.Add("x", new jNumber(comp.Get("x", TagInt.class).GetData()));
             obj.Add("z", new jNumber(comp.Get("z", TagInt.class).GetData()));
             nMarker.add(obj);
@@ -182,7 +182,7 @@ public class Chunk{
                 }
                 tmp = map.getColor(block.block_id);
                 ret.merge(tmp);
-                if(h == 0 && ret.getAlpha() >= 1){
+                if(h == 0 && ret.getAlpha() >= 100){
                     h = i * CHUNK_WIDTH + j;
                 }
                 if(ret.getAlpha() >= 255){
