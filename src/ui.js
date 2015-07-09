@@ -49,6 +49,12 @@ function init(evt) {
     }
 
     function movemap(cx, cy){
+        if(cx % scalelist[scale] !== 0){
+            cx = cx - cx % scalelist[scale];
+        }
+        if(cy % scalelist[scale] !== 0){
+            cy = cy - cy % scalelist[scale];
+        }
         map.setAttribute("viewBox", parseInt((cx - width * scalelist[scale] / 2)) + "," + parseInt((cy - height * scalelist[scale] / 2)) + "," + (width * scalelist[scale]) + "," + (height * scalelist[scale]));
     }
     function scalel(evt) {
