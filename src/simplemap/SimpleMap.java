@@ -16,6 +16,9 @@
  */
 package simplemap;
 
+import java.util.LinkedList;
+import java.util.List;
+
 /**
  *
  * @author Yang Ming <yangming0116@163.com>
@@ -30,6 +33,7 @@ public class SimpleMap{
     protected static int action = ACT_PIXMAP;
     protected static String src = "";
     protected static String dest = "";
+    protected static List<String> srcs = new LinkedList<>();
 
     public static void main(String[] args){
         SimpleMap.args = args;
@@ -47,11 +51,11 @@ public class SimpleMap{
             world.Draw(src, dest);
             break;
         case ACT_GENCOLOR:
-            if(src.length() == 0){
+            if(srcs.isEmpty()){
                 printHelp();
                 System.exit(1);
             }
-            ColorMap.getInstance().genColor(src);
+            ColorMap.getInstance().genColor(srcs);
             break;
         }
     }
@@ -83,6 +87,11 @@ public class SimpleMap{
                         break;
                     case "gencolor":
                         action = ACT_GENCOLOR;
+                    }
+                    break;
+                case "-in":
+                    while(haveNext()){
+                        srcs.add(nextString());
                     }
                     break;
                 case "-src":

@@ -24,6 +24,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.Arrays;
 import javax.imageio.ImageIO;
 
 /**
@@ -33,11 +34,10 @@ import javax.imageio.ImageIO;
 
 public class FoliageColor{
 
-    public static boolean usedef = false;
     protected static FoliageColor instance = null;
     protected static int[] foliageBuffer = null;
-    protected int width = 0;
-    protected int height = 0;
+    protected static final int width = 256;
+    protected static final int height = 256;
 
     public static FoliageColor getInstance(){
         if(instance == null){
@@ -52,19 +52,6 @@ public class FoliageColor{
     }
 
     protected void load(){
-
-        try{
-            try(BufferedInputStream is=new BufferedInputStream(SimpleMap.class.getResourceAsStream("/foliage.png"))){
-                this.load(is);
-            }
-        }
-        catch(IOException ex){
-            return;
-        }
-
-        if(usedef){
-            return;
-        }
 
         String path = System.getProperty("user.dir");
         if (!path.endsWith(File.separator)) {
@@ -83,10 +70,14 @@ public class FoliageColor{
     protected void load(InputStream is){
         try{
             BufferedImage buf = ImageIO.read(is);
-            width = buf.getWidth();
-            height = buf.getHeight();
-            foliageBuffer = new int[width * height];
-            buf.getRGB(0, 0, width, height, foliageBuffer, 0, width);
+            if(buf.getWidth() == width && buf.getHeight() == height){
+                foliageBuffer = new int[width * height];
+                buf.getRGB(0, 0, width, height, foliageBuffer, 0, width);
+            }
+            else{
+                foliageBuffer = new int[width * height];
+                Arrays.fill(foliageBuffer, 0xFF5BAB47);
+            }
         }
         catch(IOException ex){
             return;
@@ -116,7 +107,7 @@ public class FoliageColor{
     public int getColor(double temperature, double humidity){
         temperature = temperature < 0.0D ? 0.0D : (temperature > 1.0D ? 1.0D : temperature);
         humidity = humidity < 0.0D ? 0.0D : (humidity > 1.0D ? 1.0D : humidity);
-        
+
         humidity *= temperature;
         int tempIndex = (int)((1.0D - temperature) * 255.0D);
         int humIndex = (int)((1.0D - humidity) * 255.0D);

@@ -31,10 +31,14 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Set;
+import java.util.jar.JarFile;
+import java.util.zip.ZipFile;
 import javax.imageio.ImageIO;
 import simplemap.json.jArray;
 import simplemap.json.jException;
+import simplemap.json.jNumber;
 import simplemap.json.jObject;
 
 /**
@@ -46,6 +50,7 @@ public class ColorMap{
 
     public static boolean defcolor = false;
 
+    protected static final String prefix = "assets/minecraft/textures/";
     protected static ColorMap instance = null;
     protected HashMap<Integer, jObject> map;
     protected Set<Integer> alert;
@@ -86,22 +91,27 @@ public class ColorMap{
                 color = new Color(obj.getInt("r"), obj.getInt("g"), obj.getInt("b"), obj.getInt("a"));
             }
             else if(obj.getString("type").equals("grass")){
+                color = new Color(obj.getInt("r"), obj.getInt("g"), obj.getInt("b"), obj.getInt("a"));
                 BiomeInfo binfo = Biome.getInstance().getInfo(bid);
-                color = new Color(GrassColor.getInstance().getColor(binfo.temperature, binfo.rainfall), obj.getInt("a"));
+                color.mutiply(GrassColor.getInstance().getColor(binfo.temperature, binfo.rainfall));
             }
             else if(obj.getString("type").equals("foliage")){
+                color = new Color(obj.getInt("r"), obj.getInt("g"), obj.getInt("b"), obj.getInt("a"));
                 BiomeInfo binfo = Biome.getInstance().getInfo(bid);
-                color = new Color(FoliageColor.getInstance().getColor(binfo.temperature, binfo.rainfall), obj.getInt("a"));
+                color.mutiply(FoliageColor.getInstance().getColor(binfo.temperature, binfo.rainfall));
             }
         }
         return color;
     }
 
-    public void genColor(String path){
-
-        if (!path.endsWith(File.separator)) {
-            path += File.separator;
+    public void genColor(List<String> srcs){
+        for(String path : srcs){
+            System.err.println("正在处理：" + path);
+            this.genColor(path);
         }
+    }
+
+    public void genColor(String path){
 
         if(!map.isEmpty()){
             Iterator<Integer> it = map.keySet().iterator();
@@ -116,14 +126,28 @@ public class ColorMap{
                     continue;
                 }
                 try{
-                    ncolor = this.makeColor(path + tmp.getString("path"));
-                    //val.setColor(ncolor);
-                    System.out.println(val.getString("name"));
+                    ncolor = this.makeColor(path, tmp);
+                    Color c = new Color(ncolor);
+                    jObject cObj = val.getObject("color");
+                    cObj.Add("r", new jNumber((int)c.r));
+                    cObj.Add("g", new jNumber((int)c.g));
+                    cObj.Add("b", new jNumber((int)c.b));
+                    cObj.Add("a", new jNumber((int)c.alpha));
+                    //System.out.println(val.getString("name") + "=>" + c.toString());
                 }
                 catch(IOException ex){
                 }
             }
         }
+
+        String dir = System.getProperty("user.dir");
+        if (!dir.endsWith(File.separator)) {
+            dir += File.separator;
+        }
+
+        this.getMap(path, prefix + "colormap/foliage.png", dir + "foliage.png");
+        this.getMap(path, prefix + "colormap/grass.png", dir + "grass.png");
+
         this.save();
     }
 
@@ -216,19 +240,96 @@ public class ColorMap{
         return json;
     }
 
-    protected int makeColor(String fname) throws IOException{
-        File file = new File(fname);
-        if(!file.exists() || !file.isFile()){
-            System.out.println(fname);
-            throw new IOException();
+    protected void getMap(String path, String fname, String to){
+
+        InputStream in = null;
+        try{
+            if(path.endsWith(".zip") || path.endsWith(".jar")){
+                ZipFile zip = new ZipFile(path);
+                in = zip.getInputStream(zip.getEntry(fname));
+            }
+            else{
+                if (!path.endsWith(File.separator)) {
+                    path += File.separator;
+                }
+                in = new BufferedInputStream(new FileInputStream(path + fname));
+            }
+
+            byte[] buf = new byte[1024];
+            int count;
+            try(OutputStream out = new FileOutputStream(to)){
+                while((count = in.read(buf)) != -1){
+                    out.write(buf, 0, count);
+                }
+            }
+            in.close();
         }
+        catch(IOException | NullPointerException e){
+
+        }
+    }
+
+    protected int makeColor(String path, jObject texture) throws IOException{
+
+        InputStream in = null;
+
+        String fname = prefix + texture.getString("path");
+
+        if(path.endsWith(".zip") || path.endsWith(".jar")){
+            ZipFile zip = new ZipFile(path);
+            in = zip.getInputStream(zip.getEntry(fname));
+        }
+        else{
+            if (!path.endsWith(File.separator)) {
+                path += File.separator;
+            }
+            in = new BufferedInputStream(new FileInputStream(path + fname));
+        }
+
         BufferedImage i;
-        i = ImageIO.read(file);
-        Image tmp = i.getScaledInstance(1, 1, Image.SCALE_SMOOTH);
-        BufferedImage o = new BufferedImage(tmp.getWidth(null), tmp.getHeight(null), BufferedImage.TYPE_INT_ARGB);
-        Graphics2D g = o.createGraphics();
-        g.drawImage(tmp, null, null);
-        g.dispose();
-        return o.getRGB(0, 0);
+        i = ImageIO.read(in);
+        in.close();
+
+        if(texture.hasKey("x")){
+            return avgColor(i, texture.getInt("x"), texture.getInt("y"), texture.getInt("w"), texture.getInt("h"), texture.getInt("bw"), texture.getInt("bh"), texture.getInt("base"));
+        }
+        else{
+            return avgColor(i, 0, 0, i.getWidth(), i.getHeight(), i.getWidth(), i.getHeight(), i.getWidth());
+        }
+    }
+
+    protected int avgColor(BufferedImage img, int x, int y, int width, int height, int bw, int bh, int base){
+        double r = 0, g = 0, b = 0, a = 0;
+        int color = 0;
+        int count = 0;
+        int iwidth = img.getWidth();
+        int iheight = img.getHeight();
+
+        if(base != iwidth){
+            x = x * iwidth / base;
+            y = y * iwidth / base;
+            width = width * iwidth / base;
+            height = height * iwidth / base;
+            bw = bw * iwidth / base;
+            bh = bh * iwidth / base;
+        }
+
+        for(int i = 0; i < width; i++){
+            if(x + i >= iwidth){
+                break;
+            }
+            for(int j = 0; j < height; j++){
+                if(y + j >= iheight){
+                    break;
+                }
+                color = img.getRGB(x + i, y + j);
+                a += ((color >> 24) & 255);
+                r += ((color >> 16) & 255);
+                g += ((color >> 8) & 255);
+                b += (color & 255);
+            }
+        }
+        count = bw * bh;
+        return (new Color((int)(r / count), (int)(g / count), (int)(b / count), (int)(a / count))).toInt();
     }
 }

@@ -16,8 +16,8 @@
         "data":0,
         "name":"石头",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/stone.png"
-        },
+           "path":"blocks/stone.png"
+       },
         "color":{
             "type":"rgba",
             "r":125,
@@ -31,11 +31,11 @@
         "data":1,
         "name":"花岗岩",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/stone_granite.png"
-        },
+           "path":"blocks/stone_granite.png"
+       },
         "color":{
             "type":"rgba",
-            "r":153,
+            "r":152,
             "g":113,
             "b":98,
             "a":255
@@ -46,13 +46,13 @@
         "data":2,
         "name":"磨制花岗岩",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/stone_granite_smooth.png"
-        },
+           "path":"blocks/stone_granite_smooth.png"
+       },
         "color":{
             "type":"rgba",
             "r":160,
             "g":115,
-            "b":98,
+            "b":97,
             "a":255
         }
     },
@@ -61,13 +61,13 @@
         "data":3,
         "name":"闪长岩",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/stone_diorite.png"
-        },
+           "path":"blocks/stone_diorite.png"
+       },
         "color":{
             "type":"rgba",
-            "r":180,
-            "g":180,
-            "b":183,
+            "r":179,
+            "g":179,
+            "b":182,
             "a":255
         }
     },
@@ -76,13 +76,13 @@
         "data":4,
         "name":"磨制闪长岩",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/stone_diorite_smooth.png"
-        },
+           "path":"blocks/stone_diorite_smooth.png"
+       },
         "color":{
             "type":"rgba",
             "r":183,
             "g":183,
-            "b":186,
+            "b":185,
             "a":255
         }
     },
@@ -91,13 +91,13 @@
         "data":5,
         "name":"安山岩",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/stone_andesite.png"
-        },
+           "path":"blocks/stone_andesite.png"
+       },
         "color":{
             "type":"rgba",
             "r":131,
             "g":131,
-            "b":132,
+            "b":131,
             "a":255
         }
     },
@@ -106,13 +106,13 @@
         "data":6,
         "name":"磨制安山岩",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/stone_andesite_smooth.png"
-        },
+           "path":"blocks/stone_andesite_smooth.png"
+       },
         "color":{
             "type":"rgba",
-            "r":131,
-            "g":131,
-            "b":134,
+            "r":130,
+            "g":130,
+            "b":133,
             "a":255
         }
     },
@@ -120,8 +120,14 @@
         "id":2,
         "data":0,
         "name":"草方块",
+        "texture":{
+           "path":"blocks/grass_top.png"
+       },
         "color":{
             "type":"grass",
+            "r":147,
+            "g":147,
+            "b":147,
             "a":255
         }
     },
@@ -130,13 +136,13 @@
         "data":0,
         "name":"泥土",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/dirt.png"
-        },
+           "path":"blocks/dirt.png"
+       },
         "color":{
             "type":"rgba",
-            "r":135,
-            "g":97,
-            "b":68,
+            "r":134,
+            "g":96,
+            "b":67,
             "a":255
         }
     },
@@ -145,11 +151,11 @@
         "data":1,
         "name":"砂土",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/coarse_dirt.png"
-        },
+           "path":"blocks/coarse_dirt.png"
+       },
         "color":{
             "type":"rgba",
-            "r":125,
+            "r":124,
             "g":89,
             "b":62,
             "a":255
@@ -160,12 +166,12 @@
         "data":2,
         "name":"灰化土",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/dirt_podzol_top.png"
-        },
+           "path":"blocks/dirt_podzol_top.png"
+       },
         "color":{
             "type":"rgba",
             "r":87,
-            "g":61,
+            "g":60,
             "b":29,
             "a":255
         }
@@ -175,8 +181,8 @@
         "data":0,
         "name":"圆石",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/cobblestone.png"
-        },
+           "path":"blocks/cobblestone.png"
+       },
         "color":{
             "type":"rgba",
             "r":123,
@@ -190,13 +196,13 @@
         "data":0,
         "name":"橡木木板",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/planks_oak.png"
-        },
+           "path":"blocks/planks_oak.png"
+       },
         "color":{
             "type":"rgba",
             "r":166,
             "g":135,
-            "b":84,
+            "b":83,
             "a":255
         }
     },
@@ -205,12 +211,12 @@
         "data":1,
         "name":"云杉木板",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/planks_spruce.png"
-        },
+           "path":"blocks/planks_spruce.png"
+       },
         "color":{
             "type":"rgba",
             "r":110,
-            "g":83,
+            "g":82,
             "b":49,
             "a":255
         }
@@ -220,13 +226,13 @@
         "data":2,
         "name":"白桦木板",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/planks_birch.png"
-        },
+           "path":"blocks/planks_birch.png"
+       },
         "color":{
             "type":"rgba",
-            "r":203,
+            "r":202,
             "g":186,
-            "b":128,
+            "b":127,
             "a":255
         }
     },
@@ -235,13 +241,13 @@
         "data":3,
         "name":"丛林木板",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/planks_jungle.png"
-        },
+           "path":"blocks/planks_jungle.png"
+       },
         "color":{
             "type":"rgba",
-            "r":164,
-            "g":118,
-            "b":83,
+            "r":163,
+            "g":117,
+            "b":82,
             "a":255
         }
     },
@@ -250,13 +256,13 @@
         "data":4,
         "name":"金合欢木板",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/planks_acacia.png"
-        },
+           "path":"blocks/planks_acacia.png"
+       },
         "color":{
             "type":"rgba",
             "r":175,
             "g":95,
-            "b":53,
+            "b":52,
             "a":255
         }
     },
@@ -265,13 +271,13 @@
         "data":5,
         "name":"深色橡木木板",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/planks_big_oak.png"
-        },
+           "path":"blocks/planks_big_oak.png"
+       },
         "color":{
             "type":"rgba",
-            "r":65,
-            "g":42,
-            "b":20,
+            "r":64,
+            "g":41,
+            "b":19,
             "a":255
         }
     },
@@ -280,13 +286,13 @@
         "data":0,
         "name":"橡树树苗",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/sapling_oak.png"
-        },
+           "path":"blocks/sapling_oak.png"
+       },
         "color":{
             "type":"rgba",
-            "r":68,
-            "g":115,
-            "b":40,
+            "r":166,
+            "g":188,
+            "b":153,
             "a":120
         }
     },
@@ -295,13 +301,13 @@
         "data":1,
         "name":"云杉树苗",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/sapling_spruce.png"
-        },
+           "path":"blocks/sapling_spruce.png"
+       },
         "color":{
             "type":"rgba",
-            "r":50,
-            "g":57,
-            "b":31,
+            "r":189,
+            "g":191,
+            "b":184,
             "a":81
         }
     },
@@ -310,13 +316,13 @@
         "data":2,
         "name":"白桦树苗",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/sapling_birch.png"
-        },
+           "path":"blocks/sapling_birch.png"
+       },
         "color":{
             "type":"rgba",
-            "r":121,
-            "g":159,
-            "b":83,
+            "r":192,
+            "g":210,
+            "b":173,
             "a":120
         }
     },
@@ -325,13 +331,13 @@
         "data":3,
         "name":"丛林树苗",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/sapling_jungle.png"
-        },
+           "path":"blocks/sapling_jungle.png"
+       },
         "color":{
             "type":"rgba",
-            "r":46,
-            "g":90,
-            "b":19,
+            "r":177,
+            "g":193,
+            "b":167,
             "a":94
         }
     },
@@ -340,13 +346,13 @@
         "data":4,
         "name":"金合欢树苗",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/sapling_acacia.png"
-        },
+           "path":"blocks/sapling_acacia.png"
+       },
         "color":{
             "type":"rgba",
-            "r":114,
-            "g":118,
-            "b":20,
+            "r":212,
+            "g":212,
+            "b":183,
             "a":78
         }
     },
@@ -355,13 +361,13 @@
         "data":5,
         "name":"深色橡树树苗",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/sapling_roofed_oak.png"
-        },
+           "path":"blocks/sapling_roofed_oak.png"
+       },
         "color":{
             "type":"rgba",
-            "r":60,
-            "g":94,
-            "b":31,
+            "r":174,
+            "g":187,
+            "b":162,
             "a":106
         }
     },
@@ -370,13 +376,13 @@
         "data":0,
         "name":"基岩",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/bedrock.png"
-        },
+           "path":"blocks/bedrock.png"
+       },
         "color":{
             "type":"rgba",
-            "r":84,
-            "g":84,
-            "b":84,
+            "r":83,
+            "g":83,
+            "b":83,
             "a":255
         }
     },
@@ -385,13 +391,13 @@
         "data":0,
         "name":"水",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/water_flow.png"
-        },
+           "path":"blocks/water_flow.png"
+       },
         "color":{
             "type":"rgba",
-            "r":50,
+            "r":49,
             "g":71,
-            "b":243,
+            "b":244,
             "a":175
         }
     },
@@ -400,14 +406,14 @@
         "data":0,
         "name":"静态水",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/water_still.png"
-        },
+           "path":"blocks/water_still.png"
+       },
         "color":{
             "type":"rgba",
-            "r":47,
-            "g":68,
+            "r":46,
+            "g":67,
             "b":244,
-            "a":179
+            "a":178
         }
     },
     {
@@ -415,12 +421,12 @@
         "data":0,
         "name":"岩浆",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/lava_flow.png"
-        },
+           "path":"blocks/lava_flow.png"
+       },
         "color":{
             "type":"rgba",
-            "r":208,
-            "g":92,
+            "r":207,
+            "g":91,
             "b":19,
             "a":255
         }
@@ -430,13 +436,13 @@
         "data":0,
         "name":"静态岩浆",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/lava_still.png"
-        },
+           "path":"blocks/lava_still.png"
+       },
         "color":{
             "type":"rgba",
-            "r":213,
-            "g":90,
-            "b":18,
+            "r":212,
+            "g":89,
+            "b":17,
             "a":255
         }
     },
@@ -445,13 +451,13 @@
         "data":0,
         "name":"沙子",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/sand.png"
-        },
+           "path":"blocks/sand.png"
+       },
         "color":{
             "type":"rgba",
-            "r":217,
+            "r":216,
             "g":209,
-            "b":157,
+            "b":156,
             "a":255
         }
     },
@@ -460,13 +466,13 @@
         "data":1,
         "name":"红沙",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/red_sand.png"
-        },
+           "path":"blocks/red_sand.png"
+       },
         "color":{
             "type":"rgba",
-            "r":161,
-            "g":87,
-            "b":36,
+            "r":160,
+            "g":86,
+            "b":35,
             "a":255
         }
     },
@@ -475,11 +481,11 @@
         "data":0,
         "name":"沙砾",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/gravel.png"
-        },
+           "path":"blocks/gravel.png"
+       },
         "color":{
             "type":"rgba",
-            "r":124,
+            "r":123,
             "g":121,
             "b":119,
             "a":255
@@ -490,12 +496,12 @@
         "data":0,
         "name":"金矿石",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/gold_ore.png"
-        },
+           "path":"blocks/gold_ore.png"
+       },
         "color":{
             "type":"rgba",
             "r":145,
-            "g":142,
+            "g":141,
             "b":126,
             "a":255
         }
@@ -505,11 +511,11 @@
         "data":0,
         "name":"铁矿石",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/iron_ore.png"
-        },
+           "path":"blocks/iron_ore.png"
+       },
         "color":{
             "type":"rgba",
-            "r":137,
+            "r":136,
             "g":131,
             "b":127,
             "a":255
@@ -520,13 +526,13 @@
         "data":0,
         "name":"煤矿石",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/coal_ore.png"
-        },
+           "path":"blocks/coal_ore.png"
+       },
         "color":{
             "type":"rgba",
-            "r":115,
-            "g":115,
-            "b":115,
+            "r":114,
+            "g":114,
+            "b":114,
             "a":255
         }
     },
@@ -535,11 +541,11 @@
         "data":0,
         "name":"橡木（面朝上/下）",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/log_oak_top.png"
-        },
+           "path":"blocks/log_oak_top.png"
+       },
         "color":{
             "type":"rgba",
-            "r":159,
+            "r":158,
             "g":128,
             "b":79,
             "a":255
@@ -550,13 +556,13 @@
         "data":1,
         "name":"云杉木（面朝上/下）",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/log_spruce_top.png"
-        },
+           "path":"blocks/log_spruce_top.png"
+       },
         "color":{
             "type":"rgba",
             "r":101,
-            "g":77,
-            "b":44,
+            "g":76,
+            "b":43,
             "a":255
         }
     },
@@ -565,13 +571,13 @@
         "data":2,
         "name":"白桦木（面朝上/下）",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/log_birch_top.png"
-        },
+           "path":"blocks/log_birch_top.png"
+       },
         "color":{
             "type":"rgba",
-            "r":188,
-            "g":170,
-            "b":125,
+            "r":187,
+            "g":169,
+            "b":124,
             "a":255
         }
     },
@@ -580,11 +586,11 @@
         "data":3,
         "name":"从林木（面朝上/下）",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/log_jungle_top.png"
-        },
+           "path":"blocks/log_jungle_top.png"
+       },
         "color":{
             "type":"rgba",
-            "r":154,
+            "r":153,
             "g":119,
             "b":73,
             "a":255
@@ -595,12 +601,12 @@
         "data":4,
         "name":"橡木（面朝东/西）",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/log_oak.png"
-        },
+           "path":"blocks/log_oak.png"
+       },
         "color":{
             "type":"rgba",
             "r":103,
-            "g":82,
+            "g":81,
             "b":50,
             "a":255
         }
@@ -610,8 +616,8 @@
         "data":5,
         "name":"云杉木（面朝东/西）",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/log_spruce.png"
-        },
+           "path":"blocks/log_spruce.png"
+       },
         "color":{
             "type":"rgba",
             "r":46,
@@ -625,13 +631,13 @@
         "data":6,
         "name":"白桦木（面朝东/西）",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/log_birch.png"
-        },
+           "path":"blocks/log_birch.png"
+       },
         "color":{
             "type":"rgba",
             "r":212,
-            "g":213,
-            "b":207,
+            "g":212,
+            "b":206,
             "a":255
         }
     },
@@ -640,11 +646,11 @@
         "data":7,
         "name":"从林木（面朝东/西）",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/log_jungle.png"
-        },
+           "path":"blocks/log_jungle.png"
+       },
         "color":{
             "type":"rgba",
-            "r":87,
+            "r":86,
             "g":68,
             "b":25,
             "a":255
@@ -655,12 +661,12 @@
         "data":8,
         "name":"橡木（面朝南/北）",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/log_oak.png"
-        },
+           "path":"blocks/log_oak.png"
+       },
         "color":{
             "type":"rgba",
             "r":103,
-            "g":82,
+            "g":81,
             "b":50,
             "a":255
         }
@@ -670,8 +676,8 @@
         "data":9,
         "name":"云杉木（面朝南/北）",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/log_spruce.png"
-        },
+           "path":"blocks/log_spruce.png"
+       },
         "color":{
             "type":"rgba",
             "r":46,
@@ -685,13 +691,13 @@
         "data":10,
         "name":"白桦木（面朝南/北）",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/log_birch.png"
-        },
+           "path":"blocks/log_birch.png"
+       },
         "color":{
             "type":"rgba",
             "r":212,
-            "g":213,
-            "b":207,
+            "g":212,
+            "b":206,
             "a":255
         }
     },
@@ -700,11 +706,11 @@
         "data":11,
         "name":"从林木（面朝南/北）",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/log_jungle.png"
-        },
+           "path":"blocks/log_jungle.png"
+       },
         "color":{
             "type":"rgba",
-            "r":87,
+            "r":86,
             "g":68,
             "b":25,
             "a":255
@@ -715,12 +721,12 @@
         "data":12,
         "name":"橡木（只有树皮）",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/log_oak.png"
-        },
+           "path":"blocks/log_oak.png"
+       },
         "color":{
             "type":"rgba",
             "r":103,
-            "g":82,
+            "g":81,
             "b":50,
             "a":255
         }
@@ -730,8 +736,8 @@
         "data":13,
         "name":"云杉木（只有树皮）",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/log_spruce.png"
-        },
+           "path":"blocks/log_spruce.png"
+       },
         "color":{
             "type":"rgba",
             "r":46,
@@ -745,13 +751,13 @@
         "data":14,
         "name":"白桦木（只有树皮）",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/log_birch.png"
-        },
+           "path":"blocks/log_birch.png"
+       },
         "color":{
             "type":"rgba",
             "r":212,
-            "g":213,
-            "b":207,
+            "g":212,
+            "b":206,
             "a":255
         }
     },
@@ -760,11 +766,11 @@
         "data":15,
         "name":"从林木（只有树皮）",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/log_jungle.png"
-        },
+           "path":"blocks/log_jungle.png"
+       },
         "color":{
             "type":"rgba",
-            "r":87,
+            "r":86,
             "g":68,
             "b":25,
             "a":255
@@ -774,9 +780,15 @@
         "id":18,
         "data":0,
         "name":"橡树树叶",
+        "texture":{
+           "path":"blocks/leaves_oak.png"
+       },
         "color":{
             "type":"foliage",
-            "a":255
+            "r":100,
+            "g":100,
+            "b":100,
+            "a":177
         }
     },
     {
@@ -796,14 +808,14 @@
         "data":0,
         "name":"玻璃",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/glass.png"
-        },
+           "path":"blocks/glass.png"
+       },
         "color":{
             "type":"rgba",
-            "r":215,
-            "g":242,
-            "b":242,
-            "a":38
+            "r":249,
+            "g":252,
+            "b":253,
+            "a":37
         }
     },
     {
@@ -811,13 +823,13 @@
         "data":0,
         "name":"青金石矿石",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/lapis_ore.png"
-        },
+           "path":"blocks/lapis_ore.png"
+       },
         "color":{
             "type":"rgba",
             "r":101,
-            "g":112,
-            "b":135,
+            "g":111,
+            "b":134,
             "a":255
         }
     },
@@ -826,8 +838,8 @@
         "data":0,
         "name":"青金石块",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/lapis_block.png"
-        },
+           "path":"blocks/lapis_block.png"
+       },
         "color":{
             "type":"rgba",
             "r":26,
@@ -841,8 +853,8 @@
         "data":0,
         "name":"发射器",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/cobblestone.png"
-        },
+           "path":"blocks/cobblestone.png"
+       },
         "color":{
             "type":"rgba",
             "r":123,
@@ -856,13 +868,13 @@
         "data":0,
         "name":"沙石",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/sandstone_top.png"
-        },
+           "path":"blocks/sandstone_top.png"
+       },
         "color":{
             "type":"rgba",
             "r":218,
             "g":210,
-            "b":159,
+            "b":158,
             "a":255
         }
     },
@@ -871,8 +883,8 @@
         "data":0,
         "name":"音符盒",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/noteblock.png"
-        },
+           "path":"blocks/noteblock.png"
+       },
         "color":{
             "type":"rgba",
             "r":105,
@@ -886,12 +898,12 @@
         "data":0,
         "name":"床",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/bed_feet_top.png"
-        },
+           "path":"blocks/bed_feet_top.png"
+       },
         "color":{
             "type":"rgba",
-            "r":141,
-            "g":22,
+            "r":140,
+            "g":21,
             "b":20,
             "a":255
         }
@@ -901,13 +913,13 @@
         "data":0,
         "name":"充能铁轨",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/rail_golden_powered.png"
-        },
+           "path":"blocks/rail_golden_powered.png"
+       },
         "color":{
             "type":"rgba",
-            "r":152,
-            "g":107,
-            "b":72,
+            "r":185,
+            "g":155,
+            "b":132,
             "a":171
         }
     },
@@ -916,13 +928,13 @@
         "data":0,
         "name":"探测铁轨",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/rail_detector.png"
-        },
+           "path":"blocks/rail_detector.png"
+       },
         "color":{
             "type":"rgba",
-            "r":120,
-            "g":102,
-            "b":90,
+            "r":172,
+            "g":161,
+            "b":154,
             "a":155
         }
     },
@@ -931,12 +943,12 @@
         "data":0,
         "name":"粘性活塞",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/piston_side.png"
-        },
+           "path":"blocks/piston_side.png"
+       },
         "color":{
             "type":"rgba",
             "r":113,
-            "g":109,
+            "g":108,
             "b":101,
             "a":255
         }
@@ -946,13 +958,13 @@
         "data":0,
         "name":"蜘蛛网",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/web.png"
-        },
+           "path":"blocks/web.png"
+       },
         "color":{
             "type":"rgba",
-            "r":219,
-            "g":219,
-            "b":219,
+            "r":247,
+            "g":247,
+            "b":247,
             "a":57
         }
     },
@@ -960,9 +972,15 @@
         "id":31,
         "data":0,
         "name":"草丛",
+        "texture":{
+           "path":"blocks/double_plant_grass_bottom.png"
+       },
         "color":{
             "type":"foliage",
-            "a":100
+            "r":210,
+            "g":210,
+            "b":210,
+            "a":84
         }
     },
     {
@@ -970,13 +988,13 @@
         "data":0,
         "name":"枯死的灌木",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/deadbush.png"
-        },
+           "path":"blocks/deadbush.png"
+       },
         "color":{
             "type":"rgba",
-            "r":122,
-            "g":79,
-            "b":29,
+            "r":217,
+            "g":205,
+            "b":191,
             "a":71
         }
     },
@@ -985,12 +1003,12 @@
         "data":0,
         "name":"活塞",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/piston_side.png"
-        },
+           "path":"blocks/piston_side.png"
+       },
         "color":{
             "type":"rgba",
             "r":113,
-            "g":109,
+            "g":108,
             "b":101,
             "a":255
         }
@@ -1012,13 +1030,13 @@
         "data":0,
         "name":"白色羊毛",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/wool_colored_white.png"
-        },
+           "path":"blocks/wool_colored_white.png"
+       },
         "color":{
             "type":"rgba",
-            "r":221,
-            "g":221,
-            "b":221,
+            "r":220,
+            "g":220,
+            "b":220,
             "a":255
         }
     },
@@ -1027,12 +1045,12 @@
         "data":1,
         "name":"橙色羊毛",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/wool_colored_orange.png"
-        },
+           "path":"blocks/wool_colored_orange.png"
+       },
         "color":{
             "type":"rgba",
-            "r":219,
-            "g":125,
+            "r":218,
+            "g":124,
             "b":62,
             "a":255
         }
@@ -1042,11 +1060,11 @@
         "data":2,
         "name":"品红色羊毛",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/wool_colored_magenta.png"
-        },
+           "path":"blocks/wool_colored_magenta.png"
+       },
         "color":{
             "type":"rgba",
-            "r":180,
+            "r":179,
             "g":80,
             "b":188,
             "a":255
@@ -1057,13 +1075,13 @@
         "data":3,
         "name":"淡蓝色羊毛",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/wool_colored_light_blue.png"
-        },
+           "path":"blocks/wool_colored_light_blue.png"
+       },
         "color":{
             "type":"rgba",
-            "r":106,
+            "r":105,
             "g":137,
-            "b":201,
+            "b":200,
             "a":255
         }
     },
@@ -1072,8 +1090,8 @@
         "data":4,
         "name":"黄色羊毛",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/wool_colored_yellow.png"
-        },
+           "path":"blocks/wool_colored_yellow.png"
+       },
         "color":{
             "type":"rgba",
             "r":176,
@@ -1087,11 +1105,11 @@
         "data":5,
         "name":"黄绿色羊毛",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/wool_colored_lime.png"
-        },
+           "path":"blocks/wool_colored_lime.png"
+       },
         "color":{
             "type":"rgba",
-            "r":66,
+            "r":65,
             "g":173,
             "b":56,
             "a":255
@@ -1102,11 +1120,11 @@
         "data":6,
         "name":"粉红色羊毛",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/wool_colored_pink.png"
-        },
+           "path":"blocks/wool_colored_pink.png"
+       },
         "color":{
             "type":"rgba",
-            "r":208,
+            "r":207,
             "g":131,
             "b":152,
             "a":255
@@ -1117,8 +1135,8 @@
         "data":7,
         "name":"灰色羊毛",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/wool_colored_gray.png"
-        },
+           "path":"blocks/wool_colored_gray.png"
+       },
         "color":{
             "type":"rgba",
             "r":64,
@@ -1132,13 +1150,13 @@
         "data":8,
         "name":"淡灰色羊毛",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/wool_colored_silver.png"
-        },
+           "path":"blocks/wool_colored_silver.png"
+       },
         "color":{
             "type":"rgba",
             "r":154,
-            "g":161,
-            "b":161,
+            "g":160,
+            "b":160,
             "a":255
         }
     },
@@ -1147,13 +1165,13 @@
         "data":9,
         "name":"青色羊毛",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/wool_colored_cyan.png"
-        },
+           "path":"blocks/wool_colored_cyan.png"
+       },
         "color":{
             "type":"rgba",
             "r":46,
             "g":110,
-            "b":137,
+            "b":136,
             "a":255
         }
     },
@@ -1162,8 +1180,8 @@
         "data":10,
         "name":"紫色羊毛",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/wool_colored_purple.png"
-        },
+           "path":"blocks/wool_colored_purple.png"
+       },
         "color":{
             "type":"rgba",
             "r":126,
@@ -1177,13 +1195,13 @@
         "data":11,
         "name":"蓝色羊毛",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/wool_colored_blue.png"
-        },
+           "path":"blocks/wool_colored_blue.png"
+       },
         "color":{
             "type":"rgba",
             "r":46,
-            "g":57,
-            "b":141,
+            "g":56,
+            "b":140,
             "a":255
         }
     },
@@ -1192,11 +1210,11 @@
         "data":12,
         "name":"棕色羊毛",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/wool_colored_brown.png"
-        },
+           "path":"blocks/wool_colored_brown.png"
+       },
         "color":{
             "type":"rgba",
-            "r":79,
+            "r":78,
             "g":50,
             "b":31,
             "a":255
@@ -1207,11 +1225,11 @@
         "data":13,
         "name":"绿色羊毛",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/wool_colored_green.png"
-        },
+           "path":"blocks/wool_colored_green.png"
+       },
         "color":{
             "type":"rgba",
-            "r":53,
+            "r":52,
             "g":70,
             "b":27,
             "a":255
@@ -1222,13 +1240,13 @@
         "data":14,
         "name":"红色羊毛",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/wool_colored_red.png"
-        },
+           "path":"blocks/wool_colored_red.png"
+       },
         "color":{
             "type":"rgba",
             "r":150,
-            "g":52,
-            "b":49,
+            "g":51,
+            "b":48,
             "a":255
         }
     },
@@ -1237,11 +1255,11 @@
         "data":15,
         "name":"黑色羊毛",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/wool_colored_black.png"
-        },
+           "path":"blocks/wool_colored_black.png"
+       },
         "color":{
             "type":"rgba",
-            "r":26,
+            "r":25,
             "g":22,
             "b":22,
             "a":255
@@ -1252,13 +1270,13 @@
         "data":0,
         "name":"白色地毯",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/wool_colored_white.png"
-        },
+           "path":"blocks/wool_colored_white.png"
+       },
         "color":{
             "type":"rgba",
-            "r":221,
-            "g":221,
-            "b":221,
+            "r":220,
+            "g":220,
+            "b":220,
             "a":255
         }
     },
@@ -1267,12 +1285,12 @@
         "data":1,
         "name":"橙色地毯",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/wool_colored_orange.png"
-        },
+           "path":"blocks/wool_colored_orange.png"
+       },
         "color":{
             "type":"rgba",
-            "r":219,
-            "g":125,
+            "r":218,
+            "g":124,
             "b":62,
             "a":255
         }
@@ -1282,11 +1300,11 @@
         "data":2,
         "name":"品红色地毯",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/wool_colored_magenta.png"
-        },
+           "path":"blocks/wool_colored_magenta.png"
+       },
         "color":{
             "type":"rgba",
-            "r":180,
+            "r":179,
             "g":80,
             "b":188,
             "a":255
@@ -1297,13 +1315,13 @@
         "data":3,
         "name":"淡蓝色地毯",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/wool_colored_light_blue.png"
-        },
+           "path":"blocks/wool_colored_light_blue.png"
+       },
         "color":{
             "type":"rgba",
-            "r":106,
+            "r":105,
             "g":137,
-            "b":201,
+            "b":200,
             "a":255
         }
     },
@@ -1312,8 +1330,8 @@
         "data":4,
         "name":"黄色地毯",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/wool_colored_yellow.png"
-        },
+           "path":"blocks/wool_colored_yellow.png"
+       },
         "color":{
             "type":"rgba",
             "r":176,
@@ -1327,11 +1345,11 @@
         "data":5,
         "name":"黄绿色地毯",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/wool_colored_lime.png"
-        },
+           "path":"blocks/wool_colored_lime.png"
+       },
         "color":{
             "type":"rgba",
-            "r":66,
+            "r":65,
             "g":173,
             "b":56,
             "a":255
@@ -1342,11 +1360,11 @@
         "data":6,
         "name":"粉红色地毯",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/wool_colored_pink.png"
-        },
+           "path":"blocks/wool_colored_pink.png"
+       },
         "color":{
             "type":"rgba",
-            "r":208,
+            "r":207,
             "g":131,
             "b":152,
             "a":255
@@ -1357,8 +1375,8 @@
         "data":7,
         "name":"灰色地毯",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/wool_colored_gray.png"
-        },
+           "path":"blocks/wool_colored_gray.png"
+       },
         "color":{
             "type":"rgba",
             "r":64,
@@ -1372,13 +1390,13 @@
         "data":8,
         "name":"淡灰色地毯",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/wool_colored_silver.png"
-        },
+           "path":"blocks/wool_colored_silver.png"
+       },
         "color":{
             "type":"rgba",
             "r":154,
-            "g":161,
-            "b":161,
+            "g":160,
+            "b":160,
             "a":255
         }
     },
@@ -1387,13 +1405,13 @@
         "data":9,
         "name":"青色地毯",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/wool_colored_cyan.png"
-        },
+           "path":"blocks/wool_colored_cyan.png"
+       },
         "color":{
             "type":"rgba",
             "r":46,
             "g":110,
-            "b":137,
+            "b":136,
             "a":255
         }
     },
@@ -1402,8 +1420,8 @@
         "data":10,
         "name":"紫色地毯",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/wool_colored_purple.png"
-        },
+           "path":"blocks/wool_colored_purple.png"
+       },
         "color":{
             "type":"rgba",
             "r":126,
@@ -1417,13 +1435,13 @@
         "data":11,
         "name":"蓝色地毯",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/wool_colored_blue.png"
-        },
+           "path":"blocks/wool_colored_blue.png"
+       },
         "color":{
             "type":"rgba",
             "r":46,
-            "g":57,
-            "b":141,
+            "g":56,
+            "b":140,
             "a":255
         }
     },
@@ -1432,11 +1450,11 @@
         "data":12,
         "name":"棕色地毯",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/wool_colored_brown.png"
-        },
+           "path":"blocks/wool_colored_brown.png"
+       },
         "color":{
             "type":"rgba",
-            "r":79,
+            "r":78,
             "g":50,
             "b":31,
             "a":255
@@ -1447,11 +1465,11 @@
         "data":13,
         "name":"绿色地毯",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/wool_colored_green.png"
-        },
+           "path":"blocks/wool_colored_green.png"
+       },
         "color":{
             "type":"rgba",
-            "r":53,
+            "r":52,
             "g":70,
             "b":27,
             "a":255
@@ -1462,13 +1480,13 @@
         "data":14,
         "name":"红色地毯",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/wool_colored_red.png"
-        },
+           "path":"blocks/wool_colored_red.png"
+       },
         "color":{
             "type":"rgba",
             "r":150,
-            "g":52,
-            "b":49,
+            "g":51,
+            "b":48,
             "a":255
         }
     },
@@ -1477,11 +1495,11 @@
         "data":15,
         "name":"黑色地毯",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/wool_colored_black.png"
-        },
+           "path":"blocks/wool_colored_black.png"
+       },
         "color":{
             "type":"rgba",
-            "r":26,
+            "r":25,
             "g":22,
             "b":22,
             "a":255
@@ -1492,11 +1510,11 @@
         "data":0,
         "name":"白色染色粘土",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/hardened_clay_stained_white.png"
-        },
+           "path":"blocks/hardened_clay_stained_white.png"
+       },
         "color":{
             "type":"rgba",
-            "r":210,
+            "r":209,
             "g":178,
             "b":161,
             "a":255
@@ -1507,13 +1525,13 @@
         "data":1,
         "name":"橙色染色粘土",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/hardened_clay_stained_orange.png"
-        },
+           "path":"blocks/hardened_clay_stained_orange.png"
+       },
         "color":{
             "type":"rgba",
-            "r":162,
+            "r":161,
             "g":84,
-            "b":38,
+            "b":37,
             "a":255
         }
     },
@@ -1522,13 +1540,13 @@
         "data":2,
         "name":"品红色染色粘土",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/hardened_clay_stained_magenta.png"
-        },
+           "path":"blocks/hardened_clay_stained_magenta.png"
+       },
         "color":{
             "type":"rgba",
-            "r":150,
+            "r":149,
             "g":88,
-            "b":109,
+            "b":108,
             "a":255
         }
     },
@@ -1537,13 +1555,13 @@
         "data":3,
         "name":"淡蓝色染色粘土",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/hardened_clay_stained_light_blue.png"
-        },
+           "path":"blocks/hardened_clay_stained_light_blue.png"
+       },
         "color":{
             "type":"rgba",
-            "r":114,
-            "g":109,
-            "b":138,
+            "r":113,
+            "g":108,
+            "b":137,
             "a":255
         }
     },
@@ -1552,8 +1570,8 @@
         "data":4,
         "name":"黄色染色粘土",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/hardened_clay_stained_yellow.png"
-        },
+           "path":"blocks/hardened_clay_stained_yellow.png"
+       },
         "color":{
             "type":"rgba",
             "r":186,
@@ -1567,13 +1585,13 @@
         "data":5,
         "name":"黄绿色染色粘土",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/hardened_clay_stained_lime.png"
-        },
+           "path":"blocks/hardened_clay_stained_lime.png"
+       },
         "color":{
             "type":"rgba",
-            "r":104,
-            "g":118,
-            "b":53,
+            "r":103,
+            "g":117,
+            "b":52,
             "a":255
         }
     },
@@ -1582,13 +1600,13 @@
         "data":6,
         "name":"粉红色染色粘土",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/hardened_clay_stained_pink.png"
-        },
+           "path":"blocks/hardened_clay_stained_pink.png"
+       },
         "color":{
             "type":"rgba",
-            "r":162,
+            "r":161,
             "g":78,
-            "b":79,
+            "b":78,
             "a":255
         }
     },
@@ -1597,13 +1615,13 @@
         "data":7,
         "name":"灰色染色粘土",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/hardened_clay_stained_gray.png"
-        },
+           "path":"blocks/hardened_clay_stained_gray.png"
+       },
         "color":{
             "type":"rgba",
             "r":58,
-            "g":43,
-            "b":36,
+            "g":42,
+            "b":35,
             "a":255
         }
     },
@@ -1612,13 +1630,13 @@
         "data":8,
         "name":"淡灰色染色粘土",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/hardened_clay_stained_silver.png"
-        },
+           "path":"blocks/hardened_clay_stained_silver.png"
+       },
         "color":{
             "type":"rgba",
             "r":135,
             "g":107,
-            "b":98,
+            "b":97,
             "a":255
         }
     },
@@ -1627,11 +1645,11 @@
         "data":9,
         "name":"青色染色粘土",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/hardened_clay_stained_cyan.png"
-        },
+           "path":"blocks/hardened_clay_stained_cyan.png"
+       },
         "color":{
             "type":"rgba",
-            "r":87,
+            "r":86,
             "g":91,
             "b":91,
             "a":255
@@ -1642,8 +1660,8 @@
         "data":10,
         "name":"紫色染色粘土",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/hardened_clay_stained_purple.png"
-        },
+           "path":"blocks/hardened_clay_stained_purple.png"
+       },
         "color":{
             "type":"rgba",
             "r":118,
@@ -1657,12 +1675,12 @@
         "data":11,
         "name":"蓝色染色粘土",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/hardened_clay_stained_blue.png"
-        },
+           "path":"blocks/hardened_clay_stained_blue.png"
+       },
         "color":{
             "type":"rgba",
             "r":74,
-            "g":60,
+            "g":59,
             "b":91,
             "a":255
         }
@@ -1672,13 +1690,13 @@
         "data":12,
         "name":"棕色染色粘土",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/hardened_clay_stained_brown.png"
-        },
+           "path":"blocks/hardened_clay_stained_brown.png"
+       },
         "color":{
             "type":"rgba",
             "r":77,
             "g":51,
-            "b":36,
+            "b":35,
             "a":255
         }
     },
@@ -1687,13 +1705,13 @@
         "data":13,
         "name":"绿色染色粘土",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/hardened_clay_stained_green.png"
-        },
+           "path":"blocks/hardened_clay_stained_green.png"
+       },
         "color":{
             "type":"rgba",
             "r":76,
             "g":83,
-            "b":43,
+            "b":42,
             "a":255
         }
     },
@@ -1702,8 +1720,8 @@
         "data":14,
         "name":"红色染色粘土",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/hardened_clay_stained_red.png"
-        },
+           "path":"blocks/hardened_clay_stained_red.png"
+       },
         "color":{
             "type":"rgba",
             "r":143,
@@ -1717,13 +1735,13 @@
         "data":15,
         "name":"黑色染色粘土",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/hardened_clay_stained_black.png"
-        },
+           "path":"blocks/hardened_clay_stained_black.png"
+       },
         "color":{
             "type":"rgba",
             "r":37,
             "g":23,
-            "b":17,
+            "b":16,
             "a":255
         }
     },
@@ -1732,14 +1750,14 @@
         "data":0,
         "name":"白色染色玻璃板",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/glass_pane_top_white.png"
-        },
+           "path":"blocks/glass_pane_top_white.png"
+       },
         "color":{
             "type":"rgba",
-            "r":246,
-            "g":246,
-            "b":246,
-            "a":29
+            "r":253,
+            "g":253,
+            "b":253,
+            "a":28
         }
     },
     {
@@ -1747,14 +1765,14 @@
         "data":1,
         "name":"橙色染色玻璃板",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/glass_pane_top_orange.png"
-        },
+           "path":"blocks/glass_pane_top_orange.png"
+       },
         "color":{
             "type":"rgba",
-            "r":211,
-            "g":123,
-            "b":44,
-            "a":29
+            "r":249,
+            "g":238,
+            "b":229,
+            "a":28
         }
     },
     {
@@ -1762,14 +1780,14 @@
         "data":2,
         "name":"品红色染色玻璃板",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/glass_pane_top_magenta.png"
-        },
+           "path":"blocks/glass_pane_top_magenta.png"
+       },
         "color":{
             "type":"rgba",
-            "r":167,
-            "g":70,
-            "b":211,
-            "a":29
+            "r":244,
+            "g":232,
+            "b":249,
+            "a":28
         }
     },
     {
@@ -1777,14 +1795,14 @@
         "data":3,
         "name":"淡蓝色染色玻璃板",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/glass_pane_top_light_blue.png"
-        },
+           "path":"blocks/glass_pane_top_light_blue.png"
+       },
         "color":{
             "type":"rgba",
-            "r":97,
-            "g":149,
-            "b":211,
-            "a":29
+            "r":235,
+            "g":241,
+            "b":249,
+            "a":28
         }
     },
     {
@@ -1792,14 +1810,14 @@
         "data":4,
         "name":"黄色染色玻璃板",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/glass_pane_top_yellow.png"
-        },
+           "path":"blocks/glass_pane_top_yellow.png"
+       },
         "color":{
             "type":"rgba",
-            "r":220,
-            "g":220,
-            "b":44,
-            "a":29
+            "r":250,
+            "g":250,
+            "b":229,
+            "a":28
         }
     },
     {
@@ -1807,14 +1825,14 @@
         "data":5,
         "name":"黄绿色染色玻璃板",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/glass_pane_top_lime.png"
-        },
+           "path":"blocks/glass_pane_top_lime.png"
+       },
         "color":{
             "type":"rgba",
-            "r":123,
-            "g":193,
-            "b":26,
-            "a":29
+            "r":238,
+            "g":247,
+            "b":226,
+            "a":28
         }
     },
     {
@@ -1822,14 +1840,14 @@
         "data":6,
         "name":"粉红色染色玻璃板",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/glass_pane_top_pink.png"
-        },
+           "path":"blocks/glass_pane_top_pink.png"
+       },
         "color":{
             "type":"rgba",
-            "r":229,
-            "g":123,
-            "b":158,
-            "a":29
+            "r":252,
+            "g":238,
+            "b":243,
+            "a":28
         }
     },
     {
@@ -1837,14 +1855,14 @@
         "data":7,
         "name":"灰色染色玻璃板",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/glass_pane_top_gray.png"
-        },
+           "path":"blocks/glass_pane_top_gray.png"
+       },
         "color":{
             "type":"rgba",
-            "r":70,
-            "g":70,
-            "b":70,
-            "a":29
+            "r":232,
+            "g":232,
+            "b":232,
+            "a":28
         }
     },
     {
@@ -1852,14 +1870,14 @@
         "data":8,
         "name":"淡灰色染色玻璃板",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/glass_pane_top_silver.png"
-        },
+           "path":"blocks/glass_pane_top_silver.png"
+       },
         "color":{
             "type":"rgba",
-            "r":149,
-            "g":149,
-            "b":149,
-            "a":29
+            "r":241,
+            "g":241,
+            "b":241,
+            "a":28
         }
     },
     {
@@ -1867,14 +1885,14 @@
         "data":9,
         "name":"青色染色玻璃板",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/glass_pane_top_cyan.png"
-        },
+           "path":"blocks/glass_pane_top_cyan.png"
+       },
         "color":{
             "type":"rgba",
-            "r":70,
-            "g":123,
-            "b":149,
-            "a":29
+            "r":232,
+            "g":238,
+            "b":241,
+            "a":28
         }
     },
     {
@@ -1882,14 +1900,14 @@
         "data":10,
         "name":"紫色染色玻璃板",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/glass_pane_top_purple.png"
-        },
+           "path":"blocks/glass_pane_top_purple.png"
+       },
         "color":{
             "type":"rgba",
-            "r":123,
-            "g":62,
-            "b":167,
-            "a":29
+            "r":238,
+            "g":230,
+            "b":244,
+            "a":28
         }
     },
     {
@@ -1897,14 +1915,14 @@
         "data":11,
         "name":"蓝色染色玻璃板",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/glass_pane_top_blue.png"
-        },
+           "path":"blocks/glass_pane_top_blue.png"
+       },
         "color":{
             "type":"rgba",
-            "r":44,
-            "g":70,
-            "b":167,
-            "a":29
+            "r":229,
+            "g":232,
+            "b":244,
+            "a":28
         }
     },
     {
@@ -1912,14 +1930,14 @@
         "data":12,
         "name":"棕色染色玻璃板",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/glass_pane_top_brown.png"
-        },
+           "path":"blocks/glass_pane_top_brown.png"
+       },
         "color":{
             "type":"rgba",
-            "r":97,
-            "g":70,
-            "b":44,
-            "a":29
+            "r":235,
+            "g":232,
+            "b":229,
+            "a":28
         }
     },
     {
@@ -1927,14 +1945,14 @@
         "data":13,
         "name":"绿色染色玻璃板",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/glass_pane_top_green.png"
-        },
+           "path":"blocks/glass_pane_top_green.png"
+       },
         "color":{
             "type":"rgba",
-            "r":97,
-            "g":123,
-            "b":44,
-            "a":29
+            "r":235,
+            "g":238,
+            "b":229,
+            "a":28
         }
     },
     {
@@ -1942,14 +1960,14 @@
         "data":14,
         "name":"红色染色玻璃板",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/glass_pane_top_red.png"
-        },
+           "path":"blocks/glass_pane_top_red.png"
+       },
         "color":{
             "type":"rgba",
-            "r":149,
-            "g":44,
-            "b":44,
-            "a":29
+            "r":241,
+            "g":229,
+            "b":229,
+            "a":28
         }
     },
     {
@@ -1957,14 +1975,14 @@
         "data":15,
         "name":"黑色染色玻璃板",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/glass_pane_top_black.png"
-        },
+           "path":"blocks/glass_pane_top_black.png"
+       },
         "color":{
             "type":"rgba",
-            "r":26,
-            "g":26,
-            "b":26,
-            "a":29
+            "r":226,
+            "g":226,
+            "b":226,
+            "a":28
         }
     },
     {
@@ -1972,14 +1990,14 @@
         "data":0,
         "name":"白色染色玻璃",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/glass_white.png"
-        },
+           "path":"blocks/glass_white.png"
+       },
         "color":{
             "type":"rgba",
             "r":255,
             "g":255,
             "b":255,
-            "a":113
+            "a":112
         }
     },
     {
@@ -1987,14 +2005,14 @@
         "data":1,
         "name":"橙色染色玻璃",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/glass_orange.png"
-        },
+           "path":"blocks/glass_orange.png"
+       },
         "color":{
             "type":"rgba",
-            "r":217,
-            "g":126,
-            "b":52,
-            "a":113
+            "r":216,
+            "g":127,
+            "b":51,
+            "a":112
         }
     },
     {
@@ -2002,14 +2020,14 @@
         "data":2,
         "name":"品红色染色玻璃",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/glass_magenta.png"
-        },
+           "path":"blocks/glass_magenta.png"
+       },
         "color":{
             "type":"rgba",
             "r":178,
-            "g":77,
-            "b":217,
-            "a":113
+            "g":76,
+            "b":216,
+            "a":112
         }
     },
     {
@@ -2017,14 +2035,14 @@
         "data":3,
         "name":"淡蓝色染色玻璃",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/glass_light_blue.png"
-        },
+           "path":"blocks/glass_light_blue.png"
+       },
         "color":{
             "type":"rgba",
             "r":102,
             "g":153,
-            "b":217,
-            "a":113
+            "b":216,
+            "a":112
         }
     },
     {
@@ -2032,14 +2050,14 @@
         "data":4,
         "name":"黄色染色玻璃",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/glass_lime.png"
-        },
+           "path":"blocks/glass_lime.png"
+       },
         "color":{
             "type":"rgba",
-            "r":126,
-            "g":203,
+            "r":127,
+            "g":204,
             "b":25,
-            "a":113
+            "a":112
         }
     },
     {
@@ -2047,14 +2065,14 @@
         "data":5,
         "name":"黄绿色染色玻璃",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/glass_yellow.png"
-        },
+           "path":"blocks/glass_yellow.png"
+       },
         "color":{
             "type":"rgba",
-            "r":228,
-            "g":228,
-            "b":52,
-            "a":113
+            "r":229,
+            "g":229,
+            "b":51,
+            "a":112
         }
     },
     {
@@ -2062,14 +2080,14 @@
         "data":6,
         "name":"粉红色染色玻璃",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/glass_pink.png"
-        },
+           "path":"blocks/glass_pink.png"
+       },
         "color":{
             "type":"rgba",
-            "r":241,
-            "g":126,
+            "r":242,
+            "g":127,
             "b":165,
-            "a":113
+            "a":112
         }
     },
     {
@@ -2077,14 +2095,14 @@
         "data":7,
         "name":"灰色染色玻璃",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/glass_gray.png"
-        },
+           "path":"blocks/glass_gray.png"
+       },
         "color":{
             "type":"rgba",
-            "r":77,
-            "g":77,
-            "b":77,
-            "a":113
+            "r":76,
+            "g":76,
+            "b":76,
+            "a":112
         }
     },
     {
@@ -2092,14 +2110,14 @@
         "data":8,
         "name":"淡灰色染色玻璃",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/glass_silver.png"
-        },
+           "path":"blocks/glass_silver.png"
+       },
         "color":{
             "type":"rgba",
             "r":153,
             "g":153,
             "b":153,
-            "a":113
+            "a":112
         }
     },
     {
@@ -2107,14 +2125,14 @@
         "data":9,
         "name":"青色染色玻璃",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/glass_cyan.png"
-        },
+           "path":"blocks/glass_cyan.png"
+       },
         "color":{
             "type":"rgba",
-            "r":77,
-            "g":126,
+            "r":76,
+            "g":127,
             "b":153,
-            "a":113
+            "a":112
         }
     },
     {
@@ -2122,14 +2140,14 @@
         "data":10,
         "name":"紫色染色玻璃",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/glass_purple.png"
-        },
+           "path":"blocks/glass_purple.png"
+       },
         "color":{
             "type":"rgba",
-            "r":126,
+            "r":127,
             "g":63,
             "b":178,
-            "a":113
+            "a":112
         }
     },
     {
@@ -2137,14 +2155,14 @@
         "data":11,
         "name":"蓝色染色玻璃",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/glass_blue.png"
-        },
+           "path":"blocks/glass_blue.png"
+       },
         "color":{
             "type":"rgba",
-            "r":52,
-            "g":77,
+            "r":51,
+            "g":76,
             "b":178,
-            "a":113
+            "a":112
         }
     },
     {
@@ -2152,14 +2170,14 @@
         "data":12,
         "name":"棕色染色玻璃",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/glass_brown.png"
-        },
+           "path":"blocks/glass_brown.png"
+       },
         "color":{
             "type":"rgba",
             "r":102,
-            "g":77,
-            "b":52,
-            "a":113
+            "g":76,
+            "b":51,
+            "a":112
         }
     },
     {
@@ -2167,14 +2185,14 @@
         "data":13,
         "name":"绿色染色玻璃",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/glass_green.png"
-        },
+           "path":"blocks/glass_green.png"
+       },
         "color":{
             "type":"rgba",
             "r":102,
-            "g":126,
-            "b":52,
-            "a":113
+            "g":127,
+            "b":51,
+            "a":112
         }
     },
     {
@@ -2182,14 +2200,14 @@
         "data":14,
         "name":"红色染色玻璃",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/glass_red.png"
-        },
+           "path":"blocks/glass_red.png"
+       },
         "color":{
             "type":"rgba",
             "r":153,
-            "g":52,
-            "b":52,
-            "a":113
+            "g":51,
+            "b":51,
+            "a":112
         }
     },
     {
@@ -2197,14 +2215,14 @@
         "data":15,
         "name":"黑色染色玻璃",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/glass_black.png"
-        },
+           "path":"blocks/glass_black.png"
+       },
         "color":{
             "type":"rgba",
             "r":25,
             "g":25,
             "b":25,
-            "a":113
+            "a":112
         }
     },
     {
@@ -2272,8 +2290,8 @@
         "data":0,
         "name":"金块",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/gold_block.png"
-        },
+           "path":"blocks/gold_block.png"
+       },
         "color":{
             "type":"rgba",
             "r":250,
@@ -2287,13 +2305,13 @@
         "data":0,
         "name":"铁块",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/iron_block.png"
-        },
+           "path":"blocks/iron_block.png"
+       },
         "color":{
             "type":"rgba",
-            "r":222,
-            "g":222,
-            "b":222,
+            "r":221,
+            "g":221,
+            "b":221,
             "a":255
         }
     },
@@ -2302,8 +2320,8 @@
         "data":0,
         "name":"双石台阶",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/stone.png"
-        },
+           "path":"blocks/stone.png"
+       },
         "color":{
             "type":"rgba",
             "r":125,
@@ -2317,8 +2335,8 @@
         "data":0,
         "name":"石台阶",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/stone.png"
-        },
+           "path":"blocks/stone.png"
+       },
         "color":{
             "type":"rgba",
             "r":125,
@@ -2332,13 +2350,13 @@
         "data":0,
         "name":"砖块",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/brick.png"
-        },
+           "path":"blocks/brick.png"
+       },
         "color":{
             "type":"rgba",
-            "r":137,
-            "g":86,
-            "b":72,
+            "r":136,
+            "g":85,
+            "b":71,
             "a":255
         }
     },
@@ -2347,12 +2365,12 @@
         "data":0,
         "name":"TNT",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/tnt_top.png"
-        },
+           "path":"blocks/tnt_top.png"
+       },
         "color":{
             "type":"rgba",
             "r":139,
-            "g":89,
+            "g":88,
             "b":74,
             "a":255
         }
@@ -2362,13 +2380,13 @@
         "data":0,
         "name":"书架",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/planks_oak.png"
-        },
+           "path":"blocks/planks_oak.png"
+       },
         "color":{
             "type":"rgba",
             "r":166,
             "g":135,
-            "b":84,
+            "b":83,
             "a":255
         }
     },
@@ -2377,13 +2395,13 @@
         "data":0,
         "name":"苔石",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/cobblestone_mossy.png"
-        },
+           "path":"blocks/cobblestone_mossy.png"
+       },
         "color":{
             "type":"rgba",
-            "r":105,
-            "g":121,
-            "b":105,
+            "r":104,
+            "g":120,
+            "b":104,
             "a":255
         }
     },
@@ -2392,13 +2410,13 @@
         "data":0,
         "name":"黑曜石",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/obsidian.png"
-        },
+           "path":"blocks/obsidian.png"
+       },
         "color":{
             "type":"rgba",
-            "r":20,
+            "r":19,
             "g":18,
-            "b":30,
+            "b":29,
             "a":255
         }
     },
@@ -2407,14 +2425,14 @@
         "data":0,
         "name":"火把",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/torch_on.png"
-        },
+           "path":"blocks/torch_on.png"
+       },
         "color":{
             "type":"rgba",
-            "r":128,
-            "g":102,
-            "b":64,
-            "a":20
+            "r":245,
+            "g":243,
+            "b":239,
+            "a":19
         }
     },
     {
@@ -2422,14 +2440,14 @@
         "data":0,
         "name":"火",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/fire_layer_0.png"
-        },
+           "path":"blocks/fire_layer_0.png"
+       },
         "color":{
             "type":"rgba",
-            "r":220,
-            "g":160,
-            "b":82,
-            "a":187
+            "r":160,
+            "g":117,
+            "b":59,
+            "a":186
         }
     },
     {
@@ -2437,13 +2455,13 @@
         "data":0,
         "name":"刷怪箱",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/mob_spawner.png"
-        },
+           "path":"blocks/mob_spawner.png"
+       },
         "color":{
             "type":"rgba",
-            "r":31,
-            "g":46,
-            "b":56,
+            "r":119,
+            "g":127,
+            "b":133,
             "a":155
         }
     },
@@ -2452,13 +2470,13 @@
         "data":0,
         "name":"橡木楼梯",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/planks_oak.png"
-        },
+           "path":"blocks/planks_oak.png"
+       },
         "color":{
             "type":"rgba",
             "r":166,
             "g":135,
-            "b":84,
+            "b":83,
             "a":255
         }
     },
@@ -2466,12 +2484,22 @@
         "id":54,
         "data":0,
         "name":"箱子",
+        "texture":{
+           "path":"entity/chest/normal.png",
+           "base":64,
+           "x":28,
+           "y":19,
+           "w":14,
+           "h":14,
+           "bw":16,
+           "bh":16
+       },
         "color":{
             "type":"rgba",
-            "r":150,
-            "g":104,
-            "b":33,
-            "a":255
+            "r":99,
+            "g":71,
+            "b":28,
+            "a":195
         }
     },
     {
@@ -2491,12 +2519,12 @@
         "data":0,
         "name":"钻石矿石",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/diamond_ore.png"
-        },
+           "path":"blocks/diamond_ore.png"
+       },
         "color":{
             "type":"rgba",
-            "r":131,
-            "g":142,
+            "r":130,
+            "g":141,
             "b":145,
             "a":255
         }
@@ -2506,11 +2534,11 @@
         "data":0,
         "name":"钻石块",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/diamond_block.png"
-        },
+           "path":"blocks/diamond_block.png"
+       },
         "color":{
             "type":"rgba",
-            "r":106,
+            "r":105,
             "g":221,
             "b":216,
             "a":255
@@ -2521,12 +2549,12 @@
         "data":0,
         "name":"工作台",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/crafting_table_top.png"
-        },
+           "path":"blocks/crafting_table_top.png"
+       },
         "color":{
             "type":"rgba",
-            "r":130,
-            "g":88,
+            "r":129,
+            "g":87,
             "b":53,
             "a":255
         }
@@ -2536,14 +2564,14 @@
         "data":0,
         "name":"小麦",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/wheat_stage_5.png"
-        },
+           "path":"blocks/wheat_stage_5.png"
+       },
         "color":{
             "type":"rgba",
-            "r":59,
-            "g":114,
-            "b":6,
-            "a":125
+            "r":159,
+            "g":186,
+            "b":133,
+            "a":124
         }
     },
     {
@@ -2551,12 +2579,12 @@
         "data":0,
         "name":"耕地",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/farmland_dry.png"
-        },
+           "path":"blocks/farmland_dry.png"
+       },
         "color":{
             "type":"rgba",
             "r":119,
-            "g":79,
+            "g":78,
             "b":47,
             "a":255
         }
@@ -2566,13 +2594,13 @@
         "data":0,
         "name":"熔炉",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/furnace_top.png"
-        },
+           "path":"blocks/furnace_top.png"
+       },
         "color":{
             "type":"rgba",
-            "r":102,
-            "g":102,
-            "b":102,
+            "r":101,
+            "g":101,
+            "b":101,
             "a":255
         }
     },
@@ -2581,13 +2609,13 @@
         "data":0,
         "name":"燃烧的熔炉",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/furnace_top.png"
-        },
+           "path":"blocks/furnace_top.png"
+       },
         "color":{
             "type":"rgba",
-            "r":102,
-            "g":102,
-            "b":102,
+            "r":101,
+            "g":101,
+            "b":101,
             "a":255
         }
     },
@@ -2620,13 +2648,13 @@
         "data":0,
         "name":"梯子",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/ladder.png"
-        },
+           "path":"blocks/ladder.png"
+       },
         "color":{
             "type":"rgba",
-            "r":127,
-            "g":100,
-            "b":55,
+            "r":182,
+            "g":167,
+            "b":142,
             "a":143
         }
     },
@@ -2635,13 +2663,13 @@
         "data":0,
         "name":"铁轨",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/rail_normal.png"
-        },
+           "path":"blocks/rail_normal.png"
+       },
         "color":{
             "type":"rgba",
-            "r":121,
-            "g":109,
-            "b":87,
+            "r":179,
+            "g":172,
+            "b":161,
             "a":143
         }
     },
@@ -2650,8 +2678,8 @@
         "data":0,
         "name":"圆石楼梯",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/cobblestone.png"
-        },
+           "path":"blocks/cobblestone.png"
+       },
         "color":{
             "type":"rgba",
             "r":123,
@@ -2677,14 +2705,14 @@
         "data":0,
         "name":"拉杆",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/lever.png"
-        },
+           "path":"blocks/lever.png"
+       },
         "color":{
             "type":"rgba",
-            "r":102,
-            "g":89,
-            "b":64,
-            "a":20
+            "r":243,
+            "g":241,
+            "b":240,
+            "a":19
         }
     },
     {
@@ -2692,8 +2720,8 @@
         "data":0,
         "name":"石质压力板",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/stone.png"
-        },
+           "path":"blocks/stone.png"
+       },
         "color":{
             "type":"rgba",
             "r":125,
@@ -2719,13 +2747,13 @@
         "data":0,
         "name":"木质压力板",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/planks_oak.png"
-        },
+           "path":"blocks/planks_oak.png"
+       },
         "color":{
             "type":"rgba",
             "r":166,
             "g":135,
-            "b":84,
+            "b":83,
             "a":255
         }
     },
@@ -2734,13 +2762,13 @@
         "data":0,
         "name":"红石矿石",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/redstone_ore.png"
-        },
+           "path":"blocks/redstone_ore.png"
+       },
         "color":{
             "type":"rgba",
-            "r":133,
-            "g":106,
-            "b":106,
+            "r":132,
+            "g":105,
+            "b":105,
             "a":255
         }
     },
@@ -2749,13 +2777,13 @@
         "data":0,
         "name":"发光的红石矿石",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/redstone_ore.png"
-        },
+           "path":"blocks/redstone_ore.png"
+       },
         "color":{
             "type":"rgba",
-            "r":133,
-            "g":106,
-            "b":106,
+            "r":132,
+            "g":105,
+            "b":105,
             "a":255
         }
     },
@@ -2764,14 +2792,14 @@
         "data":0,
         "name":"红石火把(未开启)",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/redstone_torch_off.png"
-        },
+           "path":"blocks/redstone_torch_off.png"
+       },
         "color":{
             "type":"rgba",
-            "r":89,
-            "g":64,
-            "b":38,
-            "a":20
+            "r":242,
+            "g":240,
+            "b":238,
+            "a":19
         }
     },
     {
@@ -2779,14 +2807,14 @@
         "data":0,
         "name":"红石火把(已开启)",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/redstone_torch_on.png"
-        },
+           "path":"blocks/redstone_torch_on.png"
+       },
         "color":{
             "type":"rgba",
-            "r":149,
-            "g":85,
-            "b":53,
-            "a":24
+            "r":245,
+            "g":239,
+            "b":235,
+            "a":23
         }
     },
     {
@@ -2806,11 +2834,11 @@
         "data":0,
         "name":"雪",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/snow.png"
-        },
+           "path":"blocks/snow.png"
+       },
         "color":{
             "type":"rgba",
-            "r":240,
+            "r":239,
             "g":251,
             "b":251,
             "a":255
@@ -2821,12 +2849,12 @@
         "data":0,
         "name":"冰",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/ice.png"
-        },
+           "path":"blocks/ice.png"
+       },
         "color":{
             "type":"rgba",
             "r":122,
-            "g":172,
+            "g":171,
             "b":255,
             "a":159
         }
@@ -2836,11 +2864,11 @@
         "data":0,
         "name":"雪块",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/snow.png"
-        },
+           "path":"blocks/snow.png"
+       },
         "color":{
             "type":"rgba",
-            "r":240,
+            "r":239,
             "g":251,
             "b":251,
             "a":255
@@ -2851,13 +2879,13 @@
         "data":0,
         "name":"仙人掌",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/cactus_top.png"
-        },
+           "path":"blocks/cactus_top.png"
+       },
         "color":{
             "type":"rgba",
-            "r":14,
-            "g":109,
-            "b":26,
+            "r":70,
+            "g":143,
+            "b":79,
             "a":195
         }
     },
@@ -2866,13 +2894,13 @@
         "data":0,
         "name":"粘土",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/clay.png"
-        },
+           "path":"blocks/clay.png"
+       },
         "color":{
             "type":"rgba",
-            "r":159,
+            "r":158,
             "g":164,
-            "b":177,
+            "b":176,
             "a":255
         }
     },
@@ -2881,13 +2909,13 @@
         "data":0,
         "name":"甘蔗",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/reeds.png"
-        },
+           "path":"blocks/reeds.png"
+       },
         "color":{
             "type":"rgba",
-            "r":149,
-            "g":193,
-            "b":100,
+            "r":198,
+            "g":222,
+            "b":173,
             "a":135
         }
     },
@@ -2896,12 +2924,12 @@
         "data":0,
         "name":"唱片机",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/jukebox_top.png"
-        },
+           "path":"blocks/jukebox_top.png"
+       },
         "color":{
             "type":"rgba",
             "r":115,
-            "g":79,
+            "g":78,
             "b":59,
             "a":255
         }
@@ -2923,13 +2951,13 @@
         "data":0,
         "name":"南瓜",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/pumpkin_top.png"
-        },
+           "path":"blocks/pumpkin_top.png"
+       },
         "color":{
             "type":"rgba",
             "r":204,
-            "g":127,
-            "b":24,
+            "g":126,
+            "b":23,
             "a":255
         }
     },
@@ -2938,13 +2966,13 @@
         "data":0,
         "name":"地狱岩",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/netherrack.png"
-        },
+           "path":"blocks/netherrack.png"
+       },
         "color":{
             "type":"rgba",
-            "r":107,
-            "g":49,
-            "b":49,
+            "r":106,
+            "g":48,
+            "b":48,
             "a":255
         }
     },
@@ -2953,13 +2981,13 @@
         "data":0,
         "name":"灵魂沙",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/soul_sand.png"
-        },
+           "path":"blocks/soul_sand.png"
+       },
         "color":{
             "type":"rgba",
-            "r":86,
+            "r":85,
             "g":65,
-            "b":53,
+            "b":52,
             "a":255
         }
     },
@@ -2968,12 +2996,12 @@
         "data":0,
         "name":"萤石",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/glowstone.png"
-        },
+           "path":"blocks/glowstone.png"
+       },
         "color":{
             "type":"rgba",
             "r":146,
-            "g":119,
+            "g":118,
             "b":70,
             "a":255
         }
@@ -2983,14 +3011,14 @@
         "data":0,
         "name":"下界传送门",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/portal.png"
-        },
+           "path":"blocks/portal.png"
+       },
         "color":{
             "type":"rgba",
-            "r":92,
-            "g":11,
-            "b":195,
-            "a":192
+            "r":89,
+            "g":9,
+            "b":194,
+            "a":191
         }
     },
     {
@@ -2998,13 +3026,13 @@
         "data":0,
         "name":"南瓜灯",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/pumpkin_top.png"
-        },
+           "path":"blocks/pumpkin_top.png"
+       },
         "color":{
             "type":"rgba",
             "r":204,
-            "g":127,
-            "b":24,
+            "g":126,
+            "b":23,
             "a":255
         }
     },
@@ -3013,13 +3041,13 @@
         "data":0,
         "name":"蛋糕",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/cake_top.png"
-        },
+           "path":"blocks/cake_top.png"
+       },
         "color":{
             "type":"rgba",
-            "r":229,
-            "g":211,
-            "b":212,
+            "r":235,
+            "g":220,
+            "b":221,
             "a":195
         }
     },
@@ -3028,11 +3056,11 @@
         "data":0,
         "name":"红石中继器(未开启)",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/repeater_off.png"
-        },
+           "path":"blocks/repeater_off.png"
+       },
         "color":{
             "type":"rgba",
-            "r":153,
+            "r":152,
             "g":148,
             "b":148,
             "a":255
@@ -3043,11 +3071,11 @@
         "data":0,
         "name":"红石中继器(已开启)",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/repeater_on.png"
-        },
+           "path":"blocks/repeater_on.png"
+       },
         "color":{
             "type":"rgba",
-            "r":162,
+            "r":161,
             "g":148,
             "b":148,
             "a":255
@@ -3058,13 +3086,13 @@
         "data":0,
         "name":"活板门",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/trapdoor.png"
-        },
+           "path":"blocks/trapdoor.png"
+       },
         "color":{
             "type":"rgba",
-            "r":132,
-            "g":97,
-            "b":47,
+            "r":148,
+            "g":118,
+            "b":76,
             "a":219
         }
     },
@@ -3073,8 +3101,8 @@
         "data":0,
         "name":"怪物蛋",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/stone.png"
-        },
+           "path":"blocks/stone.png"
+       },
         "color":{
             "type":"rgba",
             "r":125,
@@ -3088,8 +3116,8 @@
         "data":0,
         "name":"石砖",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/stonebrick.png"
-        },
+           "path":"blocks/stonebrick.png"
+       },
         "color":{
             "type":"rgba",
             "r":121,
@@ -3103,8 +3131,8 @@
         "data":0,
         "name":"棕色巨型蘑菇",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/mushroom_block_skin_brown.png"
-        },
+           "path":"blocks/mushroom_block_skin_brown.png"
+       },
         "color":{
             "type":"rgba",
             "r":142,
@@ -3118,12 +3146,12 @@
         "data":0,
         "name":"红色巨型蘑菇",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/mushroom_block_skin_red.png"
-        },
+           "path":"blocks/mushroom_block_skin_red.png"
+       },
         "color":{
             "type":"rgba",
-            "r":185,
-            "g":47,
+            "r":184,
+            "g":46,
             "b":45,
             "a":255
         }
@@ -3133,14 +3161,14 @@
         "data":0,
         "name":"铁栏杆",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/iron_bars.png"
-        },
+           "path":"blocks/iron_bars.png"
+       },
         "color":{
             "type":"rgba",
-            "r":110,
-            "g":110,
-            "b":108,
-            "a":116
+            "r":189,
+            "g":188,
+            "b":188,
+            "a":115
         }
     },
     {
@@ -3148,14 +3176,14 @@
         "data":0,
         "name":"玻璃板",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/glass_pane_top.png"
-        },
+           "path":"blocks/glass_pane_top.png"
+       },
         "color":{
             "type":"rgba",
-            "r":207,
-            "g":239,
-            "b":247,
-            "a":32
+            "r":249,
+            "g":253,
+            "b":253,
+            "a":31
         }
     },
     {
@@ -3163,13 +3191,13 @@
         "data":0,
         "name":"西瓜片",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/melon_top.png"
-        },
+           "path":"blocks/melon_top.png"
+       },
         "color":{
             "type":"rgba",
             "r":149,
-            "g":152,
-            "b":37,
+            "g":151,
+            "b":36,
             "a":255
         }
     },
@@ -3226,13 +3254,13 @@
         "data":0,
         "name":"砖块楼梯",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/brick.png"
-        },
+           "path":"blocks/brick.png"
+       },
         "color":{
             "type":"rgba",
-            "r":137,
-            "g":86,
-            "b":72,
+            "r":136,
+            "g":85,
+            "b":71,
             "a":255
         }
     },
@@ -3241,8 +3269,8 @@
         "data":0,
         "name":"石砖楼梯",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/stonebrick.png"
-        },
+           "path":"blocks/stonebrick.png"
+       },
         "color":{
             "type":"rgba",
             "r":121,
@@ -3256,13 +3284,13 @@
         "data":0,
         "name":"菌丝",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/mycelium_top.png"
-        },
+           "path":"blocks/mycelium_top.png"
+       },
         "color":{
             "type":"rgba",
-            "r":111,
+            "r":110,
             "g":99,
-            "b":105,
+            "b":104,
             "a":255
         }
     },
@@ -3283,13 +3311,13 @@
         "data":0,
         "name":"地狱砖块",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/nether_brick.png"
-        },
+           "path":"blocks/nether_brick.png"
+       },
         "color":{
             "type":"rgba",
             "r":45,
-            "g":23,
-            "b":27,
+            "g":22,
+            "b":26,
             "a":255
         }
     },
@@ -3310,13 +3338,13 @@
         "data":0,
         "name":"地狱砖楼梯",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/nether_brick.png"
-        },
+           "path":"blocks/nether_brick.png"
+       },
         "color":{
             "type":"rgba",
             "r":45,
-            "g":23,
-            "b":27,
+            "g":22,
+            "b":26,
             "a":255
         }
     },
@@ -3325,13 +3353,13 @@
         "data":0,
         "name":"地狱疣",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/nether_wart_stage_1.png"
-        },
+           "path":"blocks/nether_wart_stage_1.png"
+       },
         "color":{
             "type":"rgba",
-            "r":115,
-            "g":19,
-            "b":27,
+            "r":187,
+            "g":139,
+            "b":143,
             "a":124
         }
     },
@@ -3340,12 +3368,12 @@
         "data":0,
         "name":"附魔台",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/enchanting_table_top.png"
-        },
+           "path":"blocks/enchanting_table_top.png"
+       },
         "color":{
             "type":"rgba",
-            "r":109,
-            "g":68,
+            "r":108,
+            "g":67,
             "b":63,
             "a":255
         }
@@ -3355,8 +3383,8 @@
         "data":0,
         "name":"酿造台",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/brewing_stand_base.png"
-        },
+           "path":"blocks/brewing_stand_base.png"
+       },
         "color":{
             "type":"rgba",
             "r":108,
@@ -3370,8 +3398,8 @@
         "data":0,
         "name":"炼药锅",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/cauldron_inner.png"
-        },
+           "path":"blocks/cauldron_inner.png"
+       },
         "color":{
             "type":"rgba",
             "r":56,
@@ -3397,13 +3425,13 @@
         "data":0,
         "name":"末地传送门框架",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/endframe_top.png"
-        },
+           "path":"blocks/endframe_top.png"
+       },
         "color":{
             "type":"rgba",
             "r":92,
             "g":120,
-            "b":98,
+            "b":97,
             "a":255
         }
     },
@@ -3412,12 +3440,12 @@
         "data":0,
         "name":"末地石",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/end_stone.png"
-        },
+           "path":"blocks/end_stone.png"
+       },
         "color":{
             "type":"rgba",
             "r":221,
-            "g":223,
+            "g":222,
             "b":165,
             "a":255
         }
@@ -3427,13 +3455,13 @@
         "data":0,
         "name":"龙蛋",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/dragon_egg.png"
-        },
+           "path":"blocks/dragon_egg.png"
+       },
         "color":{
             "type":"rgba",
-            "r":13,
-            "g":10,
-            "b":16,
+            "r":12,
+            "g":9,
+            "b":15,
             "a":255
         }
     },
@@ -3442,11 +3470,11 @@
         "data":0,
         "name":"红石灯(未开启)",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/redstone_lamp_off.png"
-        },
+           "path":"blocks/redstone_lamp_off.png"
+       },
         "color":{
             "type":"rgba",
-            "r":77,
+            "r":76,
             "g":46,
             "b":27,
             "a":255
@@ -3457,12 +3485,12 @@
         "data":0,
         "name":"红石灯(已开启)",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/redstone_lamp_on.png"
-        },
+           "path":"blocks/redstone_lamp_on.png"
+       },
         "color":{
             "type":"rgba",
             "r":128,
-            "g":96,
+            "g":95,
             "b":59,
             "a":255
         }
@@ -3472,13 +3500,13 @@
         "data":0,
         "name":"双木台阶",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/planks_oak.png"
-        },
+           "path":"blocks/planks_oak.png"
+       },
         "color":{
             "type":"rgba",
             "r":166,
             "g":135,
-            "b":84,
+            "b":83,
             "a":255
         }
     },
@@ -3487,13 +3515,13 @@
         "data":0,
         "name":"木台阶",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/planks_oak.png"
-        },
+           "path":"blocks/planks_oak.png"
+       },
         "color":{
             "type":"rgba",
             "r":166,
             "g":135,
-            "b":84,
+            "b":83,
             "a":255
         }
     },
@@ -3502,14 +3530,14 @@
         "data":0,
         "name":"可可果",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/cocoa_stage_2.png"
-        },
+           "path":"blocks/cocoa_stage_2.png"
+       },
         "color":{
             "type":"rgba",
-            "r":157,
-            "g":90,
-            "b":35,
-            "a":130
+            "r":205,
+            "g":170,
+            "b":142,
+            "a":129
         }
     },
     {
@@ -3517,13 +3545,13 @@
         "data":0,
         "name":"沙石楼梯",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/sandstone_top.png"
-        },
+           "path":"blocks/sandstone_top.png"
+       },
         "color":{
             "type":"rgba",
             "r":218,
             "g":210,
-            "b":159,
+            "b":158,
             "a":255
         }
     },
@@ -3532,13 +3560,13 @@
         "data":0,
         "name":"绿宝石矿石",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/emerald_ore.png"
-        },
+           "path":"blocks/emerald_ore.png"
+       },
         "color":{
             "type":"rgba",
-            "r":115,
+            "r":114,
             "g":127,
-            "b":119,
+            "b":118,
             "a":255
         }
     },
@@ -3546,12 +3574,22 @@
         "id":130,
         "data":0,
         "name":"末影箱",
+        "texture":{
+           "path":"entity/chest/ender.png",
+           "base":64,
+           "x":28,
+           "y":19,
+           "w":14,
+           "h":14,
+           "bw":16,
+           "bh":16
+       },
         "color":{
             "type":"rgba",
-            "r":41,
-            "g":58,
-            "b":60,
-            "a":255
+            "r":12,
+            "g":21,
+            "b":23,
+            "a":195
         }
     },
     {
@@ -3559,14 +3597,14 @@
         "data":0,
         "name":"绊线钩",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/trip_wire_source.png"
-        },
+           "path":"blocks/trip_wire_source.png"
+       },
         "color":{
             "type":"rgba",
-            "r":139,
-            "g":127,
-            "b":111,
-            "a":46
+            "r":225,
+            "g":224,
+            "b":221,
+            "a":45
         }
     },
     {
@@ -3574,13 +3612,13 @@
         "data":0,
         "name":"绊线",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/trip_wire.png"
-        },
+           "path":"blocks/trip_wire.png"
+       },
         "color":{
             "type":"rgba",
-            "r":132,
-            "g":132,
-            "b":132,
+            "r":148,
+            "g":148,
+            "b":148,
             "a":27
         }
     },
@@ -3589,12 +3627,12 @@
         "data":0,
         "name":"绿宝石块",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/emerald_block.png"
-        },
+           "path":"blocks/emerald_block.png"
+       },
         "color":{
             "type":"rgba",
-            "r":81,
-            "g":218,
+            "r":80,
+            "g":217,
             "b":117,
             "a":255
         }
@@ -3604,12 +3642,12 @@
         "data":0,
         "name":"云杉楼梯",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/planks_spruce.png"
-        },
+           "path":"blocks/planks_spruce.png"
+       },
         "color":{
             "type":"rgba",
             "r":110,
-            "g":83,
+            "g":82,
             "b":49,
             "a":255
         }
@@ -3619,13 +3657,13 @@
         "data":0,
         "name":"桦木楼梯",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/planks_birch.png"
-        },
+           "path":"blocks/planks_birch.png"
+       },
         "color":{
             "type":"rgba",
-            "r":203,
+            "r":202,
             "g":186,
-            "b":128,
+            "b":127,
             "a":255
         }
     },
@@ -3634,13 +3672,13 @@
         "data":0,
         "name":"丛林楼梯",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/planks_jungle.png"
-        },
+           "path":"blocks/planks_jungle.png"
+       },
         "color":{
             "type":"rgba",
-            "r":164,
-            "g":118,
-            "b":83,
+            "r":163,
+            "g":117,
+            "b":82,
             "a":255
         }
     },
@@ -3649,12 +3687,12 @@
         "data":0,
         "name":"命令方块",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/command_block.png"
-        },
+           "path":"blocks/command_block.png"
+       },
         "color":{
             "type":"rgba",
-            "r":187,
-            "g":144,
+            "r":186,
+            "g":143,
             "b":117,
             "a":255
         }
@@ -3664,12 +3702,12 @@
         "data":0,
         "name":"信标",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/beacon.png"
-        },
+           "path":"blocks/beacon.png"
+       },
         "color":{
             "type":"rgba",
-            "r":117,
-            "g":221,
+            "r":116,
+            "g":220,
             "b":215,
             "a":255
         }
@@ -3679,8 +3717,8 @@
         "data":0,
         "name":"圆石墙",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/cobblestone.png"
-        },
+           "path":"blocks/cobblestone.png"
+       },
         "color":{
             "type":"rgba",
             "r":123,
@@ -3694,14 +3732,14 @@
         "data":0,
         "name":"花盆",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/flower_pot.png"
-        },
+           "path":"blocks/flower_pot.png"
+       },
         "color":{
             "type":"rgba",
-            "r":117,
-            "g":66,
-            "b":51,
-            "a":50
+            "r":212,
+            "g":202,
+            "b":199,
+            "a":49
         }
     },
     {
@@ -3709,14 +3747,14 @@
         "data":0,
         "name":"胡萝卜",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/carrots_stage_3.png"
-        },
+           "path":"blocks/carrots_stage_3.png"
+       },
         "color":{
             "type":"rgba",
-            "r":16,
-            "g":144,
-            "b":0,
-            "a":78
+            "r":180,
+            "g":219,
+            "b":175,
+            "a":77
         }
     },
     {
@@ -3724,13 +3762,13 @@
         "data":0,
         "name":"马铃薯",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/potatoes_stage_3.png"
-        },
+           "path":"blocks/potatoes_stage_3.png"
+       },
         "color":{
             "type":"rgba",
-            "r":25,
-            "g":173,
-            "b":35,
+            "r":161,
+            "g":222,
+            "b":165,
             "a":103
         }
     },
@@ -3763,13 +3801,13 @@
         "data":0,
         "name":"铁砧",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/anvil_top_damaged_0.png"
-        },
+           "path":"blocks/anvil_top_damaged_0.png"
+       },
         "color":{
             "type":"rgba",
-            "r":66,
-            "g":63,
-            "b":63,
+            "r":136,
+            "g":134,
+            "b":134,
             "a":159
         }
     },
@@ -3777,12 +3815,22 @@
         "id":146,
         "data":0,
         "name":"陷阱箱",
+        "texture":{
+           "path":"entity/chest/trapped.png",
+           "base":64,
+           "x":28,
+           "y":19,
+           "w":14,
+           "h":14,
+           "bw":16,
+           "bh":16
+       },
         "color":{
             "type":"rgba",
-            "r":150,
-            "g":103,
-            "b":30,
-            "a":255
+            "r":99,
+            "g":71,
+            "b":28,
+            "a":195
         }
     },
     {
@@ -3790,8 +3838,8 @@
         "data":0,
         "name":"轻质测重压力板",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/gold_block.png"
-        },
+           "path":"blocks/gold_block.png"
+       },
         "color":{
             "type":"rgba",
             "r":250,
@@ -3805,13 +3853,13 @@
         "data":0,
         "name":"重质测重压力板",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/iron_block.png"
-        },
+           "path":"blocks/iron_block.png"
+       },
         "color":{
             "type":"rgba",
-            "r":222,
-            "g":222,
-            "b":222,
+            "r":221,
+            "g":221,
+            "b":221,
             "a":255
         }
     },
@@ -3820,11 +3868,11 @@
         "data":0,
         "name":"红石比较器(未开启)",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/comparator_off.png"
-        },
+           "path":"blocks/comparator_off.png"
+       },
         "color":{
             "type":"rgba",
-            "r":161,
+            "r":160,
             "g":154,
             "b":152,
             "a":255
@@ -3835,12 +3883,12 @@
         "data":0,
         "name":"红石比较器(已开启)",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/comparator_on.png"
-        },
+           "path":"blocks/comparator_on.png"
+       },
         "color":{
             "type":"rgba",
             "r":171,
-            "g":152,
+            "g":151,
             "b":150,
             "a":255
         }
@@ -3850,12 +3898,12 @@
         "data":0,
         "name":"阳光传感器",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/daylight_detector_top.png"
-        },
+           "path":"blocks/daylight_detector_top.png"
+       },
         "color":{
             "type":"rgba",
             "r":135,
-            "g":121,
+            "g":120,
             "b":98,
             "a":255
         }
@@ -3865,13 +3913,13 @@
         "data":0,
         "name":"红石块",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/redstone_block.png"
-        },
+           "path":"blocks/redstone_block.png"
+       },
         "color":{
             "type":"rgba",
             "r":171,
             "g":28,
-            "b":10,
+            "b":9,
             "a":255
         }
     },
@@ -3880,13 +3928,13 @@
         "data":0,
         "name":"下界石英矿石",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/quartz_ore.png"
-        },
+           "path":"blocks/quartz_ore.png"
+       },
         "color":{
             "type":"rgba",
             "r":131,
             "g":87,
-            "b":84,
+            "b":83,
             "a":255
         }
     },
@@ -3895,8 +3943,8 @@
         "data":0,
         "name":"漏斗",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/hopper_inside.png"
-        },
+           "path":"blocks/hopper_inside.png"
+       },
         "color":{
             "type":"rgba",
             "r":56,
@@ -3910,13 +3958,13 @@
         "data":0,
         "name":"石英块",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/quartz_block_top.png"
-        },
+           "path":"blocks/quartz_block_top.png"
+       },
         "color":{
             "type":"rgba",
             "r":236,
-            "g":234,
-            "b":227,
+            "g":233,
+            "b":226,
             "a":255
         }
     },
@@ -3925,13 +3973,13 @@
         "data":0,
         "name":"石英楼梯",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/quartz_block_top.png"
-        },
+           "path":"blocks/quartz_block_top.png"
+       },
         "color":{
             "type":"rgba",
             "r":236,
-            "g":234,
-            "b":227,
+            "g":233,
+            "b":226,
             "a":255
         }
     },
@@ -3940,13 +3988,13 @@
         "data":0,
         "name":"激活铁轨",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/rail_activator_powered.png"
-        },
+           "path":"blocks/rail_activator_powered.png"
+       },
         "color":{
             "type":"rgba",
-            "r":138,
-            "g":84,
-            "b":72,
+            "r":176,
+            "g":114,
+            "b":107,
             "a":155
         }
     },
@@ -3955,8 +4003,8 @@
         "data":0,
         "name":"投掷器",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/cobblestone.png"
-        },
+           "path":"blocks/cobblestone.png"
+       },
         "color":{
             "type":"rgba",
             "r":123,
@@ -3969,9 +4017,15 @@
         "id":161,
         "data":0,
         "name":"金合欢树叶",
+        "texture":{
+           "path":"blocks/leaves_acacia.png"
+       },
         "color":{
             "type":"foliage",
-            "a":255
+            "r":100,
+            "g":100,
+            "b":100,
+            "a":177
         }
     },
     {
@@ -3979,13 +4033,13 @@
         "data":0,
         "name":"金合欢木（面朝上/下）",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/log_acacia_top.png"
-        },
+           "path":"blocks/log_acacia_top.png"
+       },
         "color":{
             "type":"rgba",
-            "r":157,
+            "r":156,
             "g":94,
-            "b":67,
+            "b":66,
             "a":255
         }
     },
@@ -3994,13 +4048,13 @@
         "data":1,
         "name":"深色橡木（面朝上/下）",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/log_big_oak_top.png"
-        },
+           "path":"blocks/log_big_oak_top.png"
+       },
         "color":{
             "type":"rgba",
-            "r":81,
+            "r":80,
             "g":64,
-            "b":42,
+            "b":41,
             "a":255
         }
     },
@@ -4009,13 +4063,13 @@
         "data":2,
         "name":"金合欢木（面朝上/下）",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/log_acacia_top.png"
-        },
+           "path":"blocks/log_acacia_top.png"
+       },
         "color":{
             "type":"rgba",
-            "r":157,
+            "r":156,
             "g":94,
-            "b":67,
+            "b":66,
             "a":255
         }
     },
@@ -4024,13 +4078,13 @@
         "data":3,
         "name":"深色橡木（面朝上/下）",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/log_big_oak_top.png"
-        },
+           "path":"blocks/log_big_oak_top.png"
+       },
         "color":{
             "type":"rgba",
-            "r":81,
+            "r":80,
             "g":64,
-            "b":42,
+            "b":41,
             "a":255
         }
     },
@@ -4039,13 +4093,13 @@
         "data":4,
         "name":"金合欢木（面朝东/西）",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/log_acacia.png"
-        },
+           "path":"blocks/log_acacia.png"
+       },
         "color":{
             "type":"rgba",
             "r":106,
-            "g":100,
-            "b":90,
+            "g":99,
+            "b":89,
             "a":255
         }
     },
@@ -4054,13 +4108,13 @@
         "data":5,
         "name":"深色橡木（面朝东/西）",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/log_big_oak.png"
-        },
+           "path":"blocks/log_big_oak.png"
+       },
         "color":{
             "type":"rgba",
-            "r":53,
-            "g":41,
-            "b":24,
+            "r":52,
+            "g":40,
+            "b":23,
             "a":255
         }
     },
@@ -4069,13 +4123,13 @@
         "data":6,
         "name":"金合欢木（面朝东/西）",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/log_acacia.png"
-        },
+           "path":"blocks/log_acacia.png"
+       },
         "color":{
             "type":"rgba",
             "r":106,
-            "g":100,
-            "b":90,
+            "g":99,
+            "b":89,
             "a":255
         }
     },
@@ -4084,13 +4138,13 @@
         "data":7,
         "name":"深色橡木（面朝东/西）",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/log_big_oak.png"
-        },
+           "path":"blocks/log_big_oak.png"
+       },
         "color":{
             "type":"rgba",
-            "r":53,
-            "g":41,
-            "b":24,
+            "r":52,
+            "g":40,
+            "b":23,
             "a":255
         }
     },
@@ -4099,13 +4153,13 @@
         "data":8,
         "name":"金合欢木（面朝南/北）",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/log_acacia.png"
-        },
+           "path":"blocks/log_acacia.png"
+       },
         "color":{
             "type":"rgba",
             "r":106,
-            "g":100,
-            "b":90,
+            "g":99,
+            "b":89,
             "a":255
         }
     },
@@ -4114,13 +4168,13 @@
         "data":9,
         "name":"深色橡木（面朝南/北）",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/log_big_oak.png"
-        },
+           "path":"blocks/log_big_oak.png"
+       },
         "color":{
             "type":"rgba",
-            "r":53,
-            "g":41,
-            "b":24,
+            "r":52,
+            "g":40,
+            "b":23,
             "a":255
         }
     },
@@ -4129,13 +4183,13 @@
         "data":10,
         "name":"金合欢木（面朝南/北）",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/log_acacia.png"
-        },
+           "path":"blocks/log_acacia.png"
+       },
         "color":{
             "type":"rgba",
             "r":106,
-            "g":100,
-            "b":90,
+            "g":99,
+            "b":89,
             "a":255
         }
     },
@@ -4144,13 +4198,13 @@
         "data":11,
         "name":"深色橡木（面朝南/北）",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/log_big_oak.png"
-        },
+           "path":"blocks/log_big_oak.png"
+       },
         "color":{
             "type":"rgba",
-            "r":53,
-            "g":41,
-            "b":24,
+            "r":52,
+            "g":40,
+            "b":23,
             "a":255
         }
     },
@@ -4159,13 +4213,13 @@
         "data":12,
         "name":"金合欢木（只有树皮）",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/log_acacia.png"
-        },
+           "path":"blocks/log_acacia.png"
+       },
         "color":{
             "type":"rgba",
             "r":106,
-            "g":100,
-            "b":90,
+            "g":99,
+            "b":89,
             "a":255
         }
     },
@@ -4174,13 +4228,13 @@
         "data":13,
         "name":"深色橡木（只有树皮）",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/log_big_oak.png"
-        },
+           "path":"blocks/log_big_oak.png"
+       },
         "color":{
             "type":"rgba",
-            "r":53,
-            "g":41,
-            "b":24,
+            "r":52,
+            "g":40,
+            "b":23,
             "a":255
         }
     },
@@ -4189,13 +4243,13 @@
         "data":14,
         "name":"金合欢木（只有树皮）",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/log_acacia.png"
-        },
+           "path":"blocks/log_acacia.png"
+       },
         "color":{
             "type":"rgba",
             "r":106,
-            "g":100,
-            "b":90,
+            "g":99,
+            "b":89,
             "a":255
         }
     },
@@ -4204,13 +4258,13 @@
         "data":15,
         "name":"深色橡木（只有树皮）",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/log_big_oak.png"
-        },
+           "path":"blocks/log_big_oak.png"
+       },
         "color":{
             "type":"rgba",
-            "r":53,
-            "g":41,
-            "b":24,
+            "r":52,
+            "g":40,
+            "b":23,
             "a":255
         }
     },
@@ -4219,13 +4273,13 @@
         "data":0,
         "name":"金合欢楼梯",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/planks_acacia.png"
-        },
+           "path":"blocks/planks_acacia.png"
+       },
         "color":{
             "type":"rgba",
             "r":175,
             "g":95,
-            "b":53,
+            "b":52,
             "a":255
         }
     },
@@ -4234,13 +4288,13 @@
         "data":0,
         "name":"深色橡木楼梯",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/planks_big_oak.png"
-        },
+           "path":"blocks/planks_big_oak.png"
+       },
         "color":{
             "type":"rgba",
-            "r":65,
-            "g":42,
-            "b":20,
+            "r":64,
+            "g":41,
+            "b":19,
             "a":255
         }
     },
@@ -4249,13 +4303,13 @@
         "data":0,
         "name":"粘液块",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/slime.png"
-        },
+           "path":"blocks/slime.png"
+       },
         "color":{
             "type":"rgba",
-            "r":121,
+            "r":122,
             "g":201,
-            "b":103,
+            "b":102,
             "a":189
         }
     },
@@ -4276,13 +4330,13 @@
         "data":0,
         "name":"铁活板门",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/door_iron_upper.png"
-        },
+           "path":"blocks/door_iron_upper.png"
+       },
         "color":{
             "type":"rgba",
-            "r":187,
-            "g":187,
-            "b":187,
+            "r":199,
+            "g":199,
+            "b":199,
             "a":207
         }
     },
@@ -4291,12 +4345,12 @@
         "data":0,
         "name":"海晶石",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/prismarine_bricks.png"
-        },
+           "path":"blocks/prismarine_bricks.png"
+       },
         "color":{
             "type":"rgba",
-            "r":99,
-            "g":159,
+            "r":98,
+            "g":158,
             "b":143,
             "a":255
         }
@@ -4306,13 +4360,13 @@
         "data":0,
         "name":"海晶灯",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/sea_lantern.png"
-        },
+           "path":"blocks/sea_lantern.png"
+       },
         "color":{
             "type":"rgba",
-            "r":173,
-            "g":201,
-            "b":191,
+            "r":172,
+            "g":200,
+            "b":190,
             "a":255
         }
     },
@@ -4321,11 +4375,11 @@
         "data":0,
         "name":"干草块",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/hay_block_top.png"
-        },
+           "path":"blocks/hay_block_top.png"
+       },
         "color":{
             "type":"rgba",
-            "r":168,
+            "r":167,
             "g":139,
             "b":16,
             "a":255
@@ -4336,12 +4390,12 @@
         "data":0,
         "name":"硬化粘土",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/hardened_clay.png"
-        },
+           "path":"blocks/hardened_clay.png"
+       },
         "color":{
             "type":"rgba",
             "r":150,
-            "g":93,
+            "g":92,
             "b":67,
             "a":255
         }
@@ -4351,8 +4405,8 @@
         "data":0,
         "name":"煤炭块",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/coal_block.png"
-        },
+           "path":"blocks/coal_block.png"
+       },
         "color":{
             "type":"rgba",
             "r":18,
@@ -4366,8 +4420,8 @@
         "data":0,
         "name":"浮冰",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/ice_packed.png"
-        },
+           "path":"blocks/ice_packed.png"
+       },
         "color":{
             "type":"rgba",
             "r":164,
@@ -4381,14 +4435,14 @@
         "data":0,
         "name":"向日葵",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/double_plant_sunflower_front.png"
-        },
+           "path":"blocks/double_plant_grass_bottom.png"
+       },
         "color":{
             "type":"foliage",
-            "r":0,
-            "g":0,
-            "b":0,
-            "a":100
+            "r":210,
+            "g":210,
+            "b":210,
+            "a":84
         }
     },
     {
@@ -4420,13 +4474,13 @@
         "data":0,
         "name":"反向阳光传感器",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/daylight_detector_inverted_top.png"
-        },
+           "path":"blocks/daylight_detector_inverted_top.png"
+       },
         "color":{
             "type":"rgba",
-            "r":110,
+            "r":109,
             "g":113,
-            "b":116,
+            "b":115,
             "a":255
         }
     },
@@ -4435,13 +4489,13 @@
         "data":0,
         "name":"红沙石",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/red_sandstone_top.png"
-        },
+           "path":"blocks/red_sandstone_top.png"
+       },
         "color":{
             "type":"rgba",
-            "r":167,
-            "g":85,
-            "b":30,
+            "r":166,
+            "g":84,
+            "b":29,
             "a":255
         }
     },
@@ -4450,13 +4504,13 @@
         "data":0,
         "name":"红沙石楼梯",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/red_sandstone_top.png"
-        },
+           "path":"blocks/red_sandstone_top.png"
+       },
         "color":{
             "type":"rgba",
-            "r":167,
-            "g":85,
-            "b":30,
+            "r":166,
+            "g":84,
+            "b":29,
             "a":255
         }
     },
@@ -4465,13 +4519,13 @@
         "data":0,
         "name":"双红沙石台阶",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/red_sandstone_top.png"
-        },
+           "path":"blocks/red_sandstone_top.png"
+       },
         "color":{
             "type":"rgba",
-            "r":167,
-            "g":85,
-            "b":30,
+            "r":166,
+            "g":84,
+            "b":29,
             "a":255
         }
     },
@@ -4480,13 +4534,13 @@
         "data":0,
         "name":"红沙石台阶",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/red_sandstone_top.png"
-        },
+           "path":"blocks/red_sandstone_top.png"
+       },
         "color":{
             "type":"rgba",
-            "r":167,
-            "g":85,
-            "b":30,
+            "r":166,
+            "g":84,
+            "b":29,
             "a":255
         }
     },
@@ -4615,11 +4669,11 @@
         "data":0,
         "name":"云杉木门",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/door_spruce_upper.png"
-        },
+           "path":"blocks/door_spruce_upper.png"
+       },
         "color":{
             "type":"rgba",
-            "r":103,
+            "r":102,
             "g":80,
             "b":53,
             "a":255
@@ -4630,14 +4684,14 @@
         "data":0,
         "name":"白桦木门",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/door_birch_upper.png"
-        },
+           "path":"blocks/door_birch_upper.png"
+       },
         "color":{
             "type":"rgba",
             "r":219,
-            "g":212,
-            "b":178,
-            "a":255
+            "g":211,
+            "b":177,
+            "a":254
         }
     },
     {
@@ -4645,13 +4699,13 @@
         "data":0,
         "name":"丛林木门",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/door_jungle_upper.png"
-        },
+           "path":"blocks/door_jungle_upper.png"
+       },
         "color":{
             "type":"rgba",
-            "r":159,
-            "g":118,
-            "b":85,
+            "r":155,
+            "g":115,
+            "b":81,
             "a":209
         }
     },
@@ -4660,13 +4714,13 @@
         "data":0,
         "name":"金合欢木门",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/door_acacia_upper.png"
-        },
+           "path":"blocks/door_acacia_upper.png"
+       },
         "color":{
             "type":"rgba",
-            "r":164,
-            "g":93,
-            "b":56,
+            "r":178,
+            "g":125,
+            "b":93,
             "a":183
         }
     },
@@ -4675,13 +4729,13 @@
         "data":0,
         "name":"深色橡木门",
         "texture":{
-           "path":"assets/minecraft/textures/blocks/door_dark_oak_lower.png"
-        },
+           "path":"blocks/door_dark_oak_lower.png"
+       },
         "color":{
             "type":"rgba",
-            "r":66,
-            "g":44,
-            "b":23,
+            "r":65,
+            "g":43,
+            "b":22,
             "a":255
         }
     }

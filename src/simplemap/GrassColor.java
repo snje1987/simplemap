@@ -24,6 +24,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.Arrays;
 import javax.imageio.ImageIO;
 
 /**
@@ -33,11 +34,10 @@ import javax.imageio.ImageIO;
 
 public class GrassColor{
 
-    public static boolean usedef = false;
     protected static GrassColor instance = null;
     protected static int[] grassBuffer = null;
-    protected int width = 0;
-    protected int height = 0;
+    protected static final int width = 256;
+    protected static final int height = 256;
 
     public static GrassColor getInstance(){
         if(instance == null){
@@ -52,19 +52,6 @@ public class GrassColor{
     }
 
     protected void load(){
-
-        try{
-            try(BufferedInputStream is=new BufferedInputStream(SimpleMap.class.getResourceAsStream("/grass.png"))){
-                this.load(is);
-            }
-        }
-        catch(IOException ex){
-            return;
-        }
-
-        if(usedef){
-            return;
-        }
 
         String path = System.getProperty("user.dir");
         if (!path.endsWith(File.separator)) {
@@ -83,10 +70,14 @@ public class GrassColor{
     protected void load(InputStream is){
         try{
             BufferedImage buf = ImageIO.read(is);
-            width = buf.getWidth();
-            height = buf.getHeight();
-            grassBuffer = new int[width * height];
-            buf.getRGB(0, 0, width, height, grassBuffer, 0, width);
+            if(buf.getWidth() == width && buf.getHeight() == height){
+                grassBuffer = new int[width * height];
+                buf.getRGB(0, 0, width, height, grassBuffer, 0, width);
+            }
+            else{
+                grassBuffer = new int[width * height];
+                Arrays.fill(grassBuffer, 0xFF7CBD6C);
+            }
         }
         catch(IOException ex){
             return;

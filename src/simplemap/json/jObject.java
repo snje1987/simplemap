@@ -142,6 +142,10 @@ public class jObject extends jTag{
         return data.get(key).toClass(jString.class).getString();
     }
 
+    public boolean hasKey(String key){
+        return data.containsKey(key);
+    }
+
     public void Add(String name, jTag item){
         data.put(name, item);
     }

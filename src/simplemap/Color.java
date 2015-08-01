@@ -134,4 +134,14 @@ public class Color{
 
         return this;
     }
+
+    public void mutiply(int multiplier){
+        this.r *= (double)(multiplier >> 16 & 255) / 255.0F;
+        this.g *= (double)(multiplier >> 8 & 255) / 255.0F;
+        this.b *= (double)(multiplier & 255) / 255.0F;
+    }
+
+    public String toString(){
+        return String.format("[%d %d %d %d]", (int)r, (int)g, (int)b, (int)alpha);
+    }
 }

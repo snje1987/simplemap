@@ -16,9 +16,6 @@
  */
 package simplemap;
 
-import java.awt.Graphics2D;
-import java.awt.Image;
-import java.awt.image.BufferedImage;
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -28,11 +25,8 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.nio.charset.Charset;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
-import java.util.Set;
-import javax.imageio.ImageIO;
 import simplemap.json.jArray;
 import simplemap.json.jException;
 import simplemap.json.jNumber;
