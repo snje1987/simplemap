@@ -128,6 +128,13 @@ public class jObject extends jTag{
         return data.get(key).toClass(jNumber.class).getInt();
     }
 
+    public double getDouble(String key){
+        if(!data.containsKey(key)){
+            return 0;
+        }
+        return data.get(key).toClass(jNumber.class).getDouble();
+    }
+
     public String getString(String key){
         if(!data.containsKey(key)){
             return "";

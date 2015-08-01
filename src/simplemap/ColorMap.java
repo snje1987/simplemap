@@ -59,7 +59,7 @@ public class ColorMap{
         return instance;
     }
 
-    public Color getColor(int id){
+    public Color getColor(int id, int bid){
         Color color = new Color(0, (byte) 0xFF);
         jObject obj = null;
         if(map.containsKey(id)){
@@ -84,6 +84,14 @@ public class ColorMap{
         else{
             if(obj.getString("type").equals("rgba")){
                 color = new Color(obj.getInt("r"), obj.getInt("g"), obj.getInt("b"), obj.getInt("a"));
+            }
+            else if(obj.getString("type").equals("grass")){
+                BiomeInfo binfo = Biome.getInstance().getInfo(bid);
+                color = new Color(GrassColor.getInstance().getColor(binfo.temperature, binfo.rainfall), obj.getInt("a"));
+            }
+            else if(obj.getString("type").equals("foliage")){
+                BiomeInfo binfo = Biome.getInstance().getInfo(bid);
+                color = new Color(FoliageColor.getInstance().getColor(binfo.temperature, binfo.rainfall), obj.getInt("a"));
             }
         }
         return color;

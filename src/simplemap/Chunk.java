@@ -44,6 +44,7 @@ public class Chunk{
     byte[][] data;
     byte[][] add;
     byte[][] blocks;
+    byte[] biome;
     ColorMap map;
 
     public Chunk(){
@@ -87,6 +88,16 @@ public class Chunk{
         list = comp.Get("TileEntities", TagList.class);
         if(list != null && !GetMarker(list, nMarker)){
             return false;
+        }
+
+        TagByteArray biom;
+
+        biom = comp.Get("Biomes", TagByteArray.class);
+        if(biom != null){
+            this.biome = biom.GetData();
+        }
+        else{
+            this.biome = new byte[CHUNK_WIDTH * CHUNK_WIDTH];
         }
 
         list = comp.Get("Sections", TagList.class);
@@ -180,7 +191,7 @@ public class Chunk{
                 else{
                     block.block_id = (short) (block.block_id | (Chunk.Shift(data[i], pos) << 12));
                 }
-                tmp = map.getColor(block.block_id);
+                tmp = map.getColor(block.block_id, this.biome[x + z * CHUNK_WIDTH]);
                 ret.merge(tmp);
                 if(h == 0 && ret.getAlpha() >= 100){
                     h = i * CHUNK_WIDTH + j;

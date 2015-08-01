@@ -34,7 +34,7 @@ public class jNumber extends jTag{
             in.mark(1);
             ch = in.read();
             in.reset();
-            while(ch == '-' || ch >= '0' && ch <= '9'){
+            while(ch == '-' || ch >= '0' && ch <= '9' || ch == '.'){
                 in.read();
                 buf.write(ch);
                 in.mark(1);
@@ -52,8 +52,16 @@ public class jNumber extends jTag{
         data = Integer.toString(num);
     }
 
+    public jNumber(double num){
+        data = Double.toString(num);
+    }
+
     public int getInt(){
         return Integer.parseInt(data);
+    }
+
+    public double getDouble(){
+        return Double.parseDouble(data);
     }
 
     @Override

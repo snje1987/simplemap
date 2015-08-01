@@ -97,6 +97,9 @@ public class SimpleMap{
                 case "-defstyle":
                     World.defstyle = true;
                     break;
+                case "-defbiome":
+                    Biome.usedef = true;
+                    break;
                 case "-noregen":
                     World.regen = false;
                     break;
