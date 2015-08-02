@@ -48,6 +48,14 @@ function init(evt) {
         map.replaceChild(nmarkers, omarkers);
     }
 
+    function setcoord(x, y){
+        x = parseInt((cx + (x - width / 2) * scalelist[scale]));
+        y = parseInt((cy + (y - height / 2) * scalelist[scale]));
+        var chx = x >> 4;
+        var chy = y >> 4;
+        root.getElementById("pos").firstChild.nodeValue = "1:" + scalelist[scale] + " " + x + "," + y + " [" + chx + "," + chy + "]";
+    }
+
     function movemap(cx, cy){
         if(cx % scalelist[scale] !== 0){
             cx = cx - cx % scalelist[scale];
@@ -62,7 +70,7 @@ function init(evt) {
             scale --;
             var x = evt.clientX;
             var y = evt.clientY;
-            root.getElementById("pos").firstChild.nodeValue = "1:" + scalelist[scale] + " " + (cx + (x - width) * scalelist[scale] / 2) + "  " + (cy + (y - height) * scalelist[scale] / 2);
+            setcoord(x, y);
             draw_marker();
             movemap(cx, cy);
         }
@@ -72,7 +80,7 @@ function init(evt) {
             scale ++;
             var x = evt.clientX;
             var y = evt.clientY;
-            root.getElementById("pos").firstChild.nodeValue = "1:" + scalelist[scale] + " " + parseInt((cx + (x - width / 2) * scalelist[scale])) + "  " + parseInt((cy + (y - height / 2) * scalelist[scale]));
+            setcoord(x, y);
             draw_marker();
             movemap(cx, cy);
         }
@@ -97,7 +105,7 @@ function init(evt) {
             movemap(cx - (x - sx) * scalelist[scale], cy - (y - sy) * scalelist[scale]);
         }
         else{
-            root.getElementById("pos").firstChild.nodeValue = "1:" + scalelist[scale] + " " + parseInt((cx + (x - width / 2) * scalelist[scale])) + "  " + parseInt((cy + (y - height / 2) * scalelist[scale]));
+            setcoord(x, y);
         }
     }
 

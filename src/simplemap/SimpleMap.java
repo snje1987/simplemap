@@ -27,6 +27,7 @@ public class SimpleMap{
 
     protected static final int ACT_PIXMAP = 0;
     protected static final int ACT_GENCOLOR = 1;
+    protected static final int ACT_DNBT = 2;
 
     protected static int index = 0;
     protected static String[] args = null;
@@ -56,6 +57,13 @@ public class SimpleMap{
                 System.exit(1);
             }
             ColorMap.getInstance().genColor(srcs);
+            break;
+        case ACT_DNBT:
+            if(src.length() == 0){
+                printHelp();
+                System.exit(1);
+            }
+            Decoder.decode(src);
             break;
         }
     }
@@ -87,6 +95,10 @@ public class SimpleMap{
                         break;
                     case "gencolor":
                         action = ACT_GENCOLOR;
+                        break;
+                    case "nbt":
+                        action = ACT_DNBT;
+                        break;
                     }
                     break;
                 case "-in":

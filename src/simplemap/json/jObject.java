@@ -192,7 +192,7 @@ public class jObject extends jTag{
                 buf.append("    \"");
                 buf.append(key);
                 buf.append("\":");
-                buf.append(val.toStyleString("", repeat + "   "));
+                buf.append(val.toStyleString("", repeat + "    "));
                 buf.append(",\n");
                 key = it.next();
                 val = data.get(key);

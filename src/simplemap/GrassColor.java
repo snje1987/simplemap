@@ -64,23 +64,19 @@ public class GrassColor{
                 this.load(in);
             }
         } catch (Exception ex) {
+            grassBuffer = new int[width * height];
+            Arrays.fill(grassBuffer, 0xFF7CBD6C);
         }
     }
 
-    protected void load(InputStream is){
-        try{
-            BufferedImage buf = ImageIO.read(is);
-            if(buf.getWidth() == width && buf.getHeight() == height){
-                grassBuffer = new int[width * height];
-                buf.getRGB(0, 0, width, height, grassBuffer, 0, width);
-            }
-            else{
-                grassBuffer = new int[width * height];
-                Arrays.fill(grassBuffer, 0xFF7CBD6C);
-            }
+    protected void load(InputStream is) throws Exception{
+        BufferedImage buf = ImageIO.read(is);
+        if(buf.getWidth() == width && buf.getHeight() == height){
+            grassBuffer = new int[width * height];
+            buf.getRGB(0, 0, width, height, grassBuffer, 0, width);
         }
-        catch(IOException ex){
-            return;
+        else{
+            throw new Exception();
         }
     }
 
