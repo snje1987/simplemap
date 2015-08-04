@@ -40,6 +40,12 @@ import simplemap.json.jString;
 
 public class Biome{
 
+    public static final int Biome_Swampland = 6;
+    public static final int Biome_Roofed_Forest = 29;
+    public static final int Biome_Mesa = 37;
+    public static final int Biome_Mesa_Plateau_F = 38;
+    public static final int Biome_Mesa_Plateau = 39;
+
     public static boolean usedef = false;
     protected static Biome instance = null;
 

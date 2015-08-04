@@ -394,7 +394,7 @@
             "path":"blocks/water_flow.png"
         },
         "color":{
-            "type":"rgba",
+            "type":"water",
             "r":49,
             "g":71,
             "b":244,
@@ -409,7 +409,7 @@
             "path":"blocks/water_still.png"
         },
         "color":{
-            "type":"rgba",
+            "type":"water",
             "r":46,
             "g":67,
             "b":244,

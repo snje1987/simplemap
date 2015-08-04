@@ -16,8 +16,6 @@
  */
 package simplemap;
 
-import java.awt.Graphics2D;
-import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.BufferedInputStream;
 import java.io.File;
@@ -33,7 +31,6 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Set;
-import java.util.jar.JarFile;
 import java.util.zip.ZipFile;
 import javax.imageio.ImageIO;
 import simplemap.json.jArray;
@@ -64,7 +61,7 @@ public class ColorMap{
         return instance;
     }
 
-    public Color getColor(int id, int bid){
+    public Color getColor(int id, int bid, int height){
         Color color = new Color(0, (byte) 0xFF);
         jObject obj = null;
         if(map.containsKey(id)){
@@ -92,13 +89,17 @@ public class ColorMap{
             }
             else if(obj.getString("type").equals("grass")){
                 color = new Color(obj.getInt("r"), obj.getInt("g"), obj.getInt("b"), obj.getInt("a"));
-                BiomeInfo binfo = Biome.getInstance().getInfo(bid);
-                color.mutiply(GrassColor.getInstance().getColor(binfo.temperature, binfo.rainfall));
+                color.mutiply(GrassColor.getInstance().getColor(bid, height));
             }
             else if(obj.getString("type").equals("foliage")){
                 color = new Color(obj.getInt("r"), obj.getInt("g"), obj.getInt("b"), obj.getInt("a"));
-                BiomeInfo binfo = Biome.getInstance().getInfo(bid);
-                color.mutiply(FoliageColor.getInstance().getColor(binfo.temperature, binfo.rainfall));
+                color.mutiply(FoliageColor.getInstance().getColor(bid, height));
+            }
+            else if(obj.getString("type").equals("water")){
+                color = new Color(obj.getInt("r"), obj.getInt("g"), obj.getInt("b"), obj.getInt("a"));
+                if(bid == Biome.Biome_Swampland){
+                    color.mutiply(0xE0FFAE);
+                }
             }
         }
         return color;

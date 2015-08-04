@@ -23,7 +23,7 @@ package simplemap;
 public class BiomeInfo{
     public double temperature;
     public double rainfall;
-    String name;
+    public String name;
     public BiomeInfo(String name, double temp, double rain){
         this.name = name;
         temperature = temp;

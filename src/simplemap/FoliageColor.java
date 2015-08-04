@@ -109,4 +109,25 @@ public class FoliageColor{
         int humIndex = (int)((1.0D - humidity) * 255.0D);
         return foliageBuffer[humIndex << 8 | tempIndex];
     }
+
+    public int getColor(int bid, int height){
+        double temperature;
+        double humidity;
+        int tmp;
+
+        BiomeInfo binfo = Biome.getInstance().getInfo(bid);
+        temperature = binfo.temperature- (double)height*0.00166667f;
+        humidity = binfo.rainfall;
+
+        switch(bid){
+        case Biome.Biome_Swampland:
+            return 0x6a7039;
+        case Biome.Biome_Mesa:
+        case Biome.Biome_Mesa_Plateau:
+        case Biome.Biome_Mesa_Plateau_F:
+            return  0x9e814d;
+        default:
+            return this.getColor(temperature, humidity);
+        }
+    }
 }

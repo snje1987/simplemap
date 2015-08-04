@@ -104,11 +104,35 @@ public class GrassColor{
 
         temperature = temperature < 0.0D ? 0.0D : (temperature > 1.0D ? 1.0D : temperature);
         humidity = humidity < 0.0D ? 0.0D : (humidity > 1.0D ? 1.0D : humidity);
-
         humidity *= temperature;
         int tempIndex = (int)((1.0D - temperature) * 255.0D);
         int humIndex = (int)((1.0D - humidity) * 255.0D);
         int index = humIndex << 8 | tempIndex;
+
         return index > grassBuffer.length ? -65281 : grassBuffer[index];
+    }
+
+    public int getColor(int bid, int height){
+        double temperature;
+        double humidity;
+        int tmp;
+
+        BiomeInfo binfo = Biome.getInstance().getInfo(bid);
+        temperature = binfo.temperature- (double)height*0.00166667f;
+        humidity = binfo.rainfall;
+
+        switch(bid){
+        case Biome.Biome_Swampland:
+            return 0x6a7039;
+        case Biome.Biome_Roofed_Forest:
+            tmp = this.getColor(temperature, humidity);
+            return ((tmp & 0xfefefe) + 0x28340a) / 2;
+        case Biome.Biome_Mesa:
+        case Biome.Biome_Mesa_Plateau:
+        case Biome.Biome_Mesa_Plateau_F:
+            return  0x90814d;
+        default:
+            return this.getColor(temperature, humidity);
+        }
     }
 }

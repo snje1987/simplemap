@@ -191,7 +191,7 @@ public class Chunk{
                 else{
                     block.block_id = (short) (block.block_id | (Chunk.Shift(data[i], pos) << 12));
                 }
-                tmp = map.getColor(block.block_id, this.biome[x + z * CHUNK_WIDTH]);
+                tmp = map.getColor(block.block_id, this.biome[x + z * CHUNK_WIDTH], i * CHUNK_WIDTH + j);
                 ret.merge(tmp);
                 if(h == 0 && ret.getAlpha() >= 100){
                     h = i * CHUNK_WIDTH + j;
