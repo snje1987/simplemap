@@ -35,7 +35,7 @@ public class TagDouble extends Tag{
 
     @Override
     public String toString(String prefix, String repeat){
-        return String.format("%s──%s[Double]:%f\n", prefix, name, data);
+        return String.format("%s─%s[Double]:%f\n", prefix, name, data);
     }
 
     @Override

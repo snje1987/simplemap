@@ -36,7 +36,7 @@ public class TagIntArray extends Tag{
 
     @Override
     public String toString(String prefix, String repeat){
-        return String.format("%s──%s[IntArray]:%d\n", prefix, name, data.length);
+        return String.format("%s─%s[IntArray]:%d\n", prefix, name, data.length);
     }
 
     @Override

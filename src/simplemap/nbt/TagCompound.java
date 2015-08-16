@@ -52,10 +52,10 @@ public class TagCompound extends Tag{
         StringBuilder buf = new StringBuilder();
         buf.append(prefix);
         if(data.isEmpty()){
-            buf.append("──");
+            buf.append("─");
         }
         else{
-            buf.append("─┬");
+            buf.append("─");
         }
         buf.append(name);
         buf.append("[Compound]\n");
@@ -70,7 +70,7 @@ public class TagCompound extends Tag{
                 key = it.next();
                 val = data.get(key);
             }
-            buf.append(val.toString(repeat + "  └", repeat + "    "));
+            buf.append(val.toString(repeat + "  └", repeat + "   "));
         }
         return buf.toString();
     }

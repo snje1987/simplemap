@@ -40,7 +40,7 @@ public class TagByteArray extends Tag{
 
     @Override
     public String toString(String prefix, String repeat){
-        return String.format("%s──%s[ByteArray]:%d\n", prefix, name, data.length);
+        return String.format("%s─%s[ByteArray]:%d\n", prefix, name, data.length);
     }
 
     @Override

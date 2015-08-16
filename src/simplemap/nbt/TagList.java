@@ -56,10 +56,10 @@ public class TagList extends Tag{
         StringBuilder buf = new StringBuilder();
         buf.append(prefix);
         if(data.isEmpty()){
-            buf.append("──");
+            buf.append("─");
         }
         else{
-            buf.append("─┬");
+            buf.append("─");
         }
         buf.append(name);
         buf.append("[List]\n");
@@ -68,7 +68,7 @@ public class TagList extends Tag{
             for(int i = 0; i < size - 1; i++){
                 buf.append(data.get(i).toString(repeat + "  ├", repeat + "  │"));
             }
-            buf.append(data.get(size - 1).toString(repeat + "  └", repeat + "    "));
+            buf.append(data.get(size - 1).toString(repeat + "  └", repeat + "   "));
         }
         return buf.toString();
     }

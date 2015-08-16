@@ -35,7 +35,7 @@ public class TagLong extends Tag{
 
     @Override
     public String toString(String prefix, String repeat){
-        return String.format("%s──%s[Long]:%d\n", prefix, name, data);
+        return String.format("%s─%s[Long]:%d\n", prefix, name, data);
     }
 
     @Override

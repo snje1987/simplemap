@@ -35,7 +35,7 @@ public class TagShort extends Tag{
 
     @Override
     public String toString(String prefix, String repeat){
-        return String.format("%s──%s[Short]:%d\n", prefix, name, data);
+        return String.format("%s─%s[Short]:%d\n", prefix, name, data);
     }
 
     @Override

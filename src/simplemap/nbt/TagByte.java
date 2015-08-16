@@ -39,7 +39,7 @@ public class TagByte extends Tag{
 
     @Override
     public String toString(String prefix, String repeat){
-        return String.format("%s──%s[Byte]:%d\n", prefix, name, data);
+        return String.format("%s─%s[Byte]:%d\n", prefix, name, data);
     }
 
     @Override
