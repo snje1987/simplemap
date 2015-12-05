@@ -43,7 +43,7 @@ function init(evt) {
         var len = markers.length;
         for(var i = 0; i < len; i++){
             var func = styles[markers[i]['style']];
-            func(root, nmarkers, markers[i]['x'],markers[i]['z'],scalelist[scale],markers[i]['arg1'],markers[i]['arg2']);
+            func(root, nmarkers, markers[i]['x'],markers[i]['z'],scalelist[scale],markers[i]['arg1'],markers[i]['arg2'],markers[i]['arg3']);
         }
         map.replaceChild(nmarkers, omarkers);
     }

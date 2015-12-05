@@ -125,14 +125,15 @@ public class Chunk{
                 continue;
             }
             tagString = comp.Get("Text1", TagString.class);
-            if(tagString == null || !tagString.GetData().equals("\"[marker]\"")){
+            if(tagString == null || !tagString.GetData().startsWith("\"[mark]")){
                 continue;
             }
             jObject obj = new jObject();
             obj.Add("type", new jString("marker"));
-            obj.Add("style", new jString(GetMarkerString(comp, "Text2")));
-            obj.Add("arg1", new jString(GetMarkerString(comp, "Text3")));
-            obj.Add("arg2", new jString(GetMarkerString(comp, "Text4")));
+            obj.Add("style", new jString(GetMarkerString(comp, "Text1").substring(6)));
+            obj.Add("arg1", new jString(GetMarkerString(comp, "Text2")));
+            obj.Add("arg2", new jString(GetMarkerString(comp, "Text3")));
+            obj.Add("arg3", new jString(GetMarkerString(comp, "Text4")));
             obj.Add("x", new jNumber(comp.Get("x", TagInt.class).GetData()));
             obj.Add("z", new jNumber(comp.Get("z", TagInt.class).GetData()));
             nMarker.add(obj);
@@ -141,7 +142,7 @@ public class Chunk{
         return true;
     }
 
-    protected String GetMarkerString(TagCompound comp, String name){
+    protected static String GetMarkerString(TagCompound comp, String name){
         TagString tagString = comp.Get(name, TagString.class);
         if(tagString == null){
             return "";
