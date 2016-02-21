@@ -16,7 +16,6 @@
  */
 package org.snje.json;
 
-import java.io.BufferedInputStream;
 import java.io.InputStream;
 import java.util.ArrayList;
 

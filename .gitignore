@@ -1,6 +1,3 @@
-/build/
-/dist/
-/data/
 *.swp
-/nbproject/private/
-/color.txt
+/target/
+/src/test/resources/data/

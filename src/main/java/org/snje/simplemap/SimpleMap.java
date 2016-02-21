@@ -72,7 +72,7 @@ public class SimpleMap{
         System.out.println("SimpleMap [选项1] [选项1值1] [选项1值2] ... [选项2] [选项2值1]...");
         System.out.println("选项包括:");
         System.out.println("-act");
-        System.out.println("设置程序要进行的动作，可能值有：\npixmap 用存档生成像素地图，使用此项需要指定-src和－dest\ngencolor 用材质包生成颜色表，使用此项需要指定-src");
+        System.out.println("设置程序要进行的动作，可能值有：\npixmap 用存档生成像素地图，使用此项需要指定-src和-dest\ngencolor 用材质包生成颜色表，使用此项需要指定-src");
         System.out.println("-src");
         System.out.println("设置源数据路径，生成地图时为存档路径，生成颜色表时为材质包路径");
         System.out.println("-dest");
