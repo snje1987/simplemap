@@ -23,7 +23,7 @@ import java.util.List;
  *
  * @author Yang Ming <yangming0116@163.com>
  */
-public class SimpleMap{
+public class SimpleMap {
 
     protected static final int ACT_PIXMAP = 0;
     protected static final int ACT_GENCOLOR = 1;
@@ -36,15 +36,15 @@ public class SimpleMap{
     protected static String dest = "";
     protected static List<String> srcs = new LinkedList<>();
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         SimpleMap.args = args;
-        if(!parseCmd()){
+        if (!parseCmd()) {
             System.exit(1);
         }
         World world;
-        switch(action){
+        switch (action) {
         case ACT_PIXMAP:
-            if(src.length() == 0 || dest.length() == 0){
+            if (src.length() == 0 || dest.length() == 0) {
                 printHelp();
                 System.exit(1);
             }
@@ -52,14 +52,14 @@ public class SimpleMap{
             world.Draw(src, dest);
             break;
         case ACT_GENCOLOR:
-            if(srcs.isEmpty()){
+            if (srcs.isEmpty()) {
                 printHelp();
                 System.exit(1);
             }
             ColorMap.getInstance().genColor(srcs);
             break;
         case ACT_DNBT:
-            if(src.length() == 0){
+            if (src.length() == 0) {
                 printHelp();
                 System.exit(1);
             }
@@ -68,7 +68,7 @@ public class SimpleMap{
         }
     }
 
-    protected static void printHelp(){
+    protected static void printHelp() {
         System.out.println("SimpleMap [选项1] [选项1值1] [选项1值2] ... [选项2] [选项2值1]...");
         System.out.println("选项包括:");
         System.out.println("-act");
@@ -81,15 +81,15 @@ public class SimpleMap{
         System.out.println("不使用自定义颜色表，只使用默认颜色表");
     }
 
-    protected static boolean parseCmd(){
-        try{
-            while(haveNext()){
-                String opt = args[index ++];
+    protected static boolean parseCmd() {
+        try {
+            while (haveNext()) {
+                String opt = args[index++];
                 String tmp;
-                switch(opt){
+                switch (opt) {
                 case "-act":
                     tmp = nextString();
-                    switch(tmp){
+                    switch (tmp) {
                     case "pixmap":
                         action = ACT_PIXMAP;
                         break;
@@ -102,12 +102,13 @@ public class SimpleMap{
                     }
                     break;
                 case "-in":
-                    while(haveNext()){
+                    while (haveNext()) {
                         srcs.add(nextString());
                     }
                     break;
                 case "-src":
                     src = nextString();
+                    srcs.add(src);
                     break;
                 case "-dest":
                     dest = nextString();
@@ -145,23 +146,22 @@ public class SimpleMap{
                     break;
                 }
             }
-        }
-        catch(Exception e){
+        } catch (Exception e) {
             printHelp();
             return false;
         }
         return true;
     }
 
-    protected static boolean haveNext(){
+    protected static boolean haveNext() {
         return index < args.length;
     }
 
-    protected static String nextString(){
-        return args[index ++];
+    protected static String nextString() {
+        return args[index++];
     }
 
-    protected static int nextInt(){
-        return Integer.parseInt(args[index ++]);
+    protected static int nextInt() {
+        return Integer.parseInt(args[index++]);
     }
 }

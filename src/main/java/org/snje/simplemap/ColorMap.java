@@ -31,6 +31,7 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Set;
+import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 import javax.imageio.ImageIO;
 import org.snje.json.jArray;
@@ -42,8 +43,7 @@ import org.snje.json.jObject;
  *
  * @author Yang Ming <yangming0116@163.com>
  */
-
-public class ColorMap{
+public class ColorMap {
 
     public static boolean defcolor = false;
 
@@ -52,8 +52,8 @@ public class ColorMap{
     protected HashMap<Integer, jObject> map;
     protected Set<Integer> alert;
 
-    public static ColorMap getInstance(){
-        if(instance == null){
+    public static ColorMap getInstance() {
+        if (instance == null) {
             instance = new ColorMap();
             instance.load();
             instance.save();
@@ -61,20 +61,19 @@ public class ColorMap{
         return instance;
     }
 
-    public Color getColor(int id, int bid, int height){
+    public Color getColor(int id, int bid, int height) {
         Color color = new Color(0, (byte) 0xFF);
         jObject obj = null;
-        if(map.containsKey(id)){
+        if (map.containsKey(id)) {
             obj = map.get(id).getObject("color");
-        }
-        else{
-            if(map.containsKey(id & 0x00000FFF)){
+        } else {
+            if (map.containsKey(id & 0x00000FFF)) {
                 obj = map.get(id & 0x00000FFF).getObject("color");
             }
         }
 
-        if(obj == null){
-            if(!alert.contains(id)){
+        if (obj == null) {
+            if (!alert.contains(id)) {
                 System.out.println(String.format(
                         "缺少颜色：%d %d\n",
                         (id & 0x00000FFF),
@@ -82,22 +81,18 @@ public class ColorMap{
                 ));
                 alert.add(id);
             }
-        }
-        else{
-            if(obj.getString("type").equals("rgba")){
+        } else {
+            if (obj.getString("type").equals("rgba")) {
                 color = new Color(obj.getInt("r"), obj.getInt("g"), obj.getInt("b"), obj.getInt("a"));
-            }
-            else if(obj.getString("type").equals("grass")){
+            } else if (obj.getString("type").equals("grass")) {
                 color = new Color(obj.getInt("r"), obj.getInt("g"), obj.getInt("b"), obj.getInt("a"));
                 color.mutiply(GrassColor.getInstance().getColor(bid, height));
-            }
-            else if(obj.getString("type").equals("foliage")){
+            } else if (obj.getString("type").equals("foliage")) {
                 color = new Color(obj.getInt("r"), obj.getInt("g"), obj.getInt("b"), obj.getInt("a"));
                 color.mutiply(FoliageColor.getInstance().getColor(bid, height));
-            }
-            else if(obj.getString("type").equals("water")){
+            } else if (obj.getString("type").equals("water")) {
                 color = new Color(obj.getInt("r"), obj.getInt("g"), obj.getInt("b"), obj.getInt("a"));
-                if(bid == Biome.Biome_Swampland){
+                if (bid == Biome.Biome_Swampland) {
                     color.mutiply(0xE0FFAE);
                 }
             }
@@ -105,38 +100,37 @@ public class ColorMap{
         return color;
     }
 
-    public void genColor(List<String> srcs){
-        for(String path : srcs){
+    public void genColor(List<String> srcs) {
+        for (String path : srcs) {
             System.err.println("正在处理：" + path);
             this.genColor(path);
         }
     }
 
-    public void genColor(String path){
+    public void genColor(String path) {
 
-        if(!map.isEmpty()){
+        if (!map.isEmpty()) {
             Iterator<Integer> it = map.keySet().iterator();
             int key;
             jObject val;
             int ncolor;
-            while(it.hasNext()){
+            while (it.hasNext()) {
                 key = it.next();
                 val = map.get(key);
                 jObject tmp = val.getObject("texture");
-                if(tmp == null){
+                if (tmp == null) {
                     continue;
                 }
-                try{
+                try {
                     ncolor = this.makeColor(path, tmp);
                     Color c = new Color(ncolor);
                     jObject cObj = val.getObject("color");
-                    cObj.Add("r", new jNumber((int)c.r));
-                    cObj.Add("g", new jNumber((int)c.g));
-                    cObj.Add("b", new jNumber((int)c.b));
-                    cObj.Add("a", new jNumber((int)c.alpha));
+                    cObj.Add("r", new jNumber((int) c.r));
+                    cObj.Add("g", new jNumber((int) c.g));
+                    cObj.Add("b", new jNumber((int) c.b));
+                    cObj.Add("a", new jNumber((int) c.alpha));
                     //System.out.println(val.getString("name") + "=>" + c.toString());
-                }
-                catch(IOException ex){
+                } catch (IOException ex) {
                 }
             }
         }
@@ -152,23 +146,22 @@ public class ColorMap{
         this.save();
     }
 
-    protected ColorMap(){
+    protected ColorMap() {
         map = new LinkedHashMap<>();
         alert = new HashSet<>();
     }
 
-    protected void load(){
+    protected void load() {
 
-        try{
-            try(BufferedInputStream is=new BufferedInputStream(SimpleMap.class.getResourceAsStream("/color.json"))){
+        try {
+            try (BufferedInputStream is = new BufferedInputStream(SimpleMap.class.getResourceAsStream("/color.json"))) {
                 this.load(is);
             }
-        }
-        catch(IOException ex){
+        } catch (IOException ex) {
             return;
         }
 
-        if(defcolor){
+        if (defcolor) {
             return;
         }
 
@@ -186,18 +179,17 @@ public class ColorMap{
         }
     }
 
-    protected void load(InputStream is){
+    protected void load(InputStream is) {
         jArray arr;
-        try{
+        try {
             arr = new jArray(is);
-        }
-        catch(jException ex){
+        } catch (jException ex) {
             return;
         }
         int size = arr.size();
-        for(int i = 0; i < size; i++){
+        for (int i = 0; i < size; i++) {
             jObject obj = arr.getObject(i);
-            if(obj == null){
+            if (obj == null) {
                 continue;
             }
             int block_id = obj.getInt("id");
@@ -207,32 +199,32 @@ public class ColorMap{
         }
     }
 
-    protected void save(){
+    protected void save() {
         String path = System.getProperty("user.dir");
         if (!path.endsWith(File.separator)) {
             path += File.separator;
         }
         path += "color.json";
-        try{
-            try(OutputStream out = new FileOutputStream(path)){
+        try {
+            try (OutputStream out = new FileOutputStream(path)) {
                 this.save(out);
             }
         } catch (IOException ex) {
         }
     }
 
-    protected void save(OutputStream out) throws IOException{
+    protected void save(OutputStream out) throws IOException {
         jArray json = ToJson();
         out.write(json.toStyleString("", "").getBytes(Charset.forName("UTF-8")));
     }
 
-    protected jArray ToJson(){
+    protected jArray ToJson() {
         jArray json = new jArray();
-        if(!map.isEmpty()){
+        if (!map.isEmpty()) {
             Iterator<Integer> it = map.keySet().iterator();
             int key;
             jObject val;
-            while(it.hasNext()){
+            while (it.hasNext()) {
                 key = it.next();
                 val = map.get(key);
                 json.Add(val);
@@ -241,15 +233,14 @@ public class ColorMap{
         return json;
     }
 
-    protected void getMap(String path, String fname, String to){
+    protected void getMap(String path, String fname, String to) {
 
         InputStream in = null;
-        try{
-            if(path.endsWith(".zip") || path.endsWith(".jar")){
+        try {
+            if (path.endsWith(".zip") || path.endsWith(".jar")) {
                 ZipFile zip = new ZipFile(path);
                 in = zip.getInputStream(zip.getEntry(fname));
-            }
-            else{
+            } else {
                 if (!path.endsWith(File.separator)) {
                     path += File.separator;
                 }
@@ -258,29 +249,33 @@ public class ColorMap{
 
             byte[] buf = new byte[1024];
             int count;
-            try(OutputStream out = new FileOutputStream(to)){
-                while((count = in.read(buf)) != -1){
+            try (OutputStream out = new FileOutputStream(to)) {
+                while ((count = in.read(buf)) != -1) {
                     out.write(buf, 0, count);
                 }
             }
             in.close();
-        }
-        catch(IOException | NullPointerException e){
+        } catch (IOException | NullPointerException e) {
 
         }
     }
 
-    protected int makeColor(String path, jObject texture) throws IOException{
+    protected int makeColor(String path, jObject texture) throws IOException {
 
         InputStream in = null;
 
         String fname = prefix + texture.getString("path");
 
-        if(path.endsWith(".zip") || path.endsWith(".jar")){
+        if (path.endsWith(".zip") || path.endsWith(".jar")) {
             ZipFile zip = new ZipFile(path);
-            in = zip.getInputStream(zip.getEntry(fname));
-        }
-        else{
+            ZipEntry entry = zip.getEntry(fname);
+            if (entry != null) {
+                in = zip.getInputStream(zip.getEntry(fname));
+            } else {
+                throw new IOException();
+            }
+
+        } else {
             if (!path.endsWith(File.separator)) {
                 path += File.separator;
             }
@@ -291,22 +286,21 @@ public class ColorMap{
         i = ImageIO.read(in);
         in.close();
 
-        if(texture.hasKey("x")){
+        if (texture.hasKey("x")) {
             return avgColor(i, texture.getInt("x"), texture.getInt("y"), texture.getInt("w"), texture.getInt("h"), texture.getInt("bw"), texture.getInt("bh"), texture.getInt("base"));
-        }
-        else{
+        } else {
             return avgColor(i, 0, 0, i.getWidth(), i.getHeight(), i.getWidth(), i.getHeight(), i.getWidth());
         }
     }
 
-    protected int avgColor(BufferedImage img, int x, int y, int width, int height, int bw, int bh, int base){
+    protected int avgColor(BufferedImage img, int x, int y, int width, int height, int bw, int bh, int base) {
         double r = 0, g = 0, b = 0, a = 0;
         int color = 0;
         int count = 0;
         int iwidth = img.getWidth();
         int iheight = img.getHeight();
 
-        if(base != iwidth){
+        if (base != iwidth) {
             x = x * iwidth / base;
             y = y * iwidth / base;
             width = width * iwidth / base;
@@ -315,12 +309,12 @@ public class ColorMap{
             bh = bh * iwidth / base;
         }
 
-        for(int i = 0; i < width; i++){
-            if(x + i >= iwidth){
+        for (int i = 0; i < width; i++) {
+            if (x + i >= iwidth) {
                 break;
             }
-            for(int j = 0; j < height; j++){
-                if(y + j >= iheight){
+            for (int j = 0; j < height; j++) {
+                if (y + j >= iheight) {
                     break;
                 }
                 color = img.getRGB(x + i, y + j);
@@ -331,6 +325,6 @@ public class ColorMap{
             }
         }
         count = bw * bh;
-        return (new Color((int)(r / count), (int)(g / count), (int)(b / count), (int)(a / count))).toInt();
+        return (new Color((int) (r / count), (int) (g / count), (int) (b / count), (int) (a / count))).toInt();
     }
 }
