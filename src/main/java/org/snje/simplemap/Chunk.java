@@ -120,18 +120,15 @@ public class Chunk {
                 return false;
             }
             tagString = comp.Get("id", TagString.class);
-            if (tagString == null || !tagString.GetData().toLowerCase().equals("sign")) {
+            if (tagString == null
+                    || (!tagString.GetData().equals("Sign") && !tagString.GetData().equals("minecraft:sign"))) {
                 continue;
             }
             String str = GetMarkerString(comp, "Text1");
             if (str.equals("")) {
                 continue;
             }
-            System.err.println(GetMarkerString(comp, "Text1"));
-            System.err.println(GetMarkerString(comp, "Text2"));
-            System.err.println(GetMarkerString(comp, "Text3"));
-            System.err.println(GetMarkerString(comp, "Text4"));
-            if (!str.startsWith("\"[mark]")) {
+            if (!str.startsWith("[mark]")) {
                 continue;
             }
             jObject obj = new jObject();
@@ -154,7 +151,11 @@ public class Chunk {
             return "";
         }
         String tmp = tagString.GetData();
-        return tmp.substring(1, tmp.lastIndexOf("\""));
+        if (tmp.startsWith("{\"text\"")) {
+            return tmp.substring(9, tmp.lastIndexOf("\""));
+        } else {
+            return tmp.substring(1, tmp.lastIndexOf("\""));
+        }
     }
 
     public boolean CalSurface(Point[][] pts, int x, int z) {
