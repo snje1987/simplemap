@@ -35,7 +35,7 @@ import org.snje.nbt.TagString;
  *
  * @author Yang Ming <yangming0116@163.com>
  */
-public class Chunk{
+public class Chunk {
 
     public static final int MAX_VCHUNK = 16;
     public static final int CHUNK_WIDTH = 16;
@@ -47,14 +47,14 @@ public class Chunk{
     byte[] biome;
     ColorMap map;
 
-    public Chunk(){
+    public Chunk() {
         data = new byte[MAX_VCHUNK][0];
         add = new byte[MAX_VCHUNK][0];
         blocks = new byte[MAX_VCHUNK][0];
         map = ColorMap.getInstance();
     }
 
-    public boolean Load(byte[] data, Markers nMarker){
+    public boolean Load(byte[] data, Markers nMarker) {
         ByteArrayInputStream bi = new ByteArrayInputStream(data);
         InflaterInputStream iis = new InflaterInputStream(bi);
         ByteArrayOutputStream o = new ByteArrayOutputStream(1024);
@@ -70,62 +70,68 @@ public class Chunk{
         }
 
         NBT nbt = new NBT();
-        if(!nbt.Decode(o.toByteArray())){
+        if (!nbt.Decode(o.toByteArray())) {
             return false;
         }
         TagCompound comp;
         TagList list;
         comp = nbt.root.toClass(TagCompound.class);
-        if(comp == null){
+        if (comp == null) {
             return false;
         }
 
         comp = comp.Get("Level", TagCompound.class);
-        if(comp == null){
+        if (comp == null) {
             return false;
         }
 
         list = comp.Get("TileEntities", TagList.class);
-        if(list != null && !GetMarker(list, nMarker)){
+        if (list != null && !GetMarker(list, nMarker)) {
             return false;
         }
 
         TagByteArray biom;
 
         biom = comp.Get("Biomes", TagByteArray.class);
-        if(biom != null){
+        if (biom != null) {
             this.biome = biom.GetData();
-        }
-        else{
+        } else {
             this.biome = new byte[CHUNK_WIDTH * CHUNK_WIDTH];
         }
 
         list = comp.Get("Sections", TagList.class);
-        if(list == null){
+        if (list == null) {
             return false;
         }
 
-        if(!this.InitData(list)){
+        if (!this.InitData(list)) {
             return false;
         }
         return true;
     }
 
-    protected boolean GetMarker(TagList list, Markers nMarker){
+    protected boolean GetMarker(TagList list, Markers nMarker) {
         TagCompound comp;
         TagString tagString;
         int len = list.Size();
-        for(int i = 0; i < len; i++){
+        for (int i = 0; i < len; i++) {
             comp = list.Get(i, TagCompound.class);
-            if(comp == null){
+            if (comp == null) {
                 return false;
             }
             tagString = comp.Get("id", TagString.class);
-            if(tagString == null || !tagString.GetData().equals("Sign")){
+            if (tagString == null || !tagString.GetData().toLowerCase().equals("sign")) {
                 continue;
             }
-            tagString = comp.Get("Text1", TagString.class);
-            if(tagString == null || !tagString.GetData().startsWith("\"[mark]")){
+            String str = GetMarkerString(comp, "Text1");
+            if (str.equals("")) {
+                continue;
+            }
+            System.err.println(GetMarkerString(comp, "Text1"));
+            System.err.println(GetMarkerString(comp, "Text2"));
+            System.err.println(GetMarkerString(comp, "Text3"));
+            System.err.println(GetMarkerString(comp, "Text4"));
+            if (!str.startsWith("\"[mark]")) {
                 continue;
             }
             jObject obj = new jObject();
@@ -142,112 +148,110 @@ public class Chunk{
         return true;
     }
 
-    protected static String GetMarkerString(TagCompound comp, String name){
+    protected static String GetMarkerString(TagCompound comp, String name) {
         TagString tagString = comp.Get(name, TagString.class);
-        if(tagString == null){
+        if (tagString == null) {
             return "";
         }
         String tmp = tagString.GetData();
         return tmp.substring(1, tmp.lastIndexOf("\""));
     }
 
-    public boolean CalSurface(Point[][] pts, int x, int z){
+    public boolean CalSurface(Point[][] pts, int x, int z) {
         int i = 0, j = 0;
-        for(i = 0; i < CHUNK_WIDTH; i++){
-            for(j = 0; j < CHUNK_WIDTH; j++){
+        for (i = 0; i < CHUNK_WIDTH; i++) {
+            for (j = 0; j < CHUNK_WIDTH; j++) {
                 pts[x + j][z + i] = this.GetColor(j, i);
             }
         }
         return true;
     }
 
-    protected Point GetColor(int x, int z){
+    protected Point GetColor(int x, int z) {
         Block block = new Block();
         Color tmp;
         Color ret = new Color(0, 0);
         boolean find = false;
         int i = 0, j = 0;
         int h = 0;
-        for(i = MAX_VCHUNK - 1; i >= 0; i--){
-            if(blocks[i].length <= 0){
+        for (i = MAX_VCHUNK - 1; i >= 0; i--) {
+            if (blocks[i].length <= 0) {
                 continue;
             }
-            for(j = CHUNK_WIDTH - 1; j >= 0; j--){
+            for (j = CHUNK_WIDTH - 1; j >= 0; j--) {
                 int pos = x + z * CHUNK_WIDTH + j * CHUNK_WIDTH * CHUNK_WIDTH;
                 byte blockid_a = blocks[i][pos];
                 byte blockid_b = Chunk.Shift(add[i], pos);
                 block.block_id = (short) ((blockid_a & 0xFF) | (blockid_b << 8));
-                if(block.block_id == 110){
+                if (block.block_id == 110) {
                     int k;
                     k = 0;
                 }
-                if(block.block_id == 0){
+                if (block.block_id == 0) {
                     continue;
                 }
-                if(block.block_id == 6){
+                if (block.block_id == 6) {
                     block.block_id = (short) (block.block_id | ((Chunk.Shift(data[i], pos) & 0x7F) << 12));
-                }
-                else if(block.block_id >= 8 && block.block_id <= 11){
-                }
-                else{
+                } else if (block.block_id >= 8 && block.block_id <= 11) {
+                } else {
                     block.block_id = (short) (block.block_id | (Chunk.Shift(data[i], pos) << 12));
                 }
                 tmp = map.getColor(block.block_id, this.biome[x + z * CHUNK_WIDTH], i * CHUNK_WIDTH + j);
                 ret.merge(tmp);
-                if(h == 0 && ret.getAlpha() >= 100){
+                if (h == 0 && ret.getAlpha() >= 100) {
                     h = i * CHUNK_WIDTH + j;
                 }
-                if(ret.getAlpha() >= 255){
+                if (ret.getAlpha() >= 255) {
                     find = true;
                     break;
                 }
             }
-            if(find == true){
+            if (find == true) {
                 break;
             }
         }
-        return new Point(ret, (short)h);
+        return new Point(ret, (short) h);
     }
 
-    protected static byte Shift(byte[] arr, int index){
-        if(arr.length * 2 <= index){
+    protected static byte Shift(byte[] arr, int index) {
+        if (arr.length * 2 <= index) {
             return 0;
         }
         return (byte) (index % 2 == 0 ? arr[index / 2] & 0x0F : (arr[index / 2] >> 4) & 0x0F);
     }
 
-    protected boolean InitData(TagList list){
+    protected boolean InitData(TagList list) {
         TagCompound comp;
         TagByteArray array;
         TagByte by;
         byte y;
         int len = list.Size();
-        for(int i = 0; i < len; i++){
+        for (int i = 0; i < len; i++) {
             comp = list.Get(i, TagCompound.class);
-            if(comp == null){
+            if (comp == null) {
                 return false;
             }
 
             by = comp.Get("Y", TagByte.class);
-            if(by == null){
+            if (by == null) {
                 return false;
             }
 
             y = by.GetData();
 
             array = comp.Get("Data", TagByteArray.class);
-            if(array == null){
+            if (array == null) {
                 return false;
             }
             data[y] = array.GetData();
 
             array = comp.Get("Add", TagByteArray.class);
-            if(array != null){
+            if (array != null) {
                 add[y] = array.GetData();
             }
 
             array = comp.Get("Blocks", TagByteArray.class);
-            if(array == null){
+            if (array == null) {
                 return false;
             }
             blocks[y] = array.GetData();

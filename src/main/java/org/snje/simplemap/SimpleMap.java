@@ -144,6 +144,9 @@ public class SimpleMap {
                 case "-update":
                     World.update = true;
                     break;
+                case "-chunk":
+                    Decoder.CHUNK_ID = nextInt();
+                    break;
                 }
             }
         } catch (Exception e) {

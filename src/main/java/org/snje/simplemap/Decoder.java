@@ -33,33 +33,34 @@ import org.snje.nbt.NBT;
  *
  * @author Yang Ming <yangming0116@163.com>
  */
-public class Decoder{
-    public static void decode(String fname){
+public class Decoder {
+
+    public static int CHUNK_ID = -1;
+
+    public static byte[] getDataFromFile(String fname) {
         File file = new File(fname);
         byte[] data = null;
-        try{
+        try {
             int i = 1024;
             byte[] buf = new byte[i];
-            try(ByteArrayOutputStream o = new ByteArrayOutputStream(1024)){
-                try{
-                    try(InflaterInputStream iis = new InflaterInputStream(new FileInputStream(file))){
+            try (ByteArrayOutputStream o = new ByteArrayOutputStream(1024)) {
+                try {
+                    try (InflaterInputStream iis = new InflaterInputStream(new FileInputStream(file))) {
                         while ((i = iis.read(buf, 0, i)) > 0) {
                             o.write(buf, 0, i);
                         }
                     }
-                }
-                catch(ZipException ex){
+                } catch (ZipException ex) {
                     i = 1024;
-                    try{
-                        try(GZIPInputStream zis = new GZIPInputStream(new FileInputStream(file))){
+                    try {
+                        try (GZIPInputStream zis = new GZIPInputStream(new FileInputStream(file))) {
                             while ((i = zis.read(buf, 0, i)) > 0) {
                                 o.write(buf, 0, i);
                             }
                         }
-                    }
-                    catch(ZipException e){
+                    } catch (ZipException e) {
                         i = 1024;
-                        try(BufferedInputStream bis = new BufferedInputStream(new FileInputStream(file))){
+                        try (BufferedInputStream bis = new BufferedInputStream(new FileInputStream(file))) {
                             while ((i = bis.read(buf, 0, i)) > 0) {
                                 o.write(buf, 0, i);
                             }
@@ -68,20 +69,28 @@ public class Decoder{
                 }
                 data = o.toByteArray();
             }
-        }
-        catch(FileNotFoundException ex){
+        } catch (FileNotFoundException ex) {
             ex.printStackTrace();
             System.err.println("文件不存在");
-            return;
-        }
-        catch(IOException ex){
+            return null;
+        } catch (IOException ex) {
             ex.printStackTrace();
             System.err.println("文件读取失败");
-            return;
+            return null;
+        }
+        return data;
+    }
+
+    public static void decode(String fname) {
+        byte[] data = null;
+        if (CHUNK_ID == -1) {
+            data = getDataFromFile(fname);
+        } else {
+            data = Anvil.getChunkData(fname, CHUNK_ID);
         }
 
         NBT nbt = new NBT();
-        if(!nbt.Decode(data)){
+        if (!nbt.Decode(data)) {
             System.err.println("解码失败");
             return;
         }
